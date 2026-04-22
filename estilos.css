@@ -9,57 +9,72 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #d4af37;
+    border-bottom: 2px solid #d4af37;
 }
 
 nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: auto; }
-.logo { font-size: 1.5rem; font-weight: bold; color: #d4af37; }
+.logo { font-size: 1.6rem; font-weight: bold; color: #d4af37; letter-spacing: 2px; }
 nav ul { list-style: none; display: flex; margin: 0; }
-nav ul li a { color: white; text-decoration: none; margin-left: 30px; font-weight: bold; text-transform: uppercase; }
+nav ul li a { color: white; text-decoration: none; margin-left: 30px; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
+nav ul li a:hover { color: #d4af37; }
 
+/* INICIO / SALMO */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('fondo.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('fondo.jpg');
     background-size: cover;
     background-position: center;
+    padding: 0 20px;
 }
 
-.hero h1 { font-size: 4rem; color: white; margin-bottom: 10px; }
+.hero h1 { font-size: 3.5rem; color: #fff; margin-bottom: 5px; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
+.salmo-referencia { color: #d4af37; font-size: 1.5rem; font-weight: bold; margin-bottom: 30px; }
+.invitacion-texto p { max-width: 800px; margin: auto; font-size: 1.3rem; line-height: 1.6; color: #eee; }
 
-.btn-principal {
-    background-color: #d4af37;
-    color: black;
-    padding: 15px 30px;
+/* SECCIONES GENERALES */
+.envivo-section, .mapa-section, .redes-seccion { padding: 100px 20px; text-align: center; }
+h2 { color: #d4af37; font-size: 2.8rem; margin-bottom: 40px; text-transform: uppercase; }
+
+/* MAPA Y VIDEO */
+.video-contenedor, .mapa-contenedor { 
+    max-width: 1000px; 
+    margin: auto; 
+    border: 4px solid #d4af37; 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.btn-mapa {
+    display: inline-block;
+    margin-top: 30px;
+    background: #d4af37;
+    color: #000;
+    padding: 15px 40px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 2px;
-    display: inline-block;
+    border-radius: 5px;
+    transition: 0.3s;
 }
+.btn-mapa:hover { background: #fff; }
 
-/* SECCIÓN REDES ESTILO PROFESIONAL */
-.redes-seccion { padding: 80px 20px; text-align: center; background: #fff; }
-.redes-seccion h2 { color: #000; font-size: 3rem; margin-bottom: 40px; }
-.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: auto; }
-
-.red-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 5px solid #000080; display: block; background: #000; }
-.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; opacity: 0.7; }
+/* REDES SOCIALES */
+.redes-seccion { background: #f4f4f4; }
+.redes-seccion h2 { color: #000; }
+.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1100px; margin: auto; }
+.red-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 6px solid #000080; display: block; background: #000; }
+.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; opacity: 0.6; }
 .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.overlay i { color: white !important; font-size: 5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+.overlay i { color: white !important; font-size: 5rem; }
 .red-card:hover .fondo-red { filter: grayscale(0%); transform: scale(1.1); opacity: 1; }
 
-/* SECCIÓN EN VIVO Y MAPA */
-.envivo-section, .mapa-section { padding: 80px 20px; text-align: center; }
-.envivo-section h2, .mapa-section h2 { color: #d4af37; font-size: 2.5rem; margin-bottom: 30px; }
-.video-contenedor, .mapa-contenedor { max-width: 900px; margin: auto; border: 3px solid #d4af37; }
+footer { padding: 40px; text-align: center; background: #000; color: #777; border-top: 1px solid #222; }
 
-footer { padding: 40px; text-align: center; background: #000; border-top: 1px solid #222; color: #d4af37; }
