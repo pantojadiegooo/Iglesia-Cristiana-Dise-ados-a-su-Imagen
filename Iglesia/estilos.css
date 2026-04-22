@@ -1,0 +1,114 @@
+@import url('https://googleapis.com');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: #000;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* Menú de navegación */
+header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #d4af37;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; color: #d4af37; }
+
+nav ul { list-style: none; display: flex; margin: 0; }
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav ul li a:hover { color: #d4af37; }
+
+/* Sección Principal */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* IMPORTANTE: Tu imagen debe llamarse fondo.jpg */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content h1 { font-size: 4.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+
+.hero-content p { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 2px; }
+
+/* Botón Dorado */
+.btn-principal {
+    background-color: #d4af37;
+    color: black;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-principal:hover { background-color: #fff; }
+
+/* Sección Biografía */
+.biografia {
+    padding: 100px 20px;
+    background-color: #0a0a0a;
+}
+
+.bio-contenedor {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bio-texto { flex: 1; min-width: 300px; }
+
+.bio-texto h2 { color: #d4af37; font-size: 3rem; margin-bottom: 20px; }
+
+.bio-texto p { line-height: 1.8; font-size: 1.1rem; color: #ccc; }
+
+.bio-imagen img {
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #d4af37;
+    filter: grayscale(30%);
+}
+
+/* Pie de página */
+footer {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #000;
+    border-top: 1px solid #222;
+}
+
+footer h3 { color: #d4af37; font-size: 2rem; }
