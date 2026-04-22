@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseñados a su Imagen | Jesús Obrador de Milagros</title>
+    <title>Diseñados a su Imagen | Iglesia Cristiana</title>
     <link rel="stylesheet" href="estilos.css">
+    <!-- Iconos para las redes sociales -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
     <header>
         <nav>
-            <!-- Nombre de tu iglesia actualizado -->
             <div class="logo">DISEÑADOS A SU IMAGEN</div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#en-vivo">En Vivo</a></li>
                 <li><a href="#pastor">El Pastor</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -24,37 +26,46 @@
         <div class="hero-content">
             <h1>JESÚS OBRADOR DE MILAGROS</h1>
             <p>Acompaña al Pastor en esta gran misión de fe y milagros.</p>
-            <!-- Aquí puedes poner tu WhatsApp después de wa.me/ -->
-            <a href="https://wa.me" class="btn-principal" target="_blank">ESCRIBIR AL WHATSAPP</a>
+            <div class="redes-hero">
+                <a href="https://www.facebook.com/profile.php?id=100064418572744" target="_blank" class="icon-fb"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me" target="_blank" class="icon-wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" class="icon-ig"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
+    </section>
+
+    <!-- SECCIÓN EN VIVO -->
+    <section id="en-vivo" class="envivo-section">
+        <h2>TRANSMISIÓN EN VIVO</h2>
+        <div class="video-contenedor">
+            <!-- Cuando el Pastor esté en vivo, este cuadro mostrará el video de YouTube -->
+            <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>Si no ves la transmisión, haz clic en nuestras redes sociales.</p>
     </section>
 
     <section id="pastor" class="biografia">
         <div class="bio-contenedor">
             <div class="bio-texto">
                 <h2>SOBRE EL PASTOR</h2>
-                <p>Aquí puedes escribir la trayectoria del pastor. Un ministerio dedicado a llevar la palabra de Dios y manifestar su poder a través de las campañas evangelísticas.</p>
-                <p>Comprometidos con la gran comisión, llevando esperanza a cada rincón del mundo.</p>
+                <p>Un ministerio dedicado a llevar la palabra de Dios y manifestar su poder a través de las campañas evangelísticas.</p>
             </div>
             <div class="bio-imagen">
-                <!-- Recuerda subir un archivo llamado pastor.jpg para que se vea aquí -->
-                <img src="pastor.jpg" alt="Pastor Juan Carlos">
+                <img src="pastor.jpg" alt="Pastor">
             </div>
         </div>
     </section>
 
     <footer id="contacto">
-        <div class="footer-content">
-            <h3>DISEÑADOS A SU IMAGEN</h3>
-            <p>Tus ofrendas nos ayudan a seguir predicando el Evangelio.</p>
-            <div class="redes">
-                <!-- Cambia los enlaces por los de tu iglesia -->
-                <a href="#" class="btn-principal">FACEBOOK</a>
-                <a href="#" class="btn-principal">YOUTUBE</a>
-            </div>
-            <p style="margin-top: 30px; font-size: 0.8rem;">© 2024 Iglesia Cristiana Diseñados a su Imagen</p>
+        <h3>SÍGUENOS EN NUESTRAS REDES</h3>
+        <div class="social-footer">
+            <a href="https://www.facebook.com/profile.php?id=100064418572744" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
         </div>
+        <p>© 2024 Iglesia Cristiana Diseñados a su Imagen</p>
     </footer>
 
 </body>
 </html>
+
