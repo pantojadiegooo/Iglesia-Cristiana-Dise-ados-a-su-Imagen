@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseñados a su Imagen | Iglesia Cristiana</title>
-    <!-- Esto cargará los logos de Facebook/YouTube correctamente -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="estilos.css">
 </head>
@@ -15,23 +14,46 @@
             <div class="logo">DISEÑADOS A SU IMAGEN</div>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#redes">Redes</a></li>
+                <li><a href="#en-vivo">En Vivo</a></li>
                 <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- SECCIÓN 1: SALMO E INVITACIÓN -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>JESÚS OBRADOR DE MILAGROS</h1>
-            <p>Acompaña al Pastor en esta gran misión de fe y milagros.</p>
-            <a href="https://wa.me" target="_blank" class="btn-principal">WHATSAPP</a>
+            <!-- Aquí puedes cambiar el Salmo cuando lo tengas -->
+            <h1>"EL SEÑOR ES MI PASTOR, NADA ME FALTARÁ"</h1>
+            <p class="salmo-referencia">Salmos 23:1</p>
+            <div class="invitacion-texto">
+                <p>Te invitamos a ser parte de nuestra familia. Un lugar donde la presencia de Dios transforma vidas y los milagros suceden. ¡Te esperamos con los brazos abiertos!</p>
+            </div>
         </div>
     </section>
 
-    <!-- SECCIÓN REDES SOCIALES ESTILO JUAN CARLOS HARRIGAN -->
+    <!-- SECCIÓN 2: TRANSMISIÓN EN VIVO -->
+    <section id="en-vivo" class="envivo-section">
+        <h2>TRANSMISIÓN EN VIVO</h2>
+        <div class="video-contenedor">
+            <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: UBICACIÓN (MAPA CORREGIDO) -->
+    <section id="ubicacion" class="mapa-section">
+        <h2>NUESTRA UBICACIÓN</h2>
+        <div class="mapa-contenedor">
+            <!-- Este código es más estable para evitar el bloqueo de Google -->
+            <iframe src="https://google.com" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <a href="https://goo.gl" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
+    </section>
+
+    <!-- SECCIÓN 4: REDES SOCIALES (AL FINAL) -->
     <section id="redes" class="redes-seccion">
-        <h2>REDES SOCIALES</h2>
+        <h2>SÍGUENOS EN NUESTRAS REDES</h2>
         <div class="redes-grid">
             <a href="https://facebook.com" target="_blank" class="red-card">
                 <img src="fondo.jpg" class="fondo-red">
@@ -45,17 +67,10 @@
                 <img src="fondo.jpg" class="fondo-red">
                 <div class="overlay"><i class="fab fa-instagram"></i></div>
             </a>
-            <a href="#" target="_blank" class="red-card">
+            <a href="https://wa.me" target="_blank" class="red-card">
                 <img src="fondo.jpg" class="fondo-red">
-                <div class="overlay"><i class="fab fa-tiktok"></i></div>
+                <div class="overlay"><i class="fab fa-whatsapp"></i></div>
             </a>
-        </div>
-    </section>
-
-    <section id="ubicacion" class="mapa-section">
-        <h2>NUESTRA UBICACIÓN</h2>
-        <div class="mapa-contenedor">
-            <iframe src="https://google.com" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
