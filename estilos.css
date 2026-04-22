@@ -157,4 +157,25 @@ footer h3 { color: #d4af37; font-size: 2rem; }
     font-weight: bold;
     font-size: 1.2rem;
 }
+/* Sección de Mapa */
+.mapa-section {
+    padding: 80px 20px;
+    background-color: #000;
+    text-align: center;
+}
+
+.mapa-section h2 {
+    color: #d4af37;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.mapa-contenedor {
+    max-width: 1000px;
+    margin: auto;
+    border: 3px solid #d4af37;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
 
