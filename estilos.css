@@ -21,10 +21,9 @@ header {
 nav { display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: auto; }
 .logo { font-size: 1.6rem; font-weight: bold; color: #d4af37; letter-spacing: 2px; }
 nav ul { list-style: none; display: flex; margin: 0; }
-nav ul li a { color: white; text-decoration: none; margin-left: 30px; font-weight: bold; text-transform: uppercase; transition: 0.3s; }
-nav ul li a:hover { color: #d4af37; }
+nav ul li a { color: white; text-decoration: none; margin-left: 30px; font-weight: bold; text-transform: uppercase; }
 
-/* INICIO / SALMO */
+/* SECCIÓN INICIAL */
 .hero {
     height: 100vh;
     display: flex;
@@ -37,20 +36,17 @@ nav ul li a:hover { color: #d4af37; }
     padding: 0 20px;
 }
 
-.hero h1 { font-size: 3.5rem; color: #fff; margin-bottom: 5px; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
-.salmo-referencia { color: #d4af37; font-size: 1.5rem; font-weight: bold; margin-bottom: 30px; }
-.invitacion-texto p { max-width: 800px; margin: auto; font-size: 1.3rem; line-height: 1.6; color: #eee; }
+.hero h1 { font-size: 5rem; color: #d4af37; margin-bottom: 20px; text-transform: uppercase; }
+.invitacion-texto p { max-width: 850px; margin: auto; font-size: 1.5rem; line-height: 1.6; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.7); }
 
-/* SECCIONES GENERALES */
+/* ORDEN DE SECCIONES */
 .envivo-section, .mapa-section, .redes-seccion { padding: 100px 20px; text-align: center; }
 h2 { color: #d4af37; font-size: 2.8rem; margin-bottom: 40px; text-transform: uppercase; }
 
-/* MAPA Y VIDEO */
 .video-contenedor, .mapa-contenedor { 
     max-width: 1000px; 
     margin: auto; 
     border: 4px solid #d4af37; 
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
 }
 
 .btn-mapa {
@@ -62,19 +58,16 @@ h2 { color: #d4af37; font-size: 2.8rem; margin-bottom: 40px; text-transform: upp
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: 0.3s;
 }
-.btn-mapa:hover { background: #fff; }
 
-/* REDES SOCIALES */
-.redes-seccion { background: #f4f4f4; }
+/* REDES SOCIALES HASTA ABAJO */
+.redes-seccion { background: #fff; }
 .redes-seccion h2 { color: #000; }
-.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1100px; margin: auto; }
+.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: auto; }
 .red-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 6px solid #000080; display: block; background: #000; }
-.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; opacity: 0.6; }
+.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.6; }
 .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .overlay i { color: white !important; font-size: 5rem; }
-.red-card:hover .fondo-red { filter: grayscale(0%); transform: scale(1.1); opacity: 1; }
 
-footer { padding: 40px; text-align: center; background: #000; color: #777; border-top: 1px solid #222; }
+footer { padding: 40px; text-align: center; background: #000; color: #555; }
 
