@@ -1,171 +1,78 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://googletagmanager.com"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-TFPEVJBYXZ');
-    </script>
+@import url('https://googleapis.com');
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseñados a su Imagen | Iglesia Cristiana</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="estilos.css">
-</head>
-<body>
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Oswald', sans-serif; background-color: #000; color: white; padding-top: 70px; }
 
-    <header>
-        <nav class="nav-principal">
-            <div class="logo">DISEÑADOS A SU IMAGEN</div>
-            
-            <ul class="menu-links">
-                <li class="dropdown">
-                    <a href="#">MINISTERIO <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="#inicio">EL PASTOR</a></li>
-                        <li><a href="#registro">PEDIR ORACIÓN</a></li>
-                        <li><a href="#ubicacion">VISITAS</a></li>
-                    </ul>
-                </li>
-                <li><a href="#en-vivo">RADIO / EN VIVO</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
-            </ul>
+/* HEADER PREMIUM BLANCO */
+header { background: #fff; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 2000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.nav-principal { display: flex; justify-content: space-around; align-items: center; max-width: 1300px; margin: auto; }
+.logo { color: #000; font-size: 1.3rem; font-weight: bold; }
 
-            <div class="botones-accion">
-                <a href="#registro" class="btn-negro">SOCIOS</a>
-                <a href="#" class="btn-dorado">DONAR <i class="fas fa-heart"></i></a>
-            </div>
-        </nav>
-    </header>
+.menu-links { display: flex; list-style: none; margin: 0; padding: 0; }
+.menu-links li { position: relative; margin: 0 15px; }
+.menu-links li a { text-decoration: none; color: #000; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
 
-    <!-- INICIO: SALMO Y BIENVENIDA -->
-    <section id="inicio" class="hero seccion-deslizable">
-        <div class="hero-content">
-            <div class="texto-bienvenida">
-                <p class="mensaje-comunidad">Somos una comunidad cristiana que te recibe con los brazos abiertos. Un espacio para cultivar la paz y fortalecer tu relación con Dios.</p>
-                <h1 class="versiculo-principal">"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar..."</h1>
-                <p class="salmo-referencia">Mateo 11:28-30</p>
-            </div>
-        </div>
-    </section>
+/* SUBMENÚ */
+.submenu { position: absolute; top: 100%; left: 0; background: #fff; list-style: none; padding: 10px 0; min-width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: none; border-top: 3px solid #d4af37; }
+.submenu li a { padding: 10px 20px; display: block; font-size: 0.8rem; color: #333; }
+.dropdown:hover .submenu { display: block; }
 
-    <!-- TRANSMISIÓN EN VIVO -->
-    <section id="en-vivo" class="envivo-section seccion-deslizable blanco">
-        <div class="contenedor-contenido">
-            <h2>TRANSMISIÓN EN VIVO</h2>
-            <div class="video-contenedor">
-                <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
+/* BOTONES REDONDEADOS */
+.botones-accion { display: flex; gap: 10px; }
+.btn-negro { background: #000; color: #fff; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
+.btn-dorado { background: #d4af37; color: #000; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; font-weight: bold; }
 
-    <!-- UBICACIÓN -->
-    <section id="ubicacion" class="mapa-section seccion-deslizable negro">
-        <div class="contenedor-contenido">
-            <h2>NUESTRA UBICACIÓN</h2>
-            <div class="mapa-contenedor-visual">
-                <a href="https://google.com" target="_blank" class="enlace-mapa">
-                    <div class="capa-mapa">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>VER MAPA INTERACTIVO</p>
-                    </div>
-                </a>
-            </div>
-            <br>
-            <a href="https://google.com" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
-        </div>
-    </section>
+/* SECCIONES DESLIZABLES */
+.seccion-deslizable { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px; box-sizing: border-box; }
+.contenedor-contenido { max-width: 1100px; width: 100%; text-align: center; }
+.blanco { background-color: #fff; color: #000; }
+.negro { background-color: #000; color: #fff; }
 
-    <!-- REGISTRO -->
-    <section id="registro" class="registro-section seccion-deslizable blanco">
-        <div class="contenedor-contenido">
-            <h2>ÚNETE A NUESTRA FAMILIA</h2>
-            <div class="formulario-contenedor">
-                <form action="https://formsubmit.co" method="POST">
-                    <div class="campo">
-                        <label>Nombre Completo</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="campo">
-                        <label>WhatsApp</label>
-                        <input type="tel" name="whatsapp" placeholder="Ej: 5512345678" required>
-                    </div>
-                    <div class="campo">
-                        <label>Petición de Oración</label>
-                        <textarea name="peticion" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
-                    </div>
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="btn-enviar">ENVIAR REGISTRO</button>
-                </form>
-            </div>
-        </div>
-    </section>
+h2 { color: #d4af37; font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; }
 
-    <!-- REDES SOCIALES -->
-    <section id="redes" class="redes-seccion seccion-deslizable negro">
-        <div class="contenedor-contenido">
-            <h2>SÍGUENOS EN REDES</h2>
-            <div class="redes-grid">
-                <a href="https://facebook.com" target="_blank" class="red-card">
-                    <img src="red-fb.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-facebook-f"></i></div>
-                </a>
-                <a href="#" target="_blank" class="red-card">
-                    <img src="red-yt.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-youtube"></i></div>
-                </a>
-                <a href="#" target="_blank" class="red-card">
-                    <img src="red-ig.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-instagram"></i></div>
-                </a>
-                <a href="https://wa.me" target="_blank" class="red-card">
-                    <img src="red-wa.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-whatsapp"></i></div>
-                </a>
-            </div>
-        </div>
-    </section>
+/* HERO - TEXTO IZQUIERDA */
+.hero { justify-content: flex-start; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('fondo.jpg'); background-size: cover; background-position: center; padding-left: 5%; }
+.texto-bienvenida { max-width: 450px; text-align: left; }
+.mensaje-comunidad { color: #d4af37; font-size: 1.3rem; margin-bottom: 15px; }
+.versiculo-principal { color: #d4af37; font-size: 2.5rem; line-height: 1.1; margin-bottom: 10px; }
 
-    <!-- PIE DE PÁGINA PROFESIONAL -->
-    <footer id="contacto" class="footer-completo">
-        <div class="footer-contenedor">
-            <div class="footer-col">
-                <div class="logo-footer">DISEÑADOS A SU IMAGEN</div>
-                <div class="redes-footer">
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Ministerios</h3>
-                <div class="footer-item"><p>JESÚS OBRADOR DE MILAGROS</p><a href="#">VER MÁS →</a></div>
-                <div class="footer-item"><p>ALIENTO DEL CIELO</p><a href="#">VER MÁS →</a></div>
-            </div>
-            <div class="footer-col">
-                <h3>Información</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Puebla, México</p>
-                <p><i class="fas fa-phone"></i> +52 55 4283 0217</p>
-            </div>
-            <div class="footer-col">
-                <h3>Menú</h3>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#en-vivo">Transmisión</a></li>
-                    <li><a href="#registro">Registro</a></li>
-                    <li><a href="#ubicacion">Visitas</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-derechos">
-            <p>© Impacto de Gloria 2026 - Diseñados a su Imagen - Derechos Reservados</p>
-        </div>
-    </footer>
+/* MAPA Y VIDEO */
+.video-contenedor, .mapa-contenedor-visual { border: 5px solid #d4af37; background: #000; margin: auto; }
+.mapa-contenedor-visual { height: 350px; background: url('https://unsplash.com'); background-size: cover; position: relative; }
+.capa-mapa { position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.btn-mapa { display: inline-block; margin-top: 20px; background: #d4af37; color: #000; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; }
 
-</body>
-</html>
+/* FORMULARIO */
+.formulario-contenedor { max-width: 500px; margin: auto; background: #111; padding: 30px; border: 2px solid #d4af37; border-radius: 8px; }
+.campo { text-align: left; margin-bottom: 15px; }
+.campo label { display: block; color: #d4af37; margin-bottom: 5px; font-weight: bold; }
+.campo input, .campo textarea { width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: white; box-sizing: border-box; font-family: 'Oswald'; }
+.btn-enviar { background: #d4af37; color: #000; width: 100%; padding: 12px; border: none; font-weight: bold; cursor: pointer; }
+
+/* REDES */
+.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.red-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 5px solid #000080; display: block; background: #000; }
+.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.7; }
+.overlay i { color: white !important; font-size: 4rem; }
+
+/* FOOTER MULTICOLUMNA */
+.footer-completo { background: #1a1a1a; color: #fff; padding: 60px 20px 20px; border-top: 1px solid #333; }
+.footer-contenedor { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+.footer-col h3 { color: #d4af37; font-size: 1.1rem; margin-bottom: 20px; text-transform: uppercase; }
+.redes-footer a { color: #fff; font-size: 1.5rem; margin-right: 15px; }
+.footer-item { margin-bottom: 15px; }
+.footer-item p { margin: 0; font-size: 0.9rem; font-weight: bold; }
+.footer-item a { color: #aaa; font-size: 0.8rem; text-decoration: none; }
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li a { color: #fff; text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 8px; }
+.footer-derechos { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.8rem; color: #777; }
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    .nav-principal { flex-direction: column; padding: 10px; }
+    .menu-links { margin: 15px 0; }
+    .hero { justify-content: center; align-items: flex-start; padding-top: 120px; padding-left: 0; }
+    .texto-bienvenida { text-align: center; max-width: 90%; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; }
+    .versiculo-principal { font-size: 1.8rem; }
+    .footer-contenedor { text-align: center; }
+}
