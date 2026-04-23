@@ -82,3 +82,34 @@ nav ul li a { color: white; text-decoration: none; margin-left: 30px; font-weigh
 .red-card:hover .fondo-red { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
 
 footer { padding: 40px; text-align: center; background: #000; color: #555; }
+.visual-mapa {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://google.com');
+    background-size: cover;
+    background-position: center;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.mapa-placeholder {
+    color: #d4af37;
+    text-align: center;
+}
+
+.mapa-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.mapa-placeholder p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.visual-mapa:hover {
+    filter: brightness(1.2);
+}
