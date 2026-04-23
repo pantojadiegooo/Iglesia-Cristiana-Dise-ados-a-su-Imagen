@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) - CONECTADO A TU PANEL -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://googletagmanager.com"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -19,102 +19,152 @@
 <body>
 
     <header>
-        <nav>
+        <nav class="nav-principal">
             <div class="logo">DISEÑADOS A SU IMAGEN</div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#en-vivo">En Vivo</a></li>
-                <li><a href="#ubicacion">Ubicación</a></li>
-                <li><a href="#registro">Registro</a></li>
-                <li><a href="#redes">Redes</a></li>
+            
+            <ul class="menu-links">
+                <li class="dropdown">
+                    <a href="#">MINISTERIO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#inicio">EL PASTOR</a></li>
+                        <li><a href="#registro">PEDIR ORACIÓN</a></li>
+                        <li><a href="#ubicacion">VISITAS</a></li>
+                    </ul>
+                </li>
+                <li><a href="#en-vivo">RADIO / EN VIVO</a></li>
+                <li><a href="#contacto">CONTACTO</a></li>
             </ul>
+
+            <div class="botones-accion">
+                <a href="#registro" class="btn-negro">SOCIOS</a>
+                <a href="#" class="btn-dorado">DONAR <i class="fas fa-heart"></i></a>
+            </div>
         </nav>
     </header>
 
-    <!-- SECCIÓN 1: INICIO (TEXTO DORADO A LA IZQUIERDA) -->
-    <section id="inicio" class="hero">
+    <!-- INICIO: SALMO Y BIENVENIDA -->
+    <section id="inicio" class="hero seccion-deslizable">
         <div class="hero-content">
             <div class="texto-bienvenida">
-                <p class="mensaje-comunidad">Somos una comunidad cristiana que te recibe con los brazos abiertos. Aquí encontrarás un espacio para cultivar la paz, fortalecer tu relación con Dios y compartir en amor.</p>
+                <p class="mensaje-comunidad">Somos una comunidad cristiana que te recibe con los brazos abiertos. Un espacio para cultivar la paz y fortalecer tu relación con Dios.</p>
                 <h1 class="versiculo-principal">"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar..."</h1>
                 <p class="salmo-referencia">Mateo 11:28-30</p>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: TRANSMISIÓN (MARCO DORADO RECUPERADO) -->
-    <section id="en-vivo" class="envivo-section">
-        <h2>TRANSMISIÓN EN VIVO</h2>
-        <div class="video-contenedor">
-            <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+    <!-- TRANSMISIÓN EN VIVO -->
+    <section id="en-vivo" class="envivo-section seccion-deslizable blanco">
+        <div class="contenedor-contenido">
+            <h2>TRANSMISIÓN EN VIVO</h2>
+            <div class="video-contenedor">
+                <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
-    <!-- SECCIÓN 3: UBICACIÓN (ENLACE UNIVERSAL) -->
-    <section id="ubicacion" class="mapa-section">
-        <h2>NUESTRA UBICACIÓN</h2>
-        <div class="mapa-contenedor-visual">
-            <a href="https://google.com" target="_blank" class="enlace-mapa">
-                <div class="capa-mapa">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>VER MAPA INTERACTIVO</p>
-                </div>
-            </a>
-        </div>
-        <br>
-        <a href="https://google.com" target="_blank" class="btn-mapa">ABRIR EN GOOGLE MAPS PARA LLEGAR</a>
-    </section>
-
-    <!-- SECCIÓN 4: REGISTRO (FONDO BLANCO) -->
-    <section id="registro" class="registro-section">
-        <h2>ÚNETE A NUESTRA FAMILIA</h2>
-        <p style="color: #666; margin-bottom: 30px;">Déjanos tus datos para estar en contacto y orar por ti.</p>
-        <div class="formulario-contenedor">
-            <!-- RECUERDA CAMBIAR EL CORREO ABAJO PARA RECIBIR LOS MENSAJES -->
-            <form action="https://formsubmit.co" method="POST">
-                <div class="campo">
-                    <label>Nombre Completo</label>
-                    <input type="text" name="nombre" placeholder="Tu nombre" required>
-                </div>
-                <div class="campo">
-                    <label>WhatsApp</label>
-                    <input type="tel" name="whatsapp" placeholder="Ej: 5512345678" required>
-                </div>
-                <div class="campo">
-                    <label>Petición de Oración</label>
-                    <textarea name="peticion" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
-                </div>
-                <input type="hidden" name="_captcha" value="false">
-                <button type="submit" class="btn-enviar">ENVIAR REGISTRO</button>
-            </form>
+    <!-- UBICACIÓN -->
+    <section id="ubicacion" class="mapa-section seccion-deslizable negro">
+        <div class="contenedor-contenido">
+            <h2>NUESTRA UBICACIÓN</h2>
+            <div class="mapa-contenedor-visual">
+                <a href="https://google.com" target="_blank" class="enlace-mapa">
+                    <div class="capa-mapa">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>VER MAPA INTERACTIVO</p>
+                    </div>
+                </a>
+            </div>
+            <br>
+            <a href="https://google.com" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
         </div>
     </section>
 
-    <!-- SECCIÓN 5: REDES SOCIALES -->
-    <section id="redes" class="redes-seccion">
-        <h2>SÍGUENOS EN NUESTRAS REDES</h2>
-        <div class="redes-grid">
-            <a href="https://facebook.com" target="_blank" class="red-card">
-                <img src="red-fb.jpg" class="fondo-red">
-                <div class="overlay"><i class="fab fa-facebook-f"></i></div>
-            </a>
-            <a href="#" target="_blank" class="red-card">
-                <img src="red-yt.jpg" class="fondo-red">
-                <div class="overlay"><i class="fab fa-youtube"></i></div>
-            </a>
-            <a href="#" target="_blank" class="red-card">
-                <img src="red-ig.jpg" class="fondo-red">
-                <div class="overlay"><i class="fab fa-instagram"></i></div>
-            </a>
-            <a href="https://wa.me" target="_blank" class="red-card">
-                <img src="red-wa.jpg" class="fondo-red">
-                <div class="overlay"><i class="fab fa-whatsapp"></i></div>
-            </a>
+    <!-- REGISTRO -->
+    <section id="registro" class="registro-section seccion-deslizable blanco">
+        <div class="contenedor-contenido">
+            <h2>ÚNETE A NUESTRA FAMILIA</h2>
+            <div class="formulario-contenedor">
+                <form action="https://formsubmit.co" method="POST">
+                    <div class="campo">
+                        <label>Nombre Completo</label>
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="campo">
+                        <label>WhatsApp</label>
+                        <input type="tel" name="whatsapp" placeholder="Ej: 5512345678" required>
+                    </div>
+                    <div class="campo">
+                        <label>Petición de Oración</label>
+                        <textarea name="peticion" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
+                    </div>
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit" class="btn-enviar">ENVIAR REGISTRO</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>© 2024 Iglesia Cristiana Diseñados a su Imagen</p>
+    <!-- REDES SOCIALES -->
+    <section id="redes" class="redes-seccion seccion-deslizable negro">
+        <div class="contenedor-contenido">
+            <h2>SÍGUENOS EN REDES</h2>
+            <div class="redes-grid">
+                <a href="https://facebook.com" target="_blank" class="red-card">
+                    <img src="red-fb.jpg" class="fondo-red">
+                    <div class="overlay"><i class="fab fa-facebook-f"></i></div>
+                </a>
+                <a href="#" target="_blank" class="red-card">
+                    <img src="red-yt.jpg" class="fondo-red">
+                    <div class="overlay"><i class="fab fa-youtube"></i></div>
+                </a>
+                <a href="#" target="_blank" class="red-card">
+                    <img src="red-ig.jpg" class="fondo-red">
+                    <div class="overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://wa.me" target="_blank" class="red-card">
+                    <img src="red-wa.jpg" class="fondo-red">
+                    <div class="overlay"><i class="fab fa-whatsapp"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA PROFESIONAL -->
+    <footer id="contacto" class="footer-completo">
+        <div class="footer-contenedor">
+            <div class="footer-col">
+                <div class="logo-footer">DISEÑADOS A SU IMAGEN</div>
+                <div class="redes-footer">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Ministerios</h3>
+                <div class="footer-item"><p>JESÚS OBRADOR DE MILAGROS</p><a href="#">VER MÁS →</a></div>
+                <div class="footer-item"><p>ALIENTO DEL CIELO</p><a href="#">VER MÁS →</a></div>
+            </div>
+            <div class="footer-col">
+                <h3>Información</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Puebla, México</p>
+                <p><i class="fas fa-phone"></i> +52 55 4283 0217</p>
+            </div>
+            <div class="footer-col">
+                <h3>Menú</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#en-vivo">Transmisión</a></li>
+                    <li><a href="#registro">Registro</a></li>
+                    <li><a href="#ubicacion">Visitas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-derechos">
+            <p>© Impacto de Gloria 2026 - Diseñados a su Imagen - Derechos Reservados</p>
+        </div>
     </footer>
 
 </body>
