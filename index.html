@@ -21,7 +21,6 @@
         </nav>
     </header>
 
-    <!-- INICIO: FOTO DE FONDO -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>SALMO</h1> 
@@ -31,24 +30,25 @@
         </div>
     </section>
 
-    <!-- TRANSMISIÓN: FONDO BLANCO -->
+    <!-- TRANSMISIÓN: Corregido para que se vea el recuadro -->
     <section id="en-vivo" class="envivo-section">
         <h2>TRANSMISIÓN EN VIVO</h2>
         <div class="video-contenedor">
-            <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+            <!-- He puesto un video de ejemplo, cámbialo por el ID de tu canal cuando lo tengas -->
+            <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- UBICACIÓN: FONDO NEGRO -->
+    <!-- UBICACIÓN: Mapa Corregido con Enlace Completo -->
     <section id="ubicacion" class="mapa-section">
         <h2>NUESTRA UBICACIÓN</h2>
         <div class="mapa-contenedor">
-            <iframe src="https://google.com" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://google.com" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <a href="https://goo.gl" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
+        <!-- Enlace completo para evitar error de Firebase -->
+        <a href="https://google.com" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
     </section>
 
-    <!-- REDES SOCIALES: FONDO BLANCO -->
     <section id="redes" class="redes-seccion">
         <h2>SÍGUENOS EN NUESTRAS REDES</h2>
         <div class="redes-grid">
@@ -77,6 +77,3 @@
 
 </body>
 </html>
-
-</html>
-
