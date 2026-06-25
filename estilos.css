@@ -50,7 +50,7 @@ header {
 }
 
 .logo {
-    color: var(--black);
+    color: var(--gold); /* CAMBIADO A DORADO */
     font-size: 1.5rem;
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
@@ -70,7 +70,7 @@ header {
 
 .menu-links li a:hover { color: var(--gold); }
 
-/* SUBMENÚ */
+/* SUBMENÚ (Se mantiene en el CSS por si decides usarlo en el futuro) */
 .submenu {
     position: absolute;
     top: 150%;
@@ -138,7 +138,7 @@ header {
     padding: 0 5%;
 }
 
-.texto-bienvenida { max-width: 600px; }
+.texto-bienvenida { max-width: 650px; }
 .mensaje-comunidad { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
 .versiculo-principal { color: var(--white); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
 .salmo-referencia { color: #ccc; font-size: 1.2rem; font-style: italic; }
