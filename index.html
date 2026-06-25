@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://googletagmanager.com"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseñados a su Imagen | Iglesia Cristiana</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -26,7 +25,7 @@
                 <li class="dropdown">
                     <a href="#">MINISTERIO <i class="fas fa-chevron-down"></i></a>
                     <ul class="submenu">
-                        <li><a href="#inicio">EL PASTOR</a></li>
+                        <li><a href="#pastor">EL PASTOR</a></li>
                         <li><a href="#registro">PEDIR ORACIÓN</a></li>
                         <li><a href="#ubicacion">VISITAS</a></li>
                     </ul>
@@ -37,144 +36,60 @@
 
             <div class="botones-accion">
                 <a href="#registro" class="btn-negro">SOCIOS</a>
-                <a href="#registro" class="btn-dorado">DONAR <i class="fas fa-heart"></i></a>
+                <a href="#donar" class="btn-dorado">DONAR <i class="fas fa-heart"></i></a>
             </div>
         </nav>
     </header>
 
-    <!-- INICIO: PORTADA CON SALMO -->
     <section id="inicio" class="hero seccion-deslizable">
         <div class="hero-content">
             <div class="texto-bienvenida">
                 <p class="mensaje-comunidad">Somos una comunidad cristiana que te recibe con los brazos abiertos. Un espacio para cultivar la paz y fortalecer tu relación con Dios.</p>
                 <h1 class="versiculo-principal">"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar..."</h1>
                 <p class="salmo-referencia">Mateo 11:28-30</p>
+                <div style="margin-top: 30px;">
+                    <a href="#ubicacion" class="btn-dorado" style="padding: 15px 30px; font-size: 1.2rem; text-decoration: none; border-radius: 5px;">Planea tu Visita</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TRANSMISIÓN EN VIVO -->
-    <section id="en-vivo" class="envivo-section seccion-deslizable blanco">
+    <section id="pastor" class="seccion-deslizable blanco">
+        <div class="contenedor-contenido" style="text-align: center;">
+            <h2>NUESTROS PASTORES</h2>
+            <p style="margin-bottom: 20px;">Conoce a quienes guían nuestra congregación con amor y fe.</p>
+            <img src="foto-pastor.jpg" alt="Foto de los Pastores" style="max-width: 250px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            <h3 style="margin-top: 15px;">Nombre de los Pastores</h3>
+            <p>Una breve descripción de su ministerio y llamado.</p>
+        </div>
+    </section>
+
+    <section id="en-vivo" class="envivo-section seccion-deslizable negro">
         <div class="contenedor-contenido">
             <h2>TRANSMISIÓN EN VIVO</h2>
             <div class="video-contenedor">
-                <iframe width="100%" height="500" src="https://youtube.com" frameborder="0" allowfullscreen></iframe>
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_DE_YOUTUBE_ID" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
 
-    <!-- UBICACIÓN -->
-    <section id="ubicacion" class="mapa-section seccion-deslizable negro">
+    <section id="ubicacion" class="mapa-section seccion-deslizable blanco">
         <div class="contenedor-contenido">
             <h2>NUESTRA UBICACIÓN</h2>
             <div class="mapa-contenedor-visual">
-                <a href="https://google.com" target="_blank" class="enlace-mapa">
-                    <div class="capa-mapa">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>VER MAPA INTERACTIVO</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+México,+CDMX" target="_blank" class="enlace-mapa">
+                    <div class="capa-mapa" style="background-color: #333; padding: 50px; text-align: center; color: white; border-radius: 10px;">
+                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 15px; color: #d4af37;"></i>
+                        <p style="font-weight: bold; font-size: 1.2rem;">ABRIR MAPA INTERACTIVO</p>
                     </div>
                 </a>
             </div>
             <br>
-            <a href="https://goo.gl" target="_blank" class="btn-mapa">¿CÓMO LLEGAR? CLICK AQUÍ</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+México,+CDMX" target="_blank" class="btn-dorado" style="text-decoration: none; padding: 10px 20px; border-radius: 5px;">¿CÓMO LLEGAR? CLICK AQUÍ</a>
         </div>
     </section>
 
-    <!-- REGISTRO -->
-    <section id="registro" class="registro-section seccion-deslizable blanco">
+    <section id="registro" class="registro-section seccion-deslizable negro">
         <div class="contenedor-contenido">
-            <h2>ÚNETE A NUESTRA FAMILIA</h2>
-            <div class="formulario-contenedor">
-                <form action="https://formsubmit.co" method="POST">
-                    <div class="campo">
-                        <label>Nombre Completo</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre" required>
-                    </div>
-                    <div class="campo">
-                        <label>WhatsApp</label>
-                        <input type="tel" name="whatsapp" placeholder="Ej: 5512345678" required>
-                    </div>
-                    <div class="campo">
-                        <label>Petición de Oración</label>
-                        <textarea name="peticion" placeholder="¿En qué podemos orar por ti?" rows="4"></textarea>
-                    </div>
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit" class="btn-enviar">ENVIAR REGISTRO</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- REDES SOCIALES -->
-    <section id="redes" class="redes-seccion seccion-deslizable negro">
-        <div class="contenedor-contenido">
-            <h2>SÍGUENOS EN REDES</h2>
-            <div class="redes-grid">
-                <a href="https://facebook.com" target="_blank" class="red-card">
-                    <img src="red-fb.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-facebook-f"></i></div>
-                </a>
-                <a href="#" target="_blank" class="red-card">
-                    <img src="red-yt.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-youtube"></i></div>
-                </a>
-                <a href="#" target="_blank" class="red-card">
-                    <img src="red-ig.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-instagram"></i></div>
-                </a>
-                <a href="https://wa.me" target="_blank" class="red-card">
-                    <img src="red-wa.jpg" class="fondo-red">
-                    <div class="overlay"><i class="fab fa-whatsapp"></i></div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PIE DE PÁGINA (ESTILO HARRIGAN CON TUS DATOS) -->
-    <footer class="footer-completo">
-        <div class="footer-contenedor">
-            <div class="footer-col">
-                <div class="logo-footer-dorado">DISEÑADOS A SU IMAGEN</div>
-                <div class="redes-footer-dorada">
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Ministerios</h3>
-                <div class="footer-item"><p>JESÚS OBRADOR DE MILAGROS</p><a href="#">VER MÁS →</a></div>
-            </div>
-            <div class="footer-col">
-                <h3>Información</h3>
-                <div class="info-link">
-                    <i class="fas fa-map-marker-alt icono-dorado"></i>
-                    <p>Casimiro Chovell 9, La Era I y II, Iztapalapa, 09860 Ciudad de México, CDMX</p>
-                </div>
-                <div class="info-link">
-                    <i class="fas fa-clock icono-dorado"></i>
-                    <p>Domingos / Jueves: 8 AM - 12 PM</p>
-                </div>
-                <div class="info-link">
-                    <i class="fas fa-phone-alt icono-dorado"></i>
-                    <p>+52 55 4283 0217</p>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>Menú</h3>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#en-vivo">En Vivo</a></li>
-                    <li><a href="#registro">Registro</a></li>
-                    <li><a href="#ubicacion">Ubicación</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-derechos">
-            <p>© Impacto de Gloria 2026 - Diseñados a su Imagen - Derechos Reservados</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <h2>PIDE ORACIÓN / ÚNETE A NOSOTROS</h2>
+            <div class="formulario-contenedor
