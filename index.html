@@ -12,7 +12,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseñados a su Imagen | Iglesia Cristiana</title>
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo de estilos -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -28,8 +30,8 @@
                     <a href="#ministerio">Ministerios <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <ul class="submenu">
                         <li><a href="#pastor">Nuestro Pastor</a></li>
-                        <li><a href="#contacto">Dudas y Sugerencias</a></li>
-                        <li><a href="#contacto">Visitas</a></li>
+                        <li><a href="#oracion">Pedir Oración</a></li>
+                        <li><a href="#visitas">Visitas</a></li>
                     </ul>
                 </li>
                 <li><a href="#en-vivo">Radio / En Vivo</a></li>
@@ -37,7 +39,7 @@
             </ul>
 
             <div class="botones-accion">
-                <a href="#contacto" class="btn btn-negro">Socios</a>
+                <a href="#oracion" class="btn btn-negro">Socios</a>
                 <a href="#ministerio" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
             </div>
         </nav>
@@ -60,7 +62,7 @@
         <div class="contenedor">
             <div class="pastores-slider">
                 
-                <!-- Perfil Pastor 1 -->
+                <!-- Perfil Pastor 1 (Manuel Duran) -->
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
                         <img src="https://via.placeholder.com/800x800/1a1a1a/d4af37?text=FOTO+PASTOR+MANUEL" alt="Pastor Manuel Duran" class="pastor-img">
@@ -107,12 +109,13 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 2: Diezmos y Ofrendas -->
+                <!-- Tarjeta 2: Diezmos y Ofrendas (Con botón desplegable) -->
                 <div class="tarjeta">
                     <img src="https://via.placeholder.com/600x600/222222/d4af37?text=FOTO+OFRENDAS" alt="Diezmos">
                     <div class="tarjeta-overlay">
                         <h3>DIEZMOS Y OFRENDAS</h3>
                         <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
+                        <!-- Acordeón deslizable para banco -->
                         <details class="banco-details">
                             <summary>Ver Datos de Cuenta <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 0.8rem;"></i></summary>
                             <div class="datos-banco">
@@ -136,7 +139,7 @@
 
             </div>
 
-            <!-- BANNERS GRANDES DE REDES SOCIALES -->
+            <!-- NUEVA SECCIÓN: BANNERS GRANDES DE REDES SOCIALES -->
             <div class="redes-grandes-grid">
                 
                 <!-- Facebook -->
@@ -158,21 +161,23 @@
                 </a>
 
             </div>
+            <!-- FIN BANNERS GRANDES -->
 
         </div>
     </section>
 
-    <!-- SECCIÓN DE PRÉDICA -->
+    <!-- SECCIÓN DE PRÉDICA / VIDEO DESTACADO -->
     <section id="en-vivo" class="seccion bg-negro">
         <div class="contenedor predica-grid">
             <div class="predica-texto">
-                <h2 style="color:var(--gold); font-size:2.5rem; margin-bottom: 20px;">VER PRÉDICAS COMPLETAS</h2>
+                <h2 style="color:var(--gold); font-size:2.5rem; margin-bottom: 20px;">VUELVE A BETEL</h2>
                 <p style="color:#ccc; font-size:1.1rem; line-height: 1.8; margin-bottom: 30px;">
-                    Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
+                    Acompaña al pastor en una enseñanza basada en la vida de Jacob, donde Dios lo llama a volver a Betel. Descubre cómo regresar al lugar de intimidad con Dios puede restaurar tu visión espiritual.
                 </p>
-                <a href="#" class="btn btn-dorado">Ver Canal de YouTube</a>
+                <a href="#" class="btn btn-dorado">Ver Prédica Completa</a>
             </div>
             <div class="video-responsive">
+                <!-- Sustituye este enlace por tu video de YouTube -->
                 <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
@@ -184,23 +189,25 @@
             <h2 class="titulo-seccion">Ubicación y Contacto</h2>
             
             <div class="contacto-grid">
+                <!-- Lado Izquierdo: Formulario e Info -->
                 <div id="oracion">
                     <div class="info-contacto" style="margin-bottom: 40px;">
                         <h4>Información</h4>
                         <p><i class="fas fa-map-marker-alt"></i> Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</p>
-                        <p><i class="fas fa-clock"></i> Jue, Dom 8 AM - 2 PM</p>
+                        <p><i class="fas fa-clock"></i> Domingos 10 AM - 1 PM</p>
                         <p><i class="fas fa-phone"></i> +52 (55) 1234-5678</p>
                     </div>
 
-                    <h4 style="margin-bottom: 15px;">Envíanos tus dudas o sugerencias</h4>
+                    <h4 style="margin-bottom: 15px;">Déjanos tu petición de oración</h4>
                     <form class="formulario">
                         <input type="text" placeholder="Tu Nombre" required>
                         <input type="email" placeholder="Tu Correo Electrónico" required>
-                        <textarea placeholder="Escribe tus dudas, sugerencias o mensaje..." required></textarea>
+                        <textarea placeholder="Escribe tu petición de oración o mensaje..." required></textarea>
                         <button type="submit" class="btn btn-dorado" style="width:100%; border:none; cursor:pointer;">Enviar Mensaje</button>
                     </form>
                 </div>
 
+                <!-- Lado Derecho: Mapa Embebido -->
                 <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 100%; min-height: 400px;">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx" 
@@ -245,7 +252,7 @@
             <div class="footer-col">
                 <h4>Ayuda y Enlaces</h4>
                 <ul>
-                    <li><a href="#contacto">Dudas y Sugerencias</a></li>
+                    <li><a href="#oracion">Pedir Oración</a></li>
                     <li><a href="#contacto">Contacto y Visitas</a></li>
                     <li><a href="#ministerio">Diezmos y Ofrendas</a></li>
                 </ul>
