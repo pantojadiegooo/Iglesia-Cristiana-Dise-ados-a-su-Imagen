@@ -1,137 +1,432 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@400;700&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --gold-hover: #b5952f;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --light-gray: #f9f9f9;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html { scroll-behavior: smooth; }
-body { margin: 0; font-family: 'Oswald', sans-serif; background-color: #000; color: white; padding-top: 70px; }
 
-/* AUXILIARES DE TEXTO Y ALINEACIÓN */
-.text-center { text-align: center; }
-.subtitulo-seccion { margin-bottom: 30px; font-size: 1.1rem; color: #555; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    padding-top: 80px; 
+}
 
-/* MENÚ SUPERIOR BLANCO */
-header { background: #fff; padding: 10px 0; position: fixed; width: 100%; top: 0; z-index: 2000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-.nav-principal { display: flex; justify-content: space-around; align-items: center; max-width: 1300px; margin: auto; flex-wrap: wrap; }
-.logo { color: #000; font-size: 1.3rem; font-weight: bold; }
-.menu-links { display: flex; list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ====== MENÚ SUPERIOR ====== */
+header {
+    background: var(--white);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.nav-principal {
+    display: flex;
+    align-items: center;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--gold); 
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    margin-right: auto; /* ESTO EMPUJA EL MENÚ A LA DERECHA */
+}
+
+.menu-links { 
+    display: flex; 
+    list-style: none; 
+    align-items: center; 
+    margin-right: 40px; /* Espacio entre los textos y el botón DONAR */
+}
+
 .menu-links li { position: relative; margin: 0 15px; }
-.menu-links li a { text-decoration: none; color: #000; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s; }
-.menu-links li a:hover { color: #d4af37; }
+.menu-links li a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
 
-/* SUBMENÚ DORADO */
-.submenu { position: absolute; top: 100%; left: 0; background: #fff; list-style: none; padding: 10px 0; min-width: 180px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: none; border-top: 3px solid #d4af37; }
-.submenu li a { padding: 10px 20px; display: block; font-size: 0.8rem; color: #333; }
-.submenu li a:hover { background: #f9f9f9; color: #d4af37; }
-.dropdown:hover .submenu { display: block; }
+.menu-links li a:hover { color: var(--gold); }
 
-/* BOTONES HEADER */
-.botones-accion { display: flex; gap: 10px; }
-.btn-negro { background: #000; color: #fff; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; font-weight: bold; transition: background 0.3s; }
+/* SUBMENÚ */
+.submenu {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    background: var(--white);
+    list-style: none;
+    padding: 10px 0;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-top: 3px solid var(--gold);
+}
+
+.dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    top: 100%;
+}
+
+.submenu li a {
+    padding: 12px 20px;
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.submenu li a:hover {
+    background: var(--light-gray);
+    color: var(--gold);
+    padding-left: 25px;
+}
+
+/* BOTONES */
+.botones-accion { display: flex; gap: 15px; }
+.btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Oswald', sans-serif;
+    transition: all 0.3s;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn-negro { background: var(--black); color: var(--white); }
 .btn-negro:hover { background: #333; }
-.btn-dorado { background: #d4af37; color: #000; padding: 8px 20px; border-radius: 50px; text-decoration: none; font-size: 0.8rem; font-weight: bold; transition: background 0.3s; }
-.btn-dorado:hover { background: #b5952f; }
+.btn-dorado { background: var(--gold); color: var(--black); }
+.btn-dorado:hover { background: var(--gold-hover); }
 
-/* SECCIONES CONFIGURACIÓN GENERAL */
-.seccion-deslizable { min-height: 85vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px; box-sizing: border-box; }
-.blanco { background-color: #fff; color: #000; }
-.negro { background-color: #000; color: #fff; }
-h2 { color: #d4af37; font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; text-align: center; font-weight: 700; }
+/* ====== HERO SECTION ====== */
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%), url('IMG_0452.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 0 5%;
+}
 
-/* HERO / PORTADA */
-.hero { justify-content: flex-start; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('fondo.jpg'); background-size: cover; background-position: center; padding-left: 5%; }
-.texto-bienvenida { max-width: 500px; text-align: left; }
-.mensaje-comunidad { color: #d4af37; font-size: 1.4rem; margin-bottom: 15px; }
-.versiculo-principal { color: #d4af37; font-size: 2.8rem; line-height: 1.1; margin-bottom: 10px; }
-.cta-contenedor { margin-top: 25px; }
-.btn-cta-principal { display: inline-block; background-color: #d4af37; color: #000; padding: 14px 30px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 1.1rem; transition: background 0.3s, transform 0.2s; }
-.btn-cta-principal:hover { background: #fff; color: #000; transform: translateY(-2px); }
+.texto-bienvenida { max-width: 650px; }
+.mensaje-comunidad { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
+.versiculo-principal { color: var(--white); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+.salmo-referencia { color: #ccc; font-size: 1.2rem; font-style: italic; }
 
-/* SECCIÓN PASTORES */
-.pastor-perfil { max-width: 600px; margin: 0 auto; }
-.foto-pastor { max-width: 220px; border-radius: 50%; border: 4px solid #d4af37; box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin-bottom: 15px; }
-.pastor-perfil h3 { font-size: 1.6rem; margin: 10px 0 5px; color: #111; }
-.pastor-perfil p { color: #555; line-height: 1.5; font-size: 1.05rem; }
+/* ====== SECCIONES GENERALES ====== */
+.seccion { padding: 100px 20px; }
+.bg-blanco { background: var(--white); color: var(--black); }
+.bg-gris { background: var(--light-gray); color: var(--black); }
+.bg-negro { background: var(--black); color: var(--white); }
 
-/* MULTIMEDIA Y MAPAS */
-.video-contenedor, .mapa-contenedor-visual { max-width: 1000px; margin: auto; border: 5px solid #d4af37; background: #000; width: 100%; }
-.mapa-contenedor-visual { height: 350px; background-color: #111; position: relative; border-radius: 4px; }
-.capa-mapa { position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:flex; flex-direction:column; align-items:center; justify-content:center; transition: background 0.3s; text-decoration: none; }
-.capa-mapa:hover { background:rgba(0,0,0,0.7); }
-.capa-mapa i { color: #d4af37; font-size: 3.5rem; margin-bottom: 10px; }
-.capa-mapa p { color: #fff; font-weight: bold; font-size: 1.3rem; margin: 0; letter-spacing: 1px; }
-.btn-mapa { display: inline-block; background: #d4af37; color: #000; padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: background 0.3s; }
-.btn-mapa:hover { background: #b5952f; }
+.contenedor { max-width: 1200px; margin: auto; }
+.titulo-seccion { color: var(--gold); font-size: 2.5rem; text-align: center; margin-bottom: 50px; position: relative; }
+.titulo-seccion::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--gold);
+    display: block;
+    margin: 15px auto 0;
+}
 
-/* FORMULARIO DE REGISTRO */
-.formulario-contenedor { max-width: 500px; margin: auto; background: #111; padding: 30px; border: 2px solid #d4af37; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-.campo { text-align: left; margin-bottom: 15px; }
-.campo label { display: block; color: #d4af37; margin-bottom: 5px; font-weight: bold; }
-.campo input, .campo textarea { width: 100%; padding: 12px; background: #222; border: 1px solid #444; color: white; box-sizing: border-box; font-family: 'Oswald', sans-serif; border-radius: 4px; }
-.campo input:focus, .campo textarea:focus { border-color: #d4af37; outline: none; }
-.btn-enviar { background: #d4af37; color: #000; width: 100%; padding: 12px; border: none; font-weight: bold; cursor: pointer; font-size: 1rem; border-radius: 4px; transition: background 0.3s; }
-.btn-enviar:hover { background: #b5952f; }
+/* ====== PASTOR / SLIDER ====== */
+.pastores-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 40px;
+    padding-bottom: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) #333;
+}
+.pastores-slider::-webkit-scrollbar { height: 10px; }
+.pastores-slider::-webkit-scrollbar-track { background: #333; border-radius: 10px; }
+.pastores-slider::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-/* SECCIÓN DONACIONES */
-.caja-donacion { background: #f9f9f9; padding: 25px 40px; border-radius: 8px; border: 1px solid #e0e0e0; border-top: 4px solid #d4af37; display: inline-block; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.caja-donacion h3 { margin-top: 0; color: #111; font-size: 1.4rem; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-.caja-donacion p { margin: 8px 0; color: #444; font-size: 1.05rem; }
+.pastor-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+.pastor-img-container {
+    width: 100%;
+    height: 480px;
+}
+.pastor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0px var(--gold);
+}
+.pastor-info h3 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; }
+.pastor-info p { font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 20px; }
 
-/* TABLA DE HORARIOS */
-.tabla-contenedor { margin-top: 20px; width: 100%; overflow-x: auto; }
-.tabla-horarios { width: 100%; max-width: 900px; margin: auto; border-collapse: collapse; }
-.tabla-horarios th, .tabla-horarios td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #222; font-size: 1.05rem; }
-.tabla-horarios th { color: #d4af37; border-bottom: 2px solid #d4af37; font-size: 1.1rem; letter-spacing: 1px; }
-.tabla-horarios tbody tr:hover { background-color: #111; }
-.dia-resaltado { color: #d4af37; font-weight: bold; }
+/* ====== 3 TARJETAS (MINISTERIOS/AREAS) ====== */
+.ministerios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.tarjeta {
+    position: relative;
+    height: 480px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.tarjeta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.tarjeta:hover img { transform: scale(1.05); }
+.tarjeta-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95) 40%);
+    padding: 40px 20px 20px;
+    color: white;
+}
+.tarjeta-overlay h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--gold); }
+.tarjeta-overlay p { font-size: 0.95rem; color: #eee; line-height: 1.4; margin-bottom: 10px; }
 
-/* PREGUNTAS FRECUENTES (FAQ) */
-.faq-bloque { width: 100%; max-width: 850px; margin: auto; text-align: center; }
-.titulo-faq-negro { color: #000; font-size: 2.5rem; margin-bottom: 40px; }
-.icono-faq { display: inline-block; width: 50px; height: 50px; background-color: #000; color: #fff; border: 3px solid #fff; outline: 2px solid #000; border-radius: 8px; font-size: 2rem; line-height: 44px; font-weight: bold; margin-bottom: 15px; }
-.faq-contenedor { display: flex; flex-direction: column; gap: 12px; text-align: left; }
-.faq-item { background-color: #1a1a1a; border-radius: 5px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s ease; }
-.faq-item summary { padding: 18px 20px; cursor: pointer; font-weight: bold; color: #fff; list-style: none; text-align: center; font-size: 1.05rem; transition: color 0.3s, background 0.3s; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary:hover { color: #d4af37; background-color: #222; }
-.faq-item[open] summary { border: 2px solid #d4af37; color: #d4af37; background-color: #000; }
-.faq-respuesta { padding: 22px 25px; background-color: #222; color: #ddd; font-size: 0.95rem; border-top: 1px solid #333; line-height: 1.6; }
-.faq-respuesta p { margin: 0; }
+/* Acordeón / Desplegable de Banco */
+.banco-details summary {
+    color: var(--gold);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    list-style: none; 
+    display: inline-block;
+    transition: color 0.3s;
+}
+.banco-details summary::-webkit-details-marker { display: none; }
+.banco-details summary:hover { color: var(--white); }
+.datos-banco {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border-left: 4px solid var(--gold);
+}
+.datos-banco p { margin-bottom: 8px; color: #fff; font-size: 0.9rem; }
+.datos-banco strong { color: var(--gold); }
 
-/* SECCIÓN REDES SOCIALES */
-.redes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: auto; width: 100%; }
-.red-card { position: relative; aspect-ratio: 1/1; overflow: hidden; border: 5px solid #d4af37; display: block; transition: transform 0.3s; border-radius: 4px; }
-.red-card:hover { transform: scale(1.02); border-color: #fff; }
-.fondo-red { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); opacity: 0.6; transition: filter 0.3s, opacity 0.3s; }
-.red-card:hover .fondo-red { filter: grayscale(0%); opacity: 1; }
-.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); }
-.overlay i { color: white !important; font-size: 4rem; text-shadow: 2px 2px 12px rgba(0,0,0,0.8); }
+/* ====== BANNERS GRANDES DE REDES SOCIALES ====== */
+.redes-grandes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+}
+.red-cuadro {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.red-cuadro img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+.red-cuadro::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4); 
+    z-index: 2;
+    transition: background 0.4s ease;
+}
+.red-cuadro:hover img {
+    transform: scale(1.05);
+}
+.red-cuadro:hover::after {
+    background: rgba(0,0,0,0.2);
+}
+.red-cuadro i.icono-centro {
+    position: relative;
+    z-index: 3;
+    font-size: 6rem;
+    color: var(--gold);
+    transition: transform 0.3s;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+.red-cuadro:hover i.icono-centro {
+    transform: scale(1.1);
+}
 
-/* FOOTER COMPLETO */
-.footer-completo { background: #111; color: #fff; padding: 80px 20px 30px; border-top: 3px solid #d4af37; }
-.footer-contenedor { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-.logo-footer-dorado { color: #d4af37; font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; }
-.redes-footer-dorada a { color: #d4af37; font-size: 1.4rem; margin-right: 15px; transition: color 0.3s; }
-.redes-footer-dorada a:hover { color: #fff; }
-.icono-dorado { color: #d4af37; margin-right: 12px; font-size: 1.1rem; float: left; margin-top: 4px; }
-.info-link { margin-bottom: 18px; overflow: hidden; }
-.info-link p { margin: 0; font-size: 0.95rem; line-height: 1.4; color: #ccc; }
-.footer-col h3 { color: #d4af37; text-transform: uppercase; font-size: 1.05rem; margin-bottom: 25px; border-left: 3px solid #d4af37; padding-left: 10px; font-weight: 700; }
-.footer-col ul { list-style: none; padding: 0; margin: 0; }
-.footer-col ul li a { color: #fff; text-decoration: none; font-size: 0.95rem; display: block; margin-bottom: 10px; transition: color 0.3s; }
-.footer-col ul li a:hover { color: #d4af37; }
-.footer-derechos { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; font-size: 0.85rem; color: #555; }
+/* ====== PRÉDICA / VIDEO DESTACADO ====== */
+.predica-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 3px solid var(--gold);
+}
+.video-responsive iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
 
-/* DISEÑO RESPONSIVO MÓVIL */
-@media (max-width: 768px) {
-    header { padding: 15px 0; }
-    .nav-principal { flex-direction: column; padding: 0 10px; gap: 12px; }
-    .menu-links { flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .menu-links li { margin: 0 8px; }
-    .botones-accion { margin-top: 5px; }
-    .hero { justify-content: center; align-items: flex-start; padding-top: 140px; padding-left: 0; }
-    .texto-bienvenida { text-align: center; max-width: 90%; background: rgba(0,0,0,0.65); padding: 25px; border-radius: 8px; margin: auto; }
-    .versiculo-principal { font-size: 1.9rem; }
-    h2 { font-size: 2.2rem; margin-bottom: 25px; }
-    .footer-contenedor { text-align: center; }
-    .icono-dorado { float: none; display: inline-block; margin-bottom: 6px; margin-right: 0; }
-    .info-link { text-align: center; }
-    .caja-donacion { padding: 20px; display: block; max-width: 100%; }
+/* ====== MAPA Y CONTACTO ====== */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.info-contacto h4 { font-size: 1.5rem; margin-bottom: 20px; color: var(--black); }
+.info-contacto p { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: #555; }
+.info-contacto i { color: var(--gold); font-size: 1.2rem; }
+
+/* ====== FORMULARIO ====== */
+.formulario { display: grid; gap: 15px; }
+.formulario input, .formulario textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    background: #f9f9f9;
+}
+.formulario textarea { resize: vertical; min-height: 120px; }
+
+/* ====== TABLA DE HORARIOS ====== */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background-color: var(--dark-gray);
+}
+.tabla-horarios {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.tabla-horarios th {
+    background-color: #111;
+    color: var(--gold);
+    padding: 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--gold);
+}
+.tabla-horarios td {
+    padding: 18px 20px;
+    color: #eee;
+    border-bottom: 1px solid #333;
+    font-size: 1rem;
+}
+.tabla-horarios tr {
+    transition: background-color 0.3s;
+}
+.tabla-horarios tr:hover {
+    background-color: rgba(212, 175, 55, 0.1); 
+}
+.tabla-horarios td:first-child {
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* ====== FOOTER ====== */
+footer {
+    background: var(--dark-gray);
+    color: white;
+    padding: 60px 20px 20px;
+    border-top: 4px solid var(--gold);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    border-bottom: 1px solid #333;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+.footer-logo { color: var(--gold); font-size: 1.5rem; font-family: 'Oswald'; margin-bottom: 20px; }
+.footer-col h4 { color: var(--gold); margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+.footer-col ul li a:hover { color: var(--gold); }
+.redes-sociales { display: flex; gap: 15px; }
+.redes-sociales a { color: var(--gold); font-size: 1.5rem; transition: 0.3s; }
+.redes-sociales a:hover { color: white; }
+.copyright { text-align: center; color: #777; font-size: 0.9rem; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+    .nav-principal { flex-direction: column; padding: 15px; }
+    .logo { margin-right: 0; margin-bottom: 10px; } /* Ajuste para celular */
+    .menu-links { margin: 10px 0; flex-wrap: wrap; justify-content: center; margin-right: 0; }
+    .hero { padding-top: 100px; height: auto; padding-bottom: 100px; text-align: center; }
+    .texto-bienvenida { margin: auto; }
+    .versiculo-principal { font-size: 3rem; }
+    .pastor-slide { grid-template-columns: 1fr; gap: 20px; }
+    .predica-grid, .contacto-grid { grid-template-columns: 1fr; }
+    .tabla-horarios th, .tabla-horarios td { padding: 12px 10px; font-size: 0.9rem; }
 }
