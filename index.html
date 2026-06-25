@@ -17,6 +17,7 @@
 </head>
 <body>
 
+    <!-- MENÚ SUPERIOR -->
     <header>
         <nav class="nav-principal">
             <a href="#" class="logo" style="text-decoration:none;">DISEÑADOS A SU IMAGEN</a>
@@ -42,6 +43,7 @@
         </nav>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="inicio" class="hero">
         <div class="texto-bienvenida">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
@@ -53,9 +55,12 @@
         </div>
     </section>
 
-    <section id="pastor" class="seccion bg-negro"> <div class="contenedor">
+    <!-- SECCIÓN PASTOR CON SLIDER DESLIZABLE -->
+    <section id="pastor" class="seccion bg-negro">
+        <div class="contenedor">
             <div class="pastores-slider">
                 
+                <!-- Perfil Pastor 1 -->
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
                         <img src="foto-pastor1.jpg" alt="Pastor Manuel Duran" class="pastor-img">
@@ -65,9 +70,11 @@
                         <h3>Manuel Duran</h3>
                         <p>Somos una comunidad cristiana que te recibe con los brazos abiertos. Nuestro propósito es llevar el mensaje de salvación y restaurar vidas a través del amor de Jesucristo.</p>
                         <p>Acompaña al pastor en las enseñanzas basadas en la palabra de Dios, diseñadas para transformar tu visión espiritual y renovar tu corazón.</p>
-                        <a href="#contacto" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a> </div>
+                        <a href="#contacto" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
+                    </div>
                 </div>
 
+                <!-- Perfil Pastor 2 -->
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
                         <img src="foto-pastor2.jpg" alt="Pastor 2" class="pastor-img">
@@ -76,27 +83,31 @@
                         <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
                         <h3>Nombre del Otro Pastor</h3>
                         <p>Añade aquí la biografía o mensaje del segundo pastor. Espacio configurado para deslizarse igual que el perfil anterior.</p>
-                        <a href="#contacto" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a> </div>
+                        <a href="#contacto" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <!-- ÁREAS / MINISTERIOS -->
     <section id="ministerio" class="seccion bg-gris">
         <div class="contenedor">
             <h2 class="titulo-seccion">Conoce Más</h2>
             <div class="ministerios-grid">
                 
+                <!-- Tarjeta 1: Actividades Presenciales -->
                 <div class="tarjeta">
                     <img src="foto-actividades.jpg" alt="Actividades Presenciales">
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES PRESENCIALES</h3>
                         <p>Únete a nuestros servicios semanales presenciales.</p>
-                        <a href="#contacto" style="color:var(--gold); text-decoration:none; font-weight:bold; display:inline-block;">Ver Más <i class="fas fa-arrow-right"></i></a>
+                        <a href="#horarios" style="color:var(--gold); text-decoration:none; font-weight:bold; display:inline-block;">Ver Horarios <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
+                <!-- Tarjeta 2: Diezmos y Ofrendas -->
                 <div class="tarjeta">
                     <img src="foto-ofrendas.jpg" alt="Diezmos y Ofrendas">
                     <div class="tarjeta-overlay">
@@ -113,6 +124,7 @@
                     </div>
                 </div>
 
+                <!-- Tarjeta 3: Actividades en Vivo -->
                 <div class="tarjeta">
                     <img src="foto-envivo.jpg" alt="Transmisión en Vivo">
                     <div class="tarjeta-overlay">
@@ -124,18 +136,22 @@
 
             </div>
 
+            <!-- BANNERS GRANDES DE REDES SOCIALES -->
             <div class="redes-grandes-grid">
                 
+                <!-- Facebook -->
                 <a href="#" class="red-cuadro">
                     <img src="banner-fb.jpg" alt="Fondo Facebook">
                     <i class="fab fa-facebook-f icono-centro"></i>
                 </a>
 
+                <!-- Instagram -->
                 <a href="#" class="red-cuadro">
                     <img src="banner-ig.jpg" alt="Fondo Instagram">
                     <i class="fab fa-instagram icono-centro"></i>
                 </a>
 
+                <!-- WhatsApp -->
                 <a href="#" class="red-cuadro">
                     <img src="banner-wa.jpg" alt="Fondo WhatsApp">
                     <i class="fab fa-whatsapp icono-centro"></i>
@@ -146,6 +162,7 @@
         </div>
     </section>
 
+    <!-- SECCIÓN DE PRÉDICA -->
     <section id="en-vivo" class="seccion bg-negro">
         <div class="contenedor predica-grid">
             <div class="predica-texto">
@@ -161,6 +178,7 @@
         </div>
     </section>
 
+    <!-- MAPA, UBICACIÓN Y FORMULARIO -->
     <section id="contacto" class="seccion bg-blanco">
         <div class="contenedor">
             <h2 class="titulo-seccion">Ubicación y Contacto</h2>
@@ -198,6 +216,82 @@
         </div>
     </section>
 
+    <!-- SECCIÓN DE HORARIOS (TABLA) -->
+    <section id="horarios" class="seccion bg-negro">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">NUESTROS HORARIOS</h2>
+            <div class="tabla-contenedor">
+                <table class="tabla-horarios">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Actividad</th>
+                            <th>Hora</th>
+                            <th>Modalidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lunes</td>
+                            <td>Hijas del rey</td>
+                            <td>9:00 - 9:40 am</td>
+                            <td>Por Zoom</td>
+                        </tr>
+                        <tr>
+                            <td>Lunes</td>
+                            <td>Reunión de varones</td>
+                            <td>9:00 - 10:00 am</td>
+                            <td>Por Zoom</td>
+                        </tr>
+                        <tr>
+                            <td>Martes</td>
+                            <td>Hijas del rey</td>
+                            <td>9:00 - 9:40 am</td>
+                            <td>Por Zoom</td>
+                        </tr>
+                        <tr>
+                            <td>Martes</td>
+                            <td>Célula</td>
+                            <td>7:30 - 9:00 pm</td>
+                            <td>Por Zoom</td>
+                        </tr>
+                        <tr>
+                            <td>Jueves</td>
+                            <td>Hijas del rey</td>
+                            <td>10:00 - 12:00 pm</td>
+                            <td>Presencial y Zoom</td>
+                        </tr>
+                        <tr>
+                            <td>Jueves</td>
+                            <td>Predica</td>
+                            <td>7:00 - 8:00 pm</td>
+                            <td>Por Facebook</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Servicio presencial</td>
+                            <td>9:00 - 10:00 am</td>
+                            <td>Presencial</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Escuela de vida</td>
+                            <td>10:30 - 11:30 am</td>
+                            <td>Presencial</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Alabanza</td>
+                            <td>11:30 - 12:30 pm</td>
+                            <td>Presencial</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -227,7 +321,7 @@
                 <h4>Ayuda y Enlaces</h4>
                 <ul>
                     <li><a href="#contacto">Dudas y Sugerencias</a></li>
-                    <li><a href="#contacto">Contacto y Visitas</a></li>
+                    <li><a href="#horarios">Nuestros Horarios</a></li>
                     <li><a href="#ministerio">Diezmos y Ofrendas</a></li>
                 </ul>
             </div>
