@@ -54,14 +54,14 @@ header {
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
-    margin-right: auto;
+    margin-right: auto; /* ESTO EMPUJA EL MENÚ A LA DERECHA */
 }
 
 .menu-links { 
     display: flex; 
     list-style: none; 
     align-items: center; 
-    margin-right: 40px; 
+    margin-right: 40px; /* Espacio entre los textos y el botón DONAR */
 }
 
 .menu-links li { position: relative; margin: 0 15px; }
@@ -295,7 +295,7 @@ header {
     position: relative;
     z-index: 3;
     font-size: 6rem;
-    color: var(--gold); 
+    color: var(--gold);
     transition: transform 0.3s;
     text-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
@@ -390,55 +390,6 @@ header {
     color: var(--gold);
 }
 
-/* ====== PREGUNTAS FRECUENTES (FAQ) ====== */
-.faq-contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.faq-item {
-    background-color: var(--light-gray);
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-.faq-item summary {
-    padding: 20px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--black);
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s, color 0.3s;
-}
-.faq-item summary::-webkit-details-marker {
-    display: none;
-}
-.faq-item summary::after {
-    content: '\f078';
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    color: var(--gold);
-    transition: transform 0.3s ease;
-}
-.faq-item[open] summary::after {
-    transform: rotate(180deg);
-}
-.faq-item summary:hover {
-    color: var(--gold);
-}
-.faq-respuesta {
-    padding: 0 20px 20px 20px;
-    color: #555;
-    line-height: 1.6;
-    border-top: 1px solid #eaeaea;
-    margin-top: 10px;
-    padding-top: 15px;
-}
-
 /* ====== FOOTER ====== */
 footer {
     background: var(--dark-gray);
@@ -470,7 +421,7 @@ footer {
 /* ====== RESPONSIVE ====== */
 @media (max-width: 992px) {
     .nav-principal { flex-direction: column; padding: 15px; }
-    .logo { margin-right: 0; margin-bottom: 10px; } 
+    .logo { margin-right: 0; margin-bottom: 10px; } /* Ajuste para celular */
     .menu-links { margin: 10px 0; flex-wrap: wrap; justify-content: center; margin-right: 0; }
     .hero { padding-top: 100px; height: auto; padding-bottom: 100px; text-align: center; }
     .texto-bienvenida { margin: auto; }
