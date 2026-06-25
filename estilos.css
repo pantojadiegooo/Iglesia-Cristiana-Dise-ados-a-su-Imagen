@@ -377,7 +377,7 @@ header {
     transition: background-color 0.3s;
 }
 .tabla-horarios tr:hover {
-    background-color: rgba(212, 175, 55, 0.1); /* Brillo dorado tenue al pasar el mouse */
+    background-color: rgba(212, 175, 55, 0.1); 
 }
 .tabla-horarios td:first-child {
     font-weight: 700;
