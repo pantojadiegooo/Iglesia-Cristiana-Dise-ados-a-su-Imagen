@@ -50,7 +50,7 @@ header {
 }
 
 .logo {
-    color: var(--gold); /* CAMBIADO A DORADO */
+    color: var(--gold); 
     font-size: 1.5rem;
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
