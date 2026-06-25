@@ -15,9 +15,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -59,17 +57,8 @@ header {
     letter-spacing: 1px;
 }
 
-.menu-links {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-.menu-links li {
-    position: relative;
-    margin: 0 15px;
-}
-
+.menu-links { display: flex; list-style: none; align-items: center; }
+.menu-links li { position: relative; margin: 0 15px; }
 .menu-links li a {
     text-decoration: none;
     color: var(--black);
@@ -79,9 +68,7 @@ header {
     transition: color 0.3s;
 }
 
-.menu-links li a:hover {
-    color: var(--gold);
-}
+.menu-links li a:hover { color: var(--gold); }
 
 /* SUBMENÚ */
 .submenu {
@@ -171,8 +158,32 @@ header {
     margin: 15px auto 0;
 }
 
-/* ====== PASTOR / ABOUT ====== */
-.pastor-grid {
+/* ====== PASTOR / SLIDER ====== */
+.pastores-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 40px;
+    padding-bottom: 20px;
+    /* Estilos para la barra espaciadora (Scrollbar) */
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) #f1f1f1;
+}
+.pastores-slider::-webkit-scrollbar {
+    height: 10px;
+}
+.pastores-slider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.pastores-slider::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 10px;
+}
+
+.pastor-slide {
+    min-width: 100%;
+    scroll-snap-align: start;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
@@ -183,8 +194,8 @@ header {
     border-radius: 10px;
     box-shadow: 20px 20px 0px var(--gold);
 }
-.pastor-info h3 { font-size: 2.5rem; margin-bottom: 20px; }
-.pastor-info p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 30px; }
+.pastor-info h3 { font-size: 2.5rem; margin-bottom: 20px; text-transform: uppercase; }
+.pastor-info p { font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px; }
 
 /* ====== 3 TARJETAS (MINISTERIOS/AREAS) ====== */
 .ministerios-grid {
@@ -194,10 +205,9 @@ header {
 }
 .tarjeta {
     position: relative;
-    height: 400px;
+    height: 480px; /* Un poco más alto para dar espacio a los menús */
     border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
 }
 .tarjeta img {
     width: 100%;
@@ -205,15 +215,63 @@ header {
     object-fit: cover;
     transition: transform 0.5s ease;
 }
-.tarjeta:hover img { transform: scale(1.1); }
+.tarjeta:hover img { transform: scale(1.05); }
 .tarjeta-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95) 40%);
+    padding: 40px 20px 20px;
     color: white;
 }
-.tarjeta-overlay h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--gold); }
+.tarjeta-overlay h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--gold); }
+.tarjeta-overlay p { font-size: 0.95rem; color: #eee; line-height: 1.4; }
+
+/* Redes en las Tarjetas */
+.redes-tarjeta {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+.redes-tarjeta a {
+    color: var(--white);
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+.redes-tarjeta a:hover {
+    color: var(--gold);
+}
+
+/* Acordeón / Desplegable de Banco */
+.banco-details summary {
+    color: var(--gold);
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    list-style: none; /* Oculta la flecha por defecto en algunos navegadores */
+    display: inline-block;
+    transition: color 0.3s;
+}
+.banco-details summary::-webkit-details-marker {
+    display: none; /* Oculta la flecha por defecto en Chrome/Safari */
+}
+.banco-details summary:hover {
+    color: var(--white);
+}
+.datos-banco {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border-left: 4px solid var(--gold);
+}
+.datos-banco p {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+.datos-banco strong {
+    color: var(--gold);
+}
 
 /* ====== PRÉDICA / VIDEO DESTACADO ====== */
 .predica-grid {
@@ -297,5 +355,6 @@ footer {
     .hero { padding-top: 100px; height: auto; padding-bottom: 100px; text-align: center; }
     .texto-bienvenida { margin: auto; }
     .versiculo-principal { font-size: 3rem; }
-    .pastor-grid, .predica-grid, .contacto-grid { grid-template-columns: 1fr; }
+    .pastor-slide { grid-template-columns: 1fr; gap: 20px; }
+    .predica-grid, .contacto-grid { grid-template-columns: 1fr; }
 }
