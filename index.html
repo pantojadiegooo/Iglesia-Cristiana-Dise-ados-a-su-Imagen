@@ -12,84 +12,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseñados a su Imagen | Iglesia Cristiana</title>
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tu archivo de estilos -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
+    <!-- MENÚ SUPERIOR -->
     <header>
         <nav class="nav-principal">
-            <div class="logo">DISEÑADOS A SU IMAGEN</div>
+            <a href="#" class="logo" style="text-decoration:none;">DISEÑADOS A SU IMAGEN</a>
             
             <ul class="menu-links">
+                <li><a href="#inicio">Inicio</a></li>
                 <li class="dropdown">
-                    <a href="#">MINISTERIO <i class="fas fa-chevron-down"></i></a>
+                    <a href="#ministerio">Ministerios <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
                     <ul class="submenu">
-                        <li><a href="#pastor">EL PASTOR</a></li>
-                        <li><a href="#registro">PEDIR ORACIÓN</a></li>
-                        <li><a href="#ubicacion">VISITAS</a></li>
+                        <li><a href="#pastor">Nuestro Pastor</a></li>
+                        <li><a href="#oracion">Pedir Oración</a></li>
+                        <li><a href="#visitas">Visitas</a></li>
                     </ul>
                 </li>
-                <li><a href="#en-vivo">RADIO / EN VIVO</a></li>
-                <li><a href="#ubicacion">CONTACTO</a></li>
+                <li><a href="#en-vivo">Radio / En Vivo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
 
             <div class="botones-accion">
-                <a href="#registro" class="btn-negro">SOCIOS</a>
-                <a href="#donar" class="btn-dorado">DONAR <i class="fas fa-heart"></i></a>
+                <a href="#oracion" class="btn btn-negro">Socios</a>
+                <a href="#contacto" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
             </div>
         </nav>
     </header>
 
-    <section id="inicio" class="hero seccion-deslizable">
-        <div class="hero-content">
-            <div class="texto-bienvenida">
-                <p class="mensaje-comunidad">Somos una comunidad cristiana que te recibe con los brazos abiertos. Un espacio para cultivar la paz y fortalecer tu relación con Dios.</p>
-                <h1 class="versiculo-principal">"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar..."</h1>
-                <p class="salmo-referencia">Mateo 11:28-30</p>
-                <div style="margin-top: 30px;">
-                    <a href="#ubicacion" class="btn-dorado" style="padding: 15px 30px; font-size: 1.2rem; text-decoration: none; border-radius: 5px;">Planea tu Visita</a>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="texto-bienvenida">
+            <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
+            <h1 class="versiculo-principal">"VENID A MÍ TODOS LOS QUE ESTÁIS TRABAJADOS Y CARGADOS..."</h1>
+            <p class="salmo-referencia">Mateo 11:28</p>
+            <div style="margin-top: 40px;">
+                <a href="#contacto" class="btn btn-dorado" style="font-size: 1.1rem; padding: 15px 35px;">Planear mi visita</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PASTOR -->
+    <section id="pastor" class="seccion bg-blanco">
+        <div class="contenedor pastor-grid">
+            <div class="pastor-img-container">
+                <!-- Cambia el link de la imagen por la de tus pastores -->
+                <img src="https://images.unsplash.com/photo-1507676184212-d0330a15673bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pastores" class="pastor-img">
+            </div>
+            <div class="pastor-info">
+                <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
+                <h3>Nombre del Pastor</h3>
+                <p>Somos una comunidad cristiana que te recibe con los brazos abiertos. Nuestro propósito es llevar el mensaje de salvación y restaurar vidas a través del amor de Jesucristo.</p>
+                <p>Acompaña al pastor en las enseñanzas basadas en la palabra de Dios, diseñadas para transformar tu visión espiritual y renovar tu corazón.</p>
+                <a href="#contacto" class="btn btn-negro" style="margin-top: 15px;">Conocer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREAS / MINISTERIOS (Las 3 Tarjetas estilo Harrigan) -->
+    <section id="ministerio" class="seccion bg-gris">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Conoce Más</h2>
+            <div class="ministerios-grid">
+                
+                <div class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Iglesia">
+                    <div class="tarjeta-overlay">
+                        <h3>CASA DE DIOS</h3>
+                        <p>Únete a nuestros servicios semanales presenciales.</p>
+                        <a href="#contacto" style="color:var(--gold); text-decoration:none; font-weight:bold; margin-top:10px; display:inline-block;">Ver Más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Milagros">
+                    <div class="tarjeta-overlay">
+                        <h3>PEDIR ORACIÓN</h3>
+                        <p>Estamos aquí para interceder por tus peticiones.</p>
+                        <a href="#oracion" style="color:var(--gold); text-decoration:none; font-weight:bold; margin-top:10px; display:inline-block;">Ver Más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1516280440502-6286c47675f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Radio">
+                    <div class="tarjeta-overlay">
+                        <h3>ALIENTO DEL CIELO</h3>
+                        <p>Escucha nuestra radio y transmisión 24/7.</p>
+                        <a href="#en-vivo" style="color:var(--gold); text-decoration:none; font-weight:bold; margin-top:10px; display:inline-block;">Ver Más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRÉDICA / VIDEO DESTACADO -->
+    <section id="en-vivo" class="seccion bg-negro">
+        <div class="contenedor predica-grid">
+            <div class="predica-texto">
+                <h2 style="color:var(--gold); font-size:2.5rem; margin-bottom: 20px;">VUELVE A BETEL</h2>
+                <p style="color:#ccc; font-size:1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                    Acompaña al pastor en una enseñanza basada en la vida de Jacob, donde Dios lo llama a volver a Betel. Descubre cómo regresar al lugar de intimidad con Dios puede restaurar tu visión espiritual.
+                </p>
+                <a href="#" class="btn btn-dorado">Ver Prédica Completa</a>
+            </div>
+            <div class="video-responsive">
+                <!-- Sustituye este ID de YouTube por el tuyo -->
+                <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA, UBICACIÓN Y FORMULARIO JUNTOS -->
+    <section id="contacto" class="seccion bg-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Ubicación y Contacto</h2>
+            
+            <div class="contacto-grid">
+                <!-- Lado Izquierdo: Formulario e Info -->
+                <div id="oracion">
+                    <div class="info-contacto" style="margin-bottom: 40px;">
+                        <h4>Información</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</p>
+                        <p><i class="fas fa-clock"></i> Domingos 10 AM - 1 PM</p>
+                        <p><i class="fas fa-phone"></i> +52 (55) 1234-5678</p>
+                    </div>
+
+                    <h4 style="margin-bottom: 15px;">Déjanos tu petición de oración</h4>
+                    <form class="formulario">
+                        <input type="text" placeholder="Tu Nombre" required>
+                        <input type="email" placeholder="Tu Correo Electrónico" required>
+                        <textarea placeholder="Escribe tu petición de oración o mensaje..." required></textarea>
+                        <button type="submit" class="btn btn-dorado" style="width:100%; border:none; cursor:pointer;">Enviar Mensaje</button>
+                    </form>
+                </div>
+
+                <!-- Lado Derecho: Mapa Embebido de Google Maps -->
+                <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 100%; min-height: 400px;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="pastor" class="seccion-deslizable blanco">
-        <div class="contenedor-contenido" style="text-align: center;">
-            <h2>NUESTROS PASTORES</h2>
-            <p style="margin-bottom: 20px;">Conoce a quienes guían nuestra congregación con amor y fe.</p>
-            <img src="foto-pastor.jpg" alt="Foto de los Pastores" style="max-width: 250px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-            <h3 style="margin-top: 15px;">Nombre de los Pastores</h3>
-            <p>Una breve descripción de su ministerio y llamado.</p>
-        </div>
-    </section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
+                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+                    Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.
+                </p>
+                <div class="redes-sociales">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
 
-    <section id="en-vivo" class="envivo-section seccion-deslizable negro">
-        <div class="contenedor-contenido">
-            <h2>TRANSMISIÓN EN VIVO</h2>
-            <div class="video-contenedor">
-                <iframe width="100%" height="500" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_DE_YOUTUBE_ID" frameborder="0" allowfullscreen></iframe>
+            <div class="footer-col">
+                <h4>Menú Principal</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#pastor">El Pastor</a></li>
+                    <li><a href="#ministerio">Ministerios</a></li>
+                    <li><a href="#en-vivo">Transmisión en Vivo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Ayuda y Enlaces</h4>
+                <ul>
+                    <li><a href="#oracion">Pedir Oración</a></li>
+                    <li><a href="#contacto">Contacto y Visitas</a></li>
+                    <li><a href="#">Donaciones</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <section id="ubicacion" class="mapa-section seccion-deslizable blanco">
-        <div class="contenedor-contenido">
-            <h2>NUESTRA UBICACIÓN</h2>
-            <div class="mapa-contenedor-visual">
-                <a href="https://www.google.com/maps/search/?api=1&query=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+México,+CDMX" target="_blank" class="enlace-mapa">
-                    <div class="capa-mapa" style="background-color: #333; padding: 50px; text-align: center; color: white; border-radius: 10px;">
-                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; margin-bottom: 15px; color: #d4af37;"></i>
-                        <p style="font-weight: bold; font-size: 1.2rem;">ABRIR MAPA INTERACTIVO</p>
-                    </div>
-                </a>
-            </div>
-            <br>
-            <a href="https://www.google.com/maps/search/?api=1&query=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+México,+CDMX" target="_blank" class="btn-dorado" style="text-decoration: none; padding: 10px 20px; border-radius: 5px;">¿CÓMO LLEGAR? CLICK AQUÍ</a>
+        <div class="copyright">
+            © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
         </div>
-    </section>
+    </footer>
 
-    <section id="registro" class="registro-section seccion-deslizable negro">
-        <div class="contenedor-contenido">
-            <h2>PIDE ORACIÓN / ÚNETE A NOSOTROS</h2>
-            <div class="formulario-contenedor
+</body>
+</html>
