@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pastor Manuel Duran | Diseñados a su Imagen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --azul: #1a3a5c;
-      --azul-medio: #2563a8;
+      --negro: #0a0a0a;
+      --negro-suave: #1a1a1a;
       --dorado: #c9a84c;
       --blanco: #ffffff;
-      --gris-claro: #f5f6fa;
+      --gris-claro: #f9f9f9;
       --texto: #222;
       --texto-suave: #555;
     }
@@ -26,34 +26,38 @@
 
     /* NAV */
     nav {
-      background: var(--azul);
+      background: var(--negro);
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 3px solid var(--dorado);
     }
     nav .logo {
-      color: var(--blanco);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      color: var(--dorado);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
       text-decoration: none;
-      letter-spacing: 0.04em;
+      letter-spacing: 1px;
     }
     nav a.back {
       color: var(--dorado);
       text-decoration: none;
+      font-family: 'Oswald', sans-serif;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      transition: opacity 0.2s;
+      transition: color 0.2s;
     }
-    nav a.back:hover { opacity: 0.75; }
+    nav a.back:hover { color: var(--blanco); }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+      background: linear-gradient(135deg, var(--negro) 0%, var(--negro-suave) 100%);
       padding: 4rem 2rem 3rem;
       text-align: center;
       position: relative;
@@ -63,7 +67,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
     .hero-img {
       width: 140px;
@@ -75,13 +79,16 @@
       position: relative;
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
       color: var(--blanco);
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 0.4rem;
+      letter-spacing: 1px;
     }
     .hero .role {
       color: var(--dorado);
+      font-family: 'Oswald', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
       letter-spacing: 0.1em;
@@ -96,7 +103,7 @@
     }
 
     .verse-box {
-      background: var(--azul);
+      background: var(--negro);
       color: var(--blanco);
       border-left: 4px solid var(--dorado);
       padding: 1.25rem 1.5rem;
@@ -116,13 +123,15 @@
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
       font-size: 1.4rem;
-      color: var(--azul);
+      color: var(--negro);
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid var(--dorado);
       display: inline-block;
+      letter-spacing: 0.05em;
     }
 
     .bio-block {
@@ -149,7 +158,9 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .value-card h3 {
-      color: var(--azul);
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      color: var(--negro);
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
@@ -161,7 +172,7 @@
     }
 
     .cta-box {
-      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-medio) 100%);
+      background: linear-gradient(135deg, var(--negro) 0%, var(--negro-suave) 100%);
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
@@ -176,10 +187,12 @@
     .btn {
       display: inline-block;
       background: var(--dorado);
-      color: var(--azul);
+      color: var(--negro);
       padding: 0.75rem 2rem;
       border-radius: 50px;
-      font-weight: 600;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
@@ -196,7 +209,7 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 { font-size: 1.5rem; }
+      .hero h1 { font-size: 1.7rem; }
       .content { padding: 2rem 1.25rem; }
     }
   </style>
@@ -209,7 +222,7 @@
   </nav>
 
   <div class="hero">
-    <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=1a3a5c&color=c9a84c&size=140'" />
+    <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
     <h1>Pastor Manuel Duran</h1>
     <p class="role">Pastor Principal · Diseñados a su Imagen</p>
   </div>
