@@ -192,8 +192,10 @@
       border-radius: 10px;
       overflow: hidden;
       aspect-ratio: 4/3;
-      background: #ddd;
+      background: #222; /* Fondo oscuro por si la imagen tarda en cargar */
       box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      display: block; /* Asegura que el enlace ocupe todo el espacio */
+      text-decoration: none; /* Quita el subrayado del enlace */
     }
     .foto-item img {
       width: 100%; height: 100%;
@@ -214,7 +216,7 @@
       letter-spacing: 0.05em;
     }
 
-    /* Placeholder cuando no hay foto */
+    /* Placeholder (Se conserva por si necesitas reciclar el diseño vacío luego) */
     .foto-placeholder {
       width: 100%; height: 100%;
       display: flex;
@@ -396,62 +398,47 @@
 
       <div class="foto-grid">
 
-        <!-- Aquí irán tus fotos reales. Por ahora se muestran con placeholders. -->
-        <!-- Para agregar una foto: reemplaza el div.foto-placeholder por <img src="tu-foto.jpg" alt="..."> -->
-
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Sube aquí tu foto de aniversario o evento especial</p>
-          </div>
+        <!-- Tarjeta 1: Aniversario -->
+        <a href="aniversario.html" class="foto-item">
+          <img src="portada-aniversario.jpg" alt="Aniversario de la Iglesia">
           <div class="foto-caption">Aniversario de la Iglesia</div>
-        </div>
+        </a>
 
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Foto de bautismos, graduaciones o celebraciones</p>
-          </div>
+        <!-- Tarjeta 2: Bautismos -->
+        <a href="bautismos.html" class="foto-item">
+          <img src="portada-bautismos.jpg" alt="Bautismos">
           <div class="foto-caption">Bautismos</div>
-        </div>
+        </a>
 
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Foto de eventos especiales, convivios o retiros</p>
-          </div>
+        <!-- Tarjeta 3: Convivios y Retiros -->
+        <a href="convivios.html" class="foto-item">
+          <img src="portada-convivios.jpg" alt="Convivios y Retiros">
           <div class="foto-caption">Convivios y Retiros</div>
-        </div>
+        </a>
 
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Foto del ministerio de mujeres – Hijas del Rey</p>
-          </div>
+        <!-- Tarjeta 4: Hijas del Rey -->
+        <a href="hijas-del-rey.html" class="foto-item">
+          <img src="portada-hijas.jpg" alt="Hijas del Rey">
           <div class="foto-caption">Hijas del Rey</div>
-        </div>
+        </a>
 
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Foto de actividades con jóvenes o varones</p>
-          </div>
+        <!-- Tarjeta 5: Ministerio de Jóvenes -->
+        <a href="jovenes.html" class="foto-item">
+          <img src="portada-jovenes.jpg" alt="Ministerio de Jóvenes">
           <div class="foto-caption">Ministerio de Jóvenes</div>
-        </div>
+        </a>
 
-        <div class="foto-item">
-          <div class="foto-placeholder">
-            <i class="fas fa-camera"></i>
-            <p>Foto de navidades, posadas u otras fechas especiales</p>
-          </div>
+        <!-- Tarjeta 6: Fechas Especiales -->
+        <a href="fechas-especiales.html" class="foto-item">
+          <img src="portada-fechas.jpg" alt="Fechas Especiales">
           <div class="foto-caption">Fechas Especiales</div>
-        </div>
+        </a>
 
       </div>
 
       <!-- Aviso para ti como administrador -->
       <div class="galeria-aviso">
-        <strong>¿Cómo agregar fotos?</strong> Sube las imágenes a la carpeta de tu repositorio en GitHub y reemplaza cada <code>div.foto-placeholder</code> con una etiqueta <code>&lt;img src="nombre-de-tu-foto.jpg" alt="descripción"&gt;</code> dentro del <code>div.foto-item</code>. También puedes agregar más bloques copiando el mismo código.
+        <strong>¿Cómo agregar fotos?</strong> Sube las imágenes a la carpeta de tu repositorio en GitHub y reemplaza los nombres de archivo (ej. <code>portada-aniversario.jpg</code>) en las etiquetas <code>&lt;img&gt;</code> por los nombres reales de tus fotos.
       </div>
     </div>
   </section>
