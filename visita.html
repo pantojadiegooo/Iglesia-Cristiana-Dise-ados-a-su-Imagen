@@ -1,1 +1,472 @@
-<a href="TU_ENLACE_AQUI" target="_blank" class="btn btn-dorado" style="font-size: 1.1rem; padding: 15px 35px;">Planear mi visita</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conócenos | Diseñados a su Imagen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    /* ── Reset de padding-top heredado del body global ── */
+    body { padding-top: 0; }
+
+    /* ── NAV LOCAL ── */
+    .nav-conocenos {
+      background: #0a0a0a;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-bottom: 3px solid var(--gold);
+    }
+    .nav-conocenos .logo-nav {
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .nav-conocenos a.volver {
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-conocenos a.volver:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero-conocenos {
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 100%), url('IMG_0452.jpg') center/cover no-repeat;
+      padding: 80px 20px;
+    }
+    .hero-conocenos h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-conocenos h1 span { color: var(--gold); }
+    .hero-conocenos p {
+      color: #ccc;
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── GENERAL ── */
+    .page-section { padding: 90px 20px; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      text-transform: uppercase;
+      color: #0a0a0a;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .section-heading.light { color: #fff; }
+    .divider-gold {
+      width: 56px; height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ── MISIÓN / VISIÓN / VALORES ── */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .mvv-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 32px 28px;
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    }
+    .mvv-card .icon {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .mvv-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      margin-bottom: 10px;
+    }
+    .mvv-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ── HISTORIA TIMELINE ── */
+    .historia-bg { background: #0a0a0a; }
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+      border-left: 3px solid var(--gold);
+      display: grid;
+      gap: 40px;
+      max-width: 720px;
+    }
+    .timeline-item { position: relative; }
+    .timeline-dot {
+      position: absolute;
+      left: -44px;
+      top: 4px;
+      width: 18px; height: 18px;
+      background: var(--gold);
+      border-radius: 50%;
+      border: 3px solid #0a0a0a;
+    }
+    .timeline-year {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-item h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .timeline-item p {
+      color: #bbb;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ── GALERÍA ── */
+    .galeria-bg { background: #f9f9f9; }
+    .galeria-intro {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    /* Grid de fotos */
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .foto-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #ddd;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+    .foto-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .foto-item:hover img { transform: scale(1.06); }
+    .foto-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      color: #fff;
+      padding: 28px 16px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Placeholder cuando no hay foto */
+    .foto-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #e8e8e8;
+      color: #aaa;
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .foto-placeholder i { font-size: 2.5rem; color: var(--gold); opacity: 0.6; }
+    .foto-placeholder p { font-size: 0.85rem; line-height: 1.5; }
+
+    /* Aviso de subida */
+    .galeria-aviso {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: #fff;
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .galeria-aviso strong { color: #0a0a0a; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      text-align: center;
+      padding: 90px 20px;
+      border-top: 4px solid var(--gold);
+    }
+    .cta-final h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .cta-final p {
+      color: #bbb;
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .cta-btns a {
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cta-btns .btn-gold { background: var(--gold); color: #0a0a0a; }
+    .cta-btns .btn-gold:hover { background: var(--gold-hover); }
+    .cta-btns .btn-wa { background: #25D366; color: #fff; }
+    .cta-btns .btn-wa:hover { background: #1ebe5a; }
+
+    /* ── FOOTER ── */
+    .footer-mini {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 640px) {
+      .page-section { padding: 60px 16px; }
+      .timeline { padding-left: 24px; }
+      .timeline-dot { left: -32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav-conocenos">
+    <a href="index.html" class="logo-nav">DISEÑADOS A SU IMAGEN</a>
+    <a href="index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-conocenos">
+    <div>
+      <h1>Conoce nuestra <span>historia</span></h1>
+      <p>Somos una comunidad de fe nacida en Iztapalapa, CDMX. Aquí encontrarás quiénes somos, de dónde venimos y hacia dónde Dios nos lleva.</p>
+    </div>
+  </div>
+
+  <!-- MISIÓN / VISIÓN / VALORES -->
+  <section class="page-section" style="background:#fff;">
+    <div class="inner">
+      <p class="section-label">Nuestra identidad</p>
+      <h2 class="section-heading">Misión, Visión y Valores</h2>
+      <div class="divider-gold"></div>
+      <div class="mvv-grid">
+        <div class="mvv-card">
+          <div class="icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Misión</h3>
+          <p>Llevar el mensaje de salvación y restauración a cada persona y familia, formando discípulos comprometidos con la Palabra de Dios y el servicio a la comunidad.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="icon"><i class="fas fa-eye"></i></div>
+          <h3>Visión</h3>
+          <p>Ser una iglesia que trascienda las paredes de un edificio: una comunidad viva, activa y transformadora que impacte Iztapalapa y más allá con el amor de Cristo.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <h3>Valores</h3>
+          <p>Fe, amor, unidad, servicio y restauración. Creemos que toda persona fue diseñada por Dios con un propósito único e irrepetible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA TIMELINE -->
+  <section class="page-section historia-bg">
+    <div class="inner">
+      <p class="section-label" style="color:var(--gold);">Nuestra historia</p>
+      <h2 class="section-heading light">El camino que Dios<br>ha trazado</h2>
+      <div class="divider-gold"></div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Los Inicios</p>
+          <h3>El llamado de Dios</h3>
+          <p>Todo comenzó con una promesa y una convicción profunda en el corazón del Pastor Manuel Duran: que Dios tenía un propósito para las familias de Iztapalapa. De una reunión en casa nació la semilla de lo que hoy es "Diseñados a su Imagen".</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Crecimiento</p>
+          <h3>Una comunidad que crece</h3>
+          <p>Poco a poco, familias y jóvenes comenzaron a llegar, atraídos por la calidez de la comunidad y la profundidad de las enseñanzas. Los ministerios de mujeres, jóvenes y varones tomaron forma bajo el liderazgo de los pastores.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Expansión Digital</p>
+          <h3>Llegando más lejos</h3>
+          <p>La iglesia extendió su alcance a través de transmisiones en Facebook, Zoom y YouTube, permitiendo que personas de distintas partes pudieran conectarse con la Palabra de Dios desde sus hogares.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Hoy</p>
+          <h3>Diseñados para el futuro</h3>
+          <p>Seguimos creciendo, sirviendo y creyendo. Cada domingo es una nueva oportunidad de ver vidas transformadas. El mejor capítulo de nuestra historia todavía está por escribirse.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE EVENTOS / ANIVERSARIOS -->
+  <section class="page-section galeria-bg">
+    <div class="inner">
+      <p class="section-label">Momentos especiales</p>
+      <h2 class="section-heading">Galería de Eventos<br>y Aniversarios</h2>
+      <div class="divider-gold"></div>
+      <p class="galeria-intro">Cada foto cuenta una historia de fe, amor y comunidad. Aquí guardamos los momentos que Dios ha regalado a nuestra congregación a lo largo de los años.</p>
+
+      <div class="foto-grid">
+
+        <!-- Aquí irán tus fotos reales. Por ahora se muestran con placeholders. -->
+        <!-- Para agregar una foto: reemplaza el div.foto-placeholder por <img src="tu-foto.jpg" alt="..."> -->
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Sube aquí tu foto de aniversario o evento especial</p>
+          </div>
+          <div class="foto-caption">Aniversario de la Iglesia</div>
+        </div>
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Foto de bautismos, graduaciones o celebraciones</p>
+          </div>
+          <div class="foto-caption">Bautismos</div>
+        </div>
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Foto de eventos especiales, convivios o retiros</p>
+          </div>
+          <div class="foto-caption">Convivios y Retiros</div>
+        </div>
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Foto del ministerio de mujeres – Hijas del Rey</p>
+          </div>
+          <div class="foto-caption">Hijas del Rey</div>
+        </div>
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Foto de actividades con jóvenes o varones</p>
+          </div>
+          <div class="foto-caption">Ministerio de Jóvenes</div>
+        </div>
+
+        <div class="foto-item">
+          <div class="foto-placeholder">
+            <i class="fas fa-camera"></i>
+            <p>Foto de navidades, posadas u otras fechas especiales</p>
+          </div>
+          <div class="foto-caption">Fechas Especiales</div>
+        </div>
+
+      </div>
+
+      <!-- Aviso para ti como administrador -->
+      <div class="galeria-aviso">
+        <strong>¿Cómo agregar fotos?</strong> Sube las imágenes a la carpeta de tu repositorio en GitHub y reemplaza cada <code>div.foto-placeholder</code> con una etiqueta <code>&lt;img src="nombre-de-tu-foto.jpg" alt="descripción"&gt;</code> dentro del <code>div.foto-item</code>. También puedes agregar más bloques copiando el mismo código.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <div class="cta-final">
+    <h2>¿Listo para visitarnos?</h2>
+    <p>Nos encantaría conocerte. Ven cualquier domingo a las 9:00 am a Casimiro Chovell 9, Iztapalapa, CDMX.</p>
+    <div class="cta-btns">
+      <a href="index.html#contacto" class="btn-gold">Ver horarios y mapa</a>
+      <a href="https://w.app/xj23cq" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Escribir por WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="footer-mini">© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</div>
+
+</body>
+</html>
