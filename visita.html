@@ -106,11 +106,11 @@
       gap: 28px;
     }
     .mvv-card {
-      background: #fff;
+      background: #1a1a1a; /* Cambiado a negro suave para contrastar con el fondo negro */
       border-radius: 10px;
       padding: 32px 28px;
       border-top: 4px solid var(--gold);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
     }
     .mvv-card .icon {
       font-size: 2rem;
@@ -121,17 +121,17 @@
       font-family: 'Oswald', sans-serif;
       font-size: 1.2rem;
       text-transform: uppercase;
-      color: #0a0a0a;
+      color: #fff; /* Cambiado a blanco */
       margin-bottom: 10px;
     }
     .mvv-card p {
-      color: #555;
+      color: #ccc; /* Cambiado a gris claro */
       font-size: 0.95rem;
       line-height: 1.75;
     }
 
     /* ── HISTORIA TIMELINE ── */
-    .historia-bg { background: #0a0a0a; }
+    .historia-bg { background: #ffffff; } /* Cambiado a blanco */
     .timeline {
       position: relative;
       padding-left: 36px;
@@ -148,7 +148,7 @@
       width: 18px; height: 18px;
       background: var(--gold);
       border-radius: 50%;
-      border: 3px solid #0a0a0a;
+      border: 3px solid #ffffff; /* Cambiado a blanco para acoplarse al fondo */
     }
     .timeline-year {
       font-family: 'Oswald', sans-serif;
@@ -161,20 +161,20 @@
     .timeline-item h3 {
       font-family: 'Oswald', sans-serif;
       font-size: 1.2rem;
-      color: #fff;
+      color: #0a0a0a; /* Cambiado a negro */
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .timeline-item p {
-      color: #bbb;
+      color: #555; /* Cambiado a gris oscuro para lectura óptima */
       font-size: 0.95rem;
       line-height: 1.75;
     }
 
     /* ── GALERÍA ── */
-    .galeria-bg { background: #f9f9f9; }
+    .galeria-bg { background: #0a0a0a; } /* Cambiado a negro */
     .galeria-intro {
-      color: #555;
+      color: #ccc; /* Cambiado a gris claro */
       font-size: 1rem;
       line-height: 1.75;
       max-width: 620px;
@@ -192,10 +192,10 @@
       border-radius: 10px;
       overflow: hidden;
       aspect-ratio: 4/3;
-      background: #222; /* Fondo oscuro por si la imagen tarda en cargar */
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-      display: block; /* Asegura que el enlace ocupe todo el espacio */
-      text-decoration: none; /* Quita el subrayado del enlace */
+      background: #222;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      display: block;
+      text-decoration: none;
     }
     .foto-item img {
       width: 100%; height: 100%;
@@ -216,7 +216,7 @@
       letter-spacing: 0.05em;
     }
 
-    /* Placeholder (Se conserva por si necesitas reciclar el diseño vacío luego) */
+    /* Placeholder */
     .foto-placeholder {
       width: 100%; height: 100%;
       display: flex;
@@ -236,14 +236,14 @@
     .galeria-aviso {
       margin-top: 32px;
       padding: 20px 24px;
-      background: #fff;
+      background: #1a1a1a; /* Cambiado a negro suave */
       border-left: 4px solid var(--gold);
       border-radius: 0 8px 8px 0;
-      color: #555;
+      color: #ccc;
       font-size: 0.9rem;
       line-height: 1.6;
     }
-    .galeria-aviso strong { color: #0a0a0a; }
+    .galeria-aviso strong { color: #fff; }
 
     /* ── CTA FINAL ── */
     .cta-final {
@@ -321,11 +321,11 @@
     </div>
   </div>
 
-  <!-- MISIÓN / VISIÓN / VALORES -->
-  <section class="page-section" style="background:#fff;">
+  <!-- MISIÓN / VISIÓN / VALORES (Fondo Negro) -->
+  <section class="page-section" style="background:#0a0a0a;">
     <div class="inner">
       <p class="section-label">Nuestra identidad</p>
-      <h2 class="section-heading">Misión, Visión y Valores</h2>
+      <h2 class="section-heading light">Misión, Visión y Valores</h2>
       <div class="divider-gold"></div>
       <div class="mvv-grid">
         <div class="mvv-card">
@@ -347,11 +347,11 @@
     </div>
   </section>
 
-  <!-- HISTORIA TIMELINE -->
+  <!-- HISTORIA TIMELINE (Fondo Blanco) -->
   <section class="page-section historia-bg">
     <div class="inner">
       <p class="section-label" style="color:var(--gold);">Nuestra historia</p>
-      <h2 class="section-heading light">El camino que Dios<br>ha trazado</h2>
+      <h2 class="section-heading">El camino que Dios<br>ha trazado</h2>
       <div class="divider-gold"></div>
 
       <div class="timeline">
@@ -388,11 +388,11 @@
     </div>
   </section>
 
-  <!-- GALERÍA DE EVENTOS / ANIVERSARIOS -->
+  <!-- GALERÍA DE EVENTOS / ANIVERSARIOS (Fondo Negro) -->
   <section class="page-section galeria-bg">
     <div class="inner">
       <p class="section-label">Momentos especiales</p>
-      <h2 class="section-heading">Galería de Eventos<br>y Aniversarios</h2>
+      <h2 class="section-heading light">Galería de Eventos<br>y Aniversarios</h2>
       <div class="divider-gold"></div>
       <p class="galeria-intro">Cada foto cuenta una historia de fe, amor y comunidad. Aquí guardamos los momentos que Dios ha regalado a nuestra congregación a lo largo de los años.</p>
 
