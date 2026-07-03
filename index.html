@@ -171,10 +171,11 @@
                     </div>
 
                     <h4 style="margin-bottom: 15px;">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
-                    <form class="formulario">
-                        <input type="text" placeholder="Tu Nombre" required>
-                        <input type="email" placeholder="Tu Correo Electrónico" required>
-                        <textarea placeholder="Escribe tu duda o sugerencia..." required></textarea>
+                    <form class="formulario" action="https://formspree.io/f/xojoyewy" method="POST">
+                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                        <input type="email" name="_replyto" placeholder="Tu Correo Electrónico" required>
+                        <textarea name="mensaje" placeholder="Escribe tu duda o sugerencia..." required></textarea>
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde la página de la iglesia">
                         <button type="submit" class="btn btn-dorado" style="width:100%; border:none; cursor:pointer;">Enviar Mensaje</button>
                     </form>
                 </div>
