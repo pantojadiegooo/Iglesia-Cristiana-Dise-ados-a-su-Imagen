@@ -179,11 +179,11 @@
                     </div>
 
                     <h4 style="margin-bottom: 15px;">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
-                    <form class="formulario" action="https://formspree.io/f/xojoyewy" method="POST">
-                        <input type="text" name="nombre" placeholder="Tu Nombre" required>
-                        <input type="email" name="_replyto" placeholder="Tu Correo Electrónico" required>
-                        <textarea name="mensaje" placeholder="Escribe tu duda o sugerencia..." required></textarea>
-                        <input type="hidden" name="_subject" value="Nuevo mensaje desde la página de la iglesia">
+                    <!-- Formulario modificado con IDs para conectarlo a Python -->
+                    <form class="formulario" id="formulario-contacto">
+                        <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
+                        <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
+                        <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
                         <button type="submit" class="btn btn-dorado" style="width:100%; border:none; cursor:pointer;">Enviar Mensaje</button>
                     </form>
                 </div>
@@ -196,6 +196,7 @@
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
+                        type="hidden"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -372,5 +373,54 @@
         </div>
     </footer>
 
+    <!-- Script de JavaScript para enviar los datos a tu API en Render -->
+    <script>
+    document.getElementById('formulario-contacto').addEventListener('submit', async (e) => {
+        e.preventDefault(); // Detiene la recarga automática de la página
+
+        // Captura los valores ingresados por el usuario
+        const nombre = document.getElementById('nombre-usuario').value;
+        const correo = document.getElementById('correo-usuario').value;
+        const mensaje = document.getElementById('mensaje-usuario').value;
+
+        // Cambia el estado del botón para indicar que está procesando
+        const botonSubmit = e.target.querySelector('button[type="submit"]');
+        const textoOriginalBoton = botonSubmit.innerText;
+        botonSubmit.innerText = "Enviando...";
+        botonSubmit.disabled = true;
+
+        try {
+            // Envía una petición POST con los datos estructurados en JSON a Render
+            const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su-imagen.onrender.com/api/contacto', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    nombre: nombre, 
+                    correo: correo, 
+                    mensaje: mensaje 
+                })
+            });
+
+            const resultado = await respuesta.json();
+
+            // Evalúa la respuesta que tu backend en Python devuelve
+            if (resultado.status === 'success') {
+                alert(resultado.message); // Muestra el mensaje de éxito enviado por Flask
+                document.getElementById('formulario-contacto').reset(); // Limpia los campos del formulario
+            } else {
+                alert('Hubo un problema al procesar el mensaje en el servidor.');
+            }
+        } catch (error) {
+            console.error('Error detectado:', error);
+            alert('No se pudo establecer comunicación con el servidor de Python.');
+        } finally {
+            // Restaura el botón a su estado original
+            botonSubmit.innerText = textoOriginalBoton;
+            botonSubmit.disabled = false;
+        }
+    });
+    </script>
 </body>
 </html>
