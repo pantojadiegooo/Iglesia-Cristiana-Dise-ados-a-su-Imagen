@@ -11,7 +11,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <!-- SEO básico -->
+    <meta name="description" content="Diseñados a su Imagen es una iglesia cristiana en Iztapalapa, CDMX. Únete a nuestros servicios presenciales los domingos y jueves. Todos son bienvenidos.">
+    <meta name="keywords" content="iglesia cristiana Iztapalapa, iglesia La Era Iztapalapa, iglesia cristiana CDMX, Diseñados a su Imagen">
+
     <!-- Nueva Verificación de Google Search Console -->
     <meta name="google-site-verification" content="I72Huk_0g-FP6Gsqqjy08jfVrlgV2flKNOcDbM3_nY0" />
 
@@ -27,8 +31,8 @@
 
     <header>
         <nav class="nav-principal">
-            <a href="#" class="logo" style="text-decoration:none;">DISEÑADOS A SU IMAGEN</a>
-            
+            <a href="#inicio" class="logo" style="text-decoration:none;">DISEÑADOS A SU IMAGEN</a>
+
             <ul class="menu-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#ministerio">Ministerios</a></li>
@@ -37,7 +41,7 @@
             </ul>
 
             <div class="botones-accion">
-                <a href="#ministerio" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
+                <a href="#donaciones" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
             </div>
         </nav>
     </header>
@@ -56,7 +60,7 @@
     <section id="pastor" class="seccion bg-negro">
         <div class="contenedor">
             <div class="pastores-slider">
-                
+
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
                         <img src="foto-pastor1.png" alt="Pastor Manuel Duran" class="pastor-img">
@@ -64,8 +68,8 @@
                     <div class="pastor-info">
                         <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
                         <h3>Manuel Duran</h3>
-                        <p>Somos una comunidad cristiana que te recibe con los brazos abiertos. Nuestro propósito es llevar el mensaje de salvación y restaurar vidas a través del amor de Jesucristo.</p>
-                        <p>Acompaña al pastor en las enseñanzas basadas en la palabra de Dios, diseñadas para transformar tu visión espiritual y renovar tu corazón.</p>
+                        <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
+                        <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
                        <a href="pastor-manuel.html" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
                     </div>
                 </div>
@@ -77,8 +81,8 @@
                     <div class="pastor-info">
                         <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
                         <h3>Guadalupe Duran</h3>
-                        <p>Somos una comunidad cristiana que te recibe con los brazos abiertos. Nuestro propósito es llevar el mensaje de salvación y restaurar vidas a través del amor de Jesucristo.</p>
-                        <p>Acompaña al pastor en las enseñanzas basadas en la palabra de Dios, diseñadas para transformar tu visión espiritual y renovar tu corazón.</p>
+                        <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
+                        <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
                        <a href="pastor-guadalupe.html" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
                     </div>
                 </div>
@@ -91,7 +95,7 @@
         <div class="contenedor">
             <h2 class="titulo-seccion">Conoce Más</h2>
             <div class="ministerios-grid">
-                
+
                 <div class="tarjeta">
                     <img src="foto-actividades.jpg" alt="Actividades Presenciales">
                     <div class="tarjeta-overlay">
@@ -101,7 +105,7 @@
                     </div>
                 </div>
 
-                <div class="tarjeta">
+                <div class="tarjeta" id="donaciones">
                     <img src="foto-ofrendas.jpg" alt="Diezmos y Ofrendas">
                     <div class="tarjeta-overlay">
                         <h3>DIEZMOS Y OFRENDAS</h3>
@@ -128,7 +132,7 @@
             </div>
 
             <div class="redes-grandes-grid">
-                
+
                 <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" class="red-cuadro">
                     <img src="banner-fb.jpg" alt="Fondo Facebook">
                     <i class="fab fa-facebook-f icono-centro"></i>
@@ -156,9 +160,11 @@
                 <p style="color:#ccc; font-size:1.1rem; line-height: 1.8; margin-bottom: 30px;">
                     Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
                 </p>
-                <a href="#" class="btn btn-dorado">Ver Canal de YouTube</a>
+                <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
+                <a href="https://www.youtube.com/@TU-CANAL-AQUI" target="_blank" class="btn btn-dorado">Ver Canal de YouTube</a>
             </div>
             <div class="video-responsive">
+                <!-- TODO: reemplaza LIVE_STREAM_ID por el ID real de un video/transmisión de YouTube -->
                 <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
@@ -167,7 +173,7 @@
     <section id="contacto" class="seccion bg-blanco">
         <div class="contenedor">
             <h2 class="titulo-seccion">Ubicación y Contacto</h2>
-            
+
             <div class="contacto-grid">
                 <div id="oracion">
                     <div class="info-contacto" style="margin-bottom: 40px;">
@@ -178,7 +184,7 @@
                     </div>
 
                     <h4 style="margin-bottom: 15px;">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
-                    <!-- Formulario modificado con IDs para conectarlo a Python -->
+                    <!-- Formulario conectado a tu API en Render -->
                     <form class="formulario" id="formulario-contacto">
                         <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
                         <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
@@ -188,14 +194,13 @@
                 </div>
 
                 <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 100%; min-height: 400px;">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        type="hidden"
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -284,9 +289,9 @@
                 <span>?</span>
             </div>
             <h2 class="titulo-seccion">Preguntas Frecuentes</h2>
-            
+
             <div class="faq-contenedor">
-                
+
                 <details class="faq-item">
                     <summary>¿Cuál es el horario de los servicios?</summary>
                     <div class="faq-respuesta">
@@ -341,7 +346,8 @@
                     Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.
                 </p>
                 <div class="redes-sociales">
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
+                    <a href="https://www.youtube.com/@TU-CANAL-AQUI" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://w.app/xj23cq" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -363,7 +369,7 @@
                 <ul>
                     <li><a href="#contacto">Dudas y Sugerencias</a></li>
                     <li><a href="#horarios">Nuestros Horarios</a></li>
-                    <li><a href="#ministerio">Diezmos y Ofrendas</a></li>
+                    <li><a href="#donaciones">Diezmos y Ofrendas</a></li>
                 </ul>
             </div>
         </div>
@@ -395,10 +401,10 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 
-                    nombre: nombre, 
-                    correo: correo, 
-                    mensaje: mensaje 
+                body: JSON.stringify({
+                    nombre: nombre,
+                    correo: correo,
+                    mensaje: mensaje
                 })
             });
 
