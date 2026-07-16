@@ -54,14 +54,14 @@ header {
     font-weight: 700;
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
-    margin-right: auto; /* ESTO EMPUJA EL MENÚ A LA DERECHA */
+    margin-right: auto;
 }
 
 .menu-links { 
     display: flex; 
     list-style: none; 
     align-items: center; 
-    margin-right: 40px; /* Espacio entre los textos y el botón DONAR */
+    margin-right: 40px;
 }
 
 .menu-links li { position: relative; margin: 0 15px; }
@@ -76,7 +76,6 @@ header {
 
 .menu-links li a:hover { color: var(--gold); }
 
-/* SUBMENÚ */
 .submenu {
     position: absolute;
     top: 150%;
@@ -114,7 +113,6 @@ header {
     padding-left: 25px;
 }
 
-/* BOTONES */
 .botones-accion { display: flex; gap: 15px; }
 .btn {
     padding: 10px 25px;
@@ -231,7 +229,6 @@ header {
 .tarjeta-overlay h3 { font-size: 1.5rem; margin-bottom: 5px; color: var(--gold); }
 .tarjeta-overlay p { font-size: 0.95rem; color: #eee; line-height: 1.4; margin-bottom: 10px; }
 
-/* Acordeón / Desplegable de Banco */
 .banco-details summary {
     color: var(--gold);
     font-weight: bold;
@@ -312,7 +309,7 @@ header {
 }
 .video-responsive {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 10px;
@@ -475,7 +472,7 @@ footer {
 /* ====== RESPONSIVE ====== */
 @media (max-width: 992px) {
     .nav-principal { flex-direction: column; padding: 15px; }
-    .logo { margin-right: 0; margin-bottom: 10px; } /* Ajuste para celular */
+    .logo { margin-right: 0; margin-bottom: 10px; }
     .menu-links { margin: 10px 0; flex-wrap: wrap; justify-content: center; margin-right: 0; }
     .hero { padding-top: 100px; height: auto; padding-bottom: 100px; text-align: center; }
     .texto-bienvenida { margin: auto; }
