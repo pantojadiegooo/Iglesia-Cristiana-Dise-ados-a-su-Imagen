@@ -31,7 +31,7 @@
 
     <header>
         <nav class="nav-principal">
-            <a href="#inicio" class="logo" style="text-decoration:none;">DISEÑADOS A SU IMAGEN</a>
+            <a href="#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
 
             <ul class="menu-links">
                 <li><a href="#inicio">Inicio</a></li>
@@ -51,8 +51,8 @@
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
             <h1 class="versiculo-principal">"PORQUE YO HE DE SATISFACER AL ALMA CANSADA, Y SACIARÉ A TODA ALMA ENTRISTECIDA."</h1>
             <p class="salmo-referencia">Jeremías 31:25</p>
-            <div style="margin-top: 40px;">
-               <a href="visita.html" class="btn btn-dorado" style="font-size: 1.1rem; padding: 15px 35px;">Planear mi visita</a>
+            <div class="hero-cta">
+               <a href="visita.html" class="btn btn-dorado btn-lg">Planear mi visita</a>
             </div>
         </div>
     </section>
@@ -66,11 +66,11 @@
                         <img src="foto-pastor1.png" alt="Pastor Manuel Duran" class="pastor-img">
                     </div>
                     <div class="pastor-info">
-                        <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
+                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
                         <h3>Manuel Duran</h3>
                         <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
                         <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
-                       <a href="pastor-manuel.html" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
+                       <a href="pastor-manuel.html" class="btn btn-dorado btn-mt">Conocer más</a>
                     </div>
                 </div>
 
@@ -79,11 +79,11 @@
                         <img src="foto-pastor2.png" alt="Pastor Guadalupe Duran" class="pastor-img">
                     </div>
                     <div class="pastor-info">
-                        <h2 style="color:var(--gold); margin-bottom: 10px;">NUESTROS PASTORES</h2>
+                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
                         <h3>Guadalupe Duran</h3>
                         <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
                         <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
-                       <a href="pastor-guadalupe.html" class="btn btn-dorado" style="margin-top: 15px;">Conocer más</a>
+                       <a href="pastor-guadalupe.html" class="btn btn-dorado btn-mt">Conocer más</a>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES PRESENCIALES</h3>
                         <p>Únete a nuestros servicios semanales presenciales.</p>
-                        <a href="#horarios" style="color:var(--gold); text-decoration:none; font-weight:bold; display:inline-block;">Ver Horarios <i class="fas fa-arrow-right"></i></a>
+                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -111,7 +111,7 @@
                         <h3>DIEZMOS Y OFRENDAS</h3>
                         <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
                         <details class="banco-details">
-                            <summary>Ver Datos de Cuenta <i class="fas fa-chevron-down" style="margin-left: 5px; font-size: 0.8rem;"></i></summary>
+                            <summary>Ver Datos de Cuenta <i class="fas fa-chevron-down icono-chevron"></i></summary>
                             <div class="datos-banco">
                                 <p><strong>CUENTA BBVA:</strong><br> 2948317593</p>
                                 <p><strong>CUENTA CLABE:</strong><br> 012180029483175933</p>
@@ -125,7 +125,7 @@
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES EN VIVO</h3>
                         <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
-                        <a href="#en-vivo" style="color:var(--gold); text-decoration:none; font-weight:bold; display:inline-block;">Ver Más <i class="fas fa-arrow-right"></i></a>
+                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -156,8 +156,8 @@
     <section id="en-vivo" class="seccion bg-negro">
         <div class="contenedor predica-grid">
             <div class="predica-texto">
-                <h2 style="color:var(--gold); font-size:2.5rem; margin-bottom: 20px;">VER PRÉDICAS COMPLETAS</h2>
-                <p style="color:#ccc; font-size:1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                <h2 class="titulo-predica">VER PRÉDICAS COMPLETAS</h2>
+                <p class="texto-predica">
                     Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
                 </p>
                 <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
@@ -176,29 +176,35 @@
 
             <div class="contacto-grid">
                 <div id="oracion">
-                    <div class="info-contacto" style="margin-bottom: 40px;">
+                    <div class="info-contacto info-contacto--espaciado">
                         <h4>Información</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" style="color: inherit; text-decoration: none;">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
                         <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
                         <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
                     </div>
 
-                    <h4 style="margin-bottom: 15px;">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
+                    <h4 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
                     <!-- Formulario conectado a tu API en Render -->
                     <form class="formulario" id="formulario-contacto">
+                        <label for="nombre-usuario" class="etiqueta-oculta">Tu nombre</label>
                         <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
+
+                        <label for="correo-usuario" class="etiqueta-oculta">Tu correo electrónico</label>
                         <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
+
+                        <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
                         <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
-                        <button type="submit" class="btn btn-dorado" style="width:100%; border:none; cursor:pointer;">Enviar Mensaje</button>
+
+                        <button type="submit" class="btn btn-dorado btn-full">Enviar Mensaje</button>
                     </form>
                 </div>
 
-                <div style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 100%; min-height: 400px;">
+                <div class="mapa-embed">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx"
                         width="100%"
                         height="100%"
-                        style="border:0;"
+                        class="mapa-iframe"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -342,7 +348,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
-                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+                <p class="footer-desc">
                     Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.
                 </p>
                 <div class="redes-sociales">
