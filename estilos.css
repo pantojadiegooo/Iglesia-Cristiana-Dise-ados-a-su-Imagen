@@ -347,6 +347,29 @@ header {
 }
 .formulario textarea { resize: vertical; min-height: 120px; }
 
+.mensaje-estado {
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-radius: 5px;
+    transition: padding 0.2s ease;
+}
+.mensaje-estado:empty {
+    padding: 0;
+}
+.mensaje-estado--exito {
+    padding: 12px 15px;
+    background: #e6f4ea;
+    color: #1e6b34;
+    border-left: 4px solid #2e8b47;
+}
+.mensaje-estado--error {
+    padding: 12px 15px;
+    background: #fdecea;
+    color: #a1281c;
+    border-left: 4px solid #d9382b;
+}
+
 /* ====== TABLA DE HORARIOS ====== */
 .tabla-contenedor {
     width: 100%;
