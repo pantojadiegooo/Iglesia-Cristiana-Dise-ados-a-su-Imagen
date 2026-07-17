@@ -196,6 +196,8 @@
                         <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
 
                         <button type="submit" class="btn btn-dorado btn-full">Enviar Mensaje</button>
+
+                        <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
                     </form>
                 </div>
 
@@ -394,14 +396,25 @@
         const correo = document.getElementById('correo-usuario').value;
         const mensaje = document.getElementById('mensaje-usuario').value;
 
-        // Cambia el estado del botón para indicar que está procesando
         const botonSubmit = e.target.querySelector('button[type="submit"]');
         const textoOriginalBoton = botonSubmit.innerText;
+        const cajaMensaje = document.getElementById('mensaje-estado');
+
+        // Limpia cualquier mensaje anterior
+        cajaMensaje.textContent = '';
+        cajaMensaje.className = 'mensaje-estado';
+
         botonSubmit.innerText = "Enviando...";
         botonSubmit.disabled = true;
 
+        // Si Render tiene el servicio "dormido" (plan gratis), la primera
+        // petición puede tardar 30-50 segundos en despertar. Avisamos al
+        // usuario después de unos segundos para que no piense que está roto.
+        const avisoTardanza = setTimeout(() => {
+            botonSubmit.innerText = "Esto puede tardar unos segundos...";
+        }, 4000);
+
         try {
-            // Envía una petición POST con la URL acortada real asignada por Render
             const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su.onrender.com/api/contacto', {
                 method: 'POST',
                 headers: {
@@ -416,18 +429,28 @@
 
             const resultado = await respuesta.json();
 
-            // Evalúa la respuesta que tu backend en Python devuelve
-            if (resultado.status === 'success') {
-                alert(resultado.message); // Muestra el mensaje de éxito enviado por Flask
-                document.getElementById('formulario-contacto').reset(); // Limpia los campos del formulario
+            if (respuesta.ok && resultado.status === 'success') {
+                cajaMensaje.textContent = resultado.message;
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--exito';
+                document.getElementById('formulario-contacto').reset();
+            } else if (respuesta.status === 429) {
+                // Límite de peticiones alcanzado (rate limiting del backend)
+                cajaMensaje.textContent = 'Enviaste varios mensajes muy seguido. Espera unos minutos e inténtalo de nuevo.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+            } else if (respuesta.status === 400) {
+                // Error de validación: el backend ya manda un mensaje específico
+                cajaMensaje.textContent = resultado.message || 'Revisa los datos del formulario e intenta de nuevo.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
             } else {
-                alert('Hubo un problema al procesar el mensaje en el servidor.');
+                cajaMensaje.textContent = 'Hubo un problema al procesar tu mensaje. Intenta de nuevo en unos minutos.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
             }
         } catch (error) {
             console.error('Error detectado:', error);
-            alert('No se pudo establecer comunicación con el servidor de Python.');
+            cajaMensaje.textContent = 'No pudimos conectar con el servidor. Revisa tu conexión a internet e intenta de nuevo.';
+            cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
         } finally {
-            // Restaura el botón a su estado original
+            clearTimeout(avisoTardanza);
             botonSubmit.innerText = textoOriginalBoton;
             botonSubmit.disabled = false;
         }
