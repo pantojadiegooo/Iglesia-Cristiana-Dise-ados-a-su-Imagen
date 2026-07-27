@@ -125,11 +125,69 @@ header {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
 }
 .btn-negro { background: var(--black); color: var(--white); }
 .btn-negro:hover { background: #333; }
 .btn-dorado { background: var(--gold); color: var(--black); }
 .btn-dorado:hover { background: var(--gold-hover); }
+
+/* ====== ANILLO DE LUZ GIRATORIO (botones dorados) ====== */
+.btn-dorado::before,
+.btn-gold::before,
+.btn-wa::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(from 0deg, transparent 0%, transparent 55%, rgba(255,255,255,0.95) 65%, var(--gold) 75%, transparent 88%, transparent 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: girar-luz 3.5s linear infinite;
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 1;
+}
+@keyframes girar-luz {
+    to { transform: rotate(360deg); }
+}
+
+/* ====== ENTRADA ANIMADA DEL HERO ====== */
+.mensaje-comunidad, .versiculo-principal, .salmo-referencia, .hero-cta {
+    opacity: 0;
+    animation: aparecer-arriba 0.9s ease forwards;
+}
+.mensaje-comunidad { animation-delay: 0.1s; }
+.versiculo-principal { animation-delay: 0.3s; }
+.salmo-referencia { animation-delay: 0.5s; }
+.hero-cta { animation-delay: 0.7s; }
+
+@keyframes aparecer-arriba {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== SCROLL REVEAL (aparece al hacer scroll) ====== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .mensaje-comunidad, .versiculo-principal, .salmo-referencia, .hero-cta {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .btn-dorado::before, .btn-gold::before, .btn-wa::before { animation: none !important; }
+}
 
 /* ====== HERO SECTION ====== */
 .hero {
