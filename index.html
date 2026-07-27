@@ -59,6 +59,10 @@
 
     <section id="pastor" class="seccion bg-negro">
         <div class="contenedor">
+            <div class="pastores-slider-wrap">
+            <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior" onclick="document.querySelector('.pastores-slider').scrollBy({left: -600, behavior: 'smooth'})">
+                <i class="fas fa-chevron-left"></i>
+            </button>
             <div class="pastores-slider">
 
                 <div class="pastor-slide">
@@ -87,6 +91,10 @@
                     </div>
                 </div>
 
+            </div>
+            <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor" onclick="document.querySelector('.pastores-slider').scrollBy({left: 600, behavior: 'smooth'})">
+                <i class="fas fa-chevron-right"></i>
+            </button>
             </div>
         </div>
     </section>
