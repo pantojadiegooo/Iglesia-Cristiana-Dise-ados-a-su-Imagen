@@ -156,6 +156,11 @@
       padding: 1.25rem;
       border-top: 3px solid var(--dorado);
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 26px rgba(201,168,76,0.2);
     }
     .value-card h3 {
       font-family: 'Oswald', sans-serif;
@@ -196,8 +201,39 @@
       font-size: 0.95rem;
       text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
+      position: relative;
     }
     .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 55%, rgba(255,255,255,0.95) 65%, var(--dorado) 75%, transparent 88%, transparent 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: girar-luz 3.5s linear infinite;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    @keyframes girar-luz {
+      to { transform: rotate(360deg); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+      .btn::before { animation: none !important; }
+    }
 
     footer {
       text-align: center;
@@ -229,13 +265,13 @@
 
   <div class="content">
 
-    <div class="verse-box">
+    <div class="verse-box reveal">
       "Engañosa es la gracia, y vana la hermosura; la mujer que teme a Jehová, ésa será alabada."
       <span>— Proverbios 31:30</span>
     </div>
 
     <div class="bio-block">
-      <h2 class="section-title">Acerca de la Pastora</h2>
+      <h2 class="section-title reveal">Acerca de la Pastora</h2>
       <p>
         La Pastora Guadalupe Duran es una mujer de fe y convicción, cuyo corazón late por ver a las mujeres de su comunidad caminar en su identidad en Cristo. Como co-pastora de la Iglesia Cristiana "Diseñados a su Imagen", lidera con amor, sabiduría y un espíritu de servicio genuino.
       </p>
@@ -248,28 +284,28 @@
     </div>
 
     <div class="bio-block">
-      <h2 class="section-title">Su Enfoque Ministerial</h2>
+      <h2 class="section-title reveal">Su Enfoque Ministerial</h2>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>👑 Hijas del Rey</h3>
           <p>Lidera este ministerio semanal de mujeres que busca fortalecer la identidad espiritual y el crecimiento personal.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>🤝 Consejería</h3>
           <p>Ofrece orientación espiritual y apoyo a familias que atraviesan momentos difíciles, con base en la Palabra de Dios.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>🌸 Restauración</h3>
           <p>Con especial sensibilidad hacia quienes han sufrido, ministra sanidad interior y esperanza a corazones heridos.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>📣 Intercesión</h3>
           <p>Lidera tiempos de oración intercesora por la iglesia, las familias y la nación, creyendo en el poder de la oración ferviente.</p>
         </div>
       </div>
     </div>
 
-    <div class="cta-box">
+    <div class="cta-box reveal">
       <p>¿Eres mujer y buscas un espacio seguro para crecer en tu fe? El ministerio "Hijas del Rey" te espera cada semana. ¡Ven y sé parte!</p>
       <a class="btn" href="index.html#contacto">Quiero saber más</a>
     </div>
@@ -278,5 +314,6 @@
 
   <footer>© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</footer>
 
+  <script src="animaciones.js" defer></script>
 </body>
 </html>
