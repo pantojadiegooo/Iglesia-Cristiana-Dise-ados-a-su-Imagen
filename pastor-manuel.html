@@ -156,6 +156,11 @@
       padding: 1.25rem;
       border-top: 3px solid var(--dorado);
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 26px rgba(201,168,76,0.2);
     }
     .value-card h3 {
       font-family: 'Oswald', sans-serif;
@@ -196,8 +201,39 @@
       font-size: 0.95rem;
       text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
+      position: relative;
     }
     .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(from 0deg, transparent 0%, transparent 55%, rgba(255,255,255,0.95) 65%, var(--dorado) 75%, transparent 88%, transparent 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      animation: girar-luz 3.5s linear infinite;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    @keyframes girar-luz {
+      to { transform: rotate(360deg); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
+      .btn::before { animation: none !important; }
+    }
 
     footer {
       text-align: center;
@@ -229,13 +265,13 @@
 
   <div class="content">
 
-    <div class="verse-box">
+    <div class="verse-box reveal">
       "Porque yo sé los pensamientos que tengo acerca de vosotros, dice Jehová, pensamientos de paz y no de mal, para daros el fin que esperáis."
       <span>— Jeremías 29:11</span>
     </div>
 
     <div class="bio-block">
-      <h2 class="section-title">Acerca del Pastor</h2>
+      <h2 class="section-title reveal">Acerca del Pastor</h2>
       <p>
         El Pastor Manuel Duran es el fundador y pastor principal de la Iglesia Cristiana "Diseñados a su Imagen", ubicada en Iztapalapa, CDMX. Con años de ministerio activo, ha dedicado su vida a llevar el mensaje de salvación y restauración a familias y comunidades de toda la ciudad.
       </p>
@@ -248,28 +284,28 @@
     </div>
 
     <div class="bio-block">
-      <h2 class="section-title">Pilares de su Ministerio</h2>
+      <h2 class="section-title reveal">Pilares de su Ministerio</h2>
       <div class="values-grid">
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>📖 La Palabra</h3>
           <p>Cada enseñanza está fundamentada en las Escrituras, con el objetivo de transformar vidas a través de la verdad bíblica.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>🙏 La Oración</h3>
           <p>Cree firmemente en el poder de la oración como el motor de todo avance espiritual personal y congregacional.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>❤️ La Comunidad</h3>
           <p>Fomenta una iglesia de puertas abiertas, donde cada persona es bienvenida sin importar su pasado o condición.</p>
         </div>
-        <div class="value-card">
+        <div class="value-card reveal">
           <h3>🌱 El Discipulado</h3>
           <p>Invierte en formar nuevos líderes a través de células, reuniones y mentorías personales dentro de la congregación.</p>
         </div>
       </div>
     </div>
 
-    <div class="cta-box">
+    <div class="cta-box reveal">
       <p>¿Te gustaría conectarte con la iglesia, recibir oración o simplemente conocernos? Estamos aquí para recibirte con los brazos abiertos.</p>
       <a class="btn" href="index.html#contacto">Contáctanos</a>
     </div>
@@ -278,5 +314,6 @@
 
   <footer>© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</footer>
 
+  <script src="animaciones.js" defer></script>
 </body>
 </html>
