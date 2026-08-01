@@ -76,6 +76,37 @@
     </header>
 
     <section id="inicio" class="hero">
+        <!--
+          VIDEO DE FONDO DEL HERO
+          - poster="IMG_0452.jpg" es tu imagen actual: se muestra instantáneo
+            (protege el LCP) mientras el video carga de fondo.
+          - preload="none" + el propio atributo poster evitan que el video
+            compita por ancho de banda con el resto del critical path.
+          - muted + playsinline son obligatorios para que autoplay funcione
+            en iOS/Safari.
+          - TODO: sube hero-video.mp4 (y hero-video.webm si quieres doble
+            formato) a la raíz del repo. Recomendado: <8MB, 1080p, sin audio,
+            10-20s en loop, comprimido con Handbrake (perfil "Fast 1080p30").
+        -->
+        <video
+            class="hero-video"
+            poster="IMG_0452.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="none"
+            aria-hidden="true"
+        >
+            <source src="hero-video.webm" type="video/webm">
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <button type="button" class="hero-video-pausa" id="hero-video-pausa" aria-label="Pausar video de fondo" aria-pressed="false">
+            <i class="fas fa-pause" aria-hidden="true"></i>
+        </button>
+
         <div class="texto-bienvenida">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
             <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
@@ -511,6 +542,45 @@
             botonSubmit.disabled = false;
         }
     });
+    </script>
+
+    <!-- Video del hero: respeta accesibilidad y conecta el botón de pausa -->
+    <script>
+    (function () {
+        const video = document.querySelector('.hero-video');
+        const btnPausa = document.getElementById('hero-video-pausa');
+        if (!video || !btnPausa) return;
+
+        const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Si el usuario prefiere menos movimiento, ni siquiera cargamos el video:
+        // se queda el poster (la imagen) como fondo estático.
+        if (prefiereMovimientoReducido) {
+            video.remove();
+            btnPausa.remove();
+            return;
+        }
+
+        // Ahora sí, cargamos el video (preload="none" en el HTML evita
+        // descargarlo de más si el usuario prefiere reduced motion).
+        video.preload = 'auto';
+        video.load();
+
+        btnPausa.addEventListener('click', () => {
+            const estaPausado = video.paused;
+            if (estaPausado) {
+                video.play();
+                btnPausa.setAttribute('aria-label', 'Pausar video de fondo');
+                btnPausa.setAttribute('aria-pressed', 'false');
+                btnPausa.innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>';
+            } else {
+                video.pause();
+                btnPausa.setAttribute('aria-label', 'Reproducir video de fondo');
+                btnPausa.setAttribute('aria-pressed', 'true');
+                btnPausa.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
+            }
+        });
+    })();
     </script>
 
     <!-- Animaciones de scroll reveal -->
