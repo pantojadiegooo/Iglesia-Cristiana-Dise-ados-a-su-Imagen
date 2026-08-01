@@ -20,8 +20,37 @@
     <meta name="google-site-verification" content="I72Huk_0g-FP6Gsqqjy08jfVrlgV2flKNOcDbM3_nY0" />
 
     <title>Diseñados a su Imagen | Iglesia Cristiana</title>
+
+    <!-- Preconexión: acelera la primera carga de fuentes e íconos -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- SEO Local: ayuda a Google Maps/Búsqueda a identificarnos como iglesia en Iztapalapa -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Diseñados a su Imagen",
+      "image": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/foto-pastor1.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Casimiro Chovell 9, La Era I y II",
+        "addressLocality": "Iztapalapa",
+        "addressRegion": "CDMX",
+        "postalCode": "09860",
+        "addressCountry": "MX"
+      },
+      "telephone": "+52-553-434-6849",
+      "url": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "12:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "20:00" }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -41,7 +70,7 @@
             </ul>
 
             <div class="botones-accion">
-                <a href="#donaciones" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
+                <a href="donaciones.html" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
             </div>
         </nav>
     </header>
@@ -49,7 +78,7 @@
     <section id="inicio" class="hero">
         <div class="texto-bienvenida">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
-            <h1 class="versiculo-principal">"PORQUE YO HE DE SATISFACER AL ALMA CANSADA, Y SACIARÉ A TODA ALMA ENTRISTECIDA."</h1>
+            <h1 class="versiculo-principal">"Vístanse con la nueva naturaleza y se renovarán a medida que aprendan a conocer a su Creador y se parezcan más a él."</h1>
             <p class="salmo-referencia">Jeremías 31:25</p>
             <div class="hero-cta">
                <a href="visita.html" class="btn btn-dorado btn-lg">Planear mi visita</a>
@@ -67,7 +96,7 @@
 
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
-                        <img src="foto-pastor1.png" alt="Pastor Manuel Duran" class="pastor-img">
+                        <img src="foto-pastor1.png" alt="Pastor principal Manuel Duran predicando en la Iglesia Cristiana Diseñados a su Imagen, Iztapalapa" class="pastor-img" fetchpriority="high">
                     </div>
                     <div class="pastor-info">
                         <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
@@ -80,7 +109,7 @@
 
                 <div class="pastor-slide">
                     <div class="pastor-img-container">
-                        <img src="foto-pastor2.png" alt="Pastor Guadalupe Duran" class="pastor-img">
+                        <img src="foto-pastor2.png" alt="Pastora Guadalupe Duran, líder del ministerio Hijas del Rey en Iztapalapa" class="pastor-img" loading="lazy">
                     </div>
                     <div class="pastor-info">
                         <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
@@ -105,7 +134,7 @@
             <div class="ministerios-grid">
 
                 <div class="tarjeta reveal">
-                    <img src="foto-actividades.jpg" alt="Actividades Presenciales">
+                    <img src="foto-actividades.jpg" alt="Congregación reunida en actividad presencial de la iglesia" loading="lazy">
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES PRESENCIALES</h3>
                         <p>Únete a nuestros servicios semanales presenciales.</p>
@@ -113,23 +142,17 @@
                     </div>
                 </div>
 
-                <div class="tarjeta reveal" id="donaciones">
-                    <img src="foto-ofrendas.jpg" alt="Diezmos y Ofrendas">
+                <a href="donaciones.html" class="tarjeta reveal" id="donaciones">
+                    <img src="foto-ofrendas.jpg" alt="Sección de diezmos y ofrendas de la iglesia" loading="lazy">
                     <div class="tarjeta-overlay">
                         <h3>DIEZMOS Y OFRENDAS</h3>
                         <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
-                        <details class="banco-details">
-                            <summary>Ver Datos de Cuenta <i class="fas fa-chevron-down icono-chevron"></i></summary>
-                            <div class="datos-banco">
-                                <p><strong>CUENTA BBVA:</strong><br> 2948317593</p>
-                                <p><strong>CUENTA CLABE:</strong><br> 012180029483175933</p>
-                            </div>
-                        </details>
+                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
                     </div>
-                </div>
+                </a>
 
                 <div class="tarjeta reveal">
-                    <img src="foto-envivo.jpg" alt="Transmisión en Vivo">
+                    <img src="foto-envivo.jpg" alt="Transmisión en vivo de la prédica dominical" loading="lazy">
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES EN VIVO</h3>
                         <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
@@ -142,18 +165,23 @@
             <div class="redes-grandes-grid">
 
                 <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-fb.jpg" alt="Fondo Facebook">
+                    <img src="banner-fb.jpg" alt="Síguenos en Facebook" loading="lazy">
                     <i class="fab fa-facebook-f icono-centro"></i>
                 </a>
 
                 <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-ig.jpg" alt="Fondo Instagram">
+                    <img src="banner-ig.jpg" alt="Síguenos en Instagram" loading="lazy">
                     <i class="fab fa-instagram icono-centro"></i>
                 </a>
 
                 <a href="https://w.app/xj23cq" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-wa.jpg" alt="Fondo WhatsApp">
+                    <img src="banner-wa.jpg" alt="Escríbenos por WhatsApp" loading="lazy">
                     <i class="fab fa-whatsapp icono-centro"></i>
+                </a>
+
+                <!-- TODO: reemplaza esta URL por el link real de tu cuenta de TikTok -->
+                <a href="https://www.tiktok.com/@TU-CUENTA-AQUI" target="_blank" class="red-cuadro red-cuadro-tiktok reveal">
+                    <i class="fab fa-tiktok icono-centro"></i>
                 </a>
 
             </div>
@@ -211,10 +239,12 @@
 
                 <div class="mapa-embed reveal">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.856993138814!2d-99.030635!3d19.332029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce02e0571d7d07%3A0xb35a0f0ef6eb9491!2sCasimiro%20Chovell%209%2C%20La%20Era%20I%20y%20II%2C%20Iztapalapa%2C%2009860%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1716499999999!5m2!1ses!2smx"
+                        title="Ubicación de Diseñados a su Imagen en Iztapalapa, CDMX"
+                        src="https://www.google.com/maps?q=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+M%C3%A9xico,+CDMX&z=17&output=embed"
                         width="100%"
                         height="100%"
                         class="mapa-iframe"
+                        style="border:0;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -227,73 +257,87 @@
     <section id="horarios" class="seccion bg-negro">
         <div class="contenedor">
             <h2 class="titulo-seccion reveal">NUESTROS HORARIOS</h2>
-            <div class="tabla-contenedor reveal">
-                <table class="tabla-horarios">
-                    <thead>
-                        <tr>
-                            <th>Día</th>
-                            <th>Actividad</th>
-                            <th>Hora</th>
-                            <th>Modalidad</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Lunes</td>
-                            <td>Hijas del rey</td>
-                            <td>9:00 - 9:40 am</td>
-                            <td>Por Zoom</td>
-                        </tr>
-                        <tr>
-                            <td>Lunes</td>
-                            <td>Reunión de varones</td>
-                            <td>9:00 - 10:00 am</td>
-                            <td>Por Zoom</td>
-                        </tr>
-                        <tr>
-                            <td>Martes</td>
-                            <td>Hijas del rey</td>
-                            <td>9:00 - 9:40 am</td>
-                            <td>Por Zoom</td>
-                        </tr>
-                        <tr>
-                            <td>Martes</td>
-                            <td>Célula</td>
-                            <td>7:30 - 9:00 pm</td>
-                            <td>Por Zoom</td>
-                        </tr>
-                        <tr>
-                            <td>Jueves</td>
-                            <td>Hijas del rey</td>
-                            <td>10:00 - 12:00 pm</td>
-                            <td>Presencial y Zoom</td>
-                        </tr>
-                        <tr>
-                            <td>Jueves</td>
-                            <td>Predica</td>
-                            <td>7:00 - 8:00 pm</td>
-                            <td>Por Facebook</td>
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td>Escuela de vida</td>
-                            <td>9:00 - 10:00 am</td>
-                            <td>Presencial</td>
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td>Alabanza</td>
-                            <td>10:30 - 11:30 am</td>
-                            <td>Presencial</td>
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td>Prédica</td>
-                            <td>11:30 - 12:30 pm</td>
-                            <td>Presencial</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="horarios-grid">
+
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Lunes</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Reunión de varones</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Martes</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Célula <small>(Grupo de conexión en casa)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 7:30 - 9:00 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Jueves</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 10:00 - 12:00 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-mixto"><i class="fas fa-users"></i> Presencial + Zoom</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Prédica</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 7:00 - 8:00 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia horario-dia-destacado reveal">
+                    <h3 class="horario-dia-titulo">Domingo <span class="tag-principal">Servicio principal</span></h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Escuela de vida</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Alabanza</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 10:30 - 11:30 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Prédica</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 11:30 - 12:30 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -385,7 +429,7 @@
                 <ul>
                     <li><a href="#contacto">Dudas y Sugerencias</a></li>
                     <li><a href="#horarios">Nuestros Horarios</a></li>
-                    <li><a href="#donaciones">Diezmos y Ofrendas</a></li>
+                    <li><a href="donaciones.html">Diezmos y Ofrendas</a></li>
                 </ul>
             </div>
         </div>
