@@ -200,31 +200,33 @@
       font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
-      transition: transform 0.2s, opacity 0.2s;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), background 0.2s;
       position: relative;
+      overflow: hidden;
+      z-index: 0;
     }
-    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
     .btn::before {
       content: '';
       position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      padding: 2px;
-      background: conic-gradient(from 0deg, transparent 0%, transparent 55%, rgba(255,255,255,0.95) 65%, var(--dorado) 75%, transparent 88%, transparent 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      animation: girar-luz 3.5s linear infinite;
-      opacity: 0.9;
+      top: 0;
+      left: -60%;
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.65) 50%, transparent 100%);
+      transform: skewX(-18deg);
+      transition: left 0.75s cubic-bezier(0.16,1,0.3,1);
+      z-index: -1;
       pointer-events: none;
     }
-    @keyframes girar-luz {
-      to { transform: rotate(360deg); }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(201,168,76,0.35);
     }
+    .btn:hover::before { left: 130%; }
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal.visible {
       opacity: 1;
@@ -232,7 +234,8 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
-      .btn::before { animation: none !important; }
+      .btn::before { display: none !important; }
+      .btn:hover { transform: none !important; }
     }
 
     footer {
