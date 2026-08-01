@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pastora Guadalupe Duran | Diseñados a su Imagen</title>
+  <title>Pastor Manuel Duran | Diseñados a su Imagen</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -190,7 +190,7 @@
       opacity: 0.9;
     }
 
-    /* ====== BOTÓN CON ANILLO DE LUZ GIRATORIO (FIX) ====== */
+    /* ====== BOTÓN — barrido de luz premium (reemplaza el anillo giratorio) ====== */
     .btn {
       display: inline-block;
       background: var(--dorado);
@@ -202,37 +202,35 @@
       font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
-      transition: transform 0.2s, opacity 0.2s;
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), background 0.2s;
       position: relative;
+      overflow: hidden;
       z-index: 0;
     }
-    .btn:hover { transform: translateY(-2px); opacity: 0.9; }
     .btn::before {
       content: '';
       position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      background: conic-gradient(from 0deg, transparent 0%, transparent 55%, rgba(255,255,255,0.95) 65%, var(--dorado) 75%, transparent 88%, transparent 100%);
-      animation: girar-luz 3.5s linear infinite;
-      z-index: -2;
-      pointer-events: none;
-    }
-    .btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: inherit;
+      top: 0;
+      left: -60%;
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.65) 50%, transparent 100%);
+      transform: skewX(-18deg);
+      transition: left 0.75s cubic-bezier(0.16,1,0.3,1);
       z-index: -1;
       pointer-events: none;
     }
-    @keyframes girar-luz {
-      to { transform: rotate(360deg); }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(201,168,76,0.35);
+      opacity: 1;
     }
+    .btn:hover::before { left: 130%; }
+
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
     }
     .reveal.visible {
       opacity: 1;
@@ -240,7 +238,8 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
-      .btn::before { animation: none !important; }
+      .btn::before { display: none !important; }
+      .btn:hover { transform: none !important; }
     }
 
     footer {
@@ -266,28 +265,28 @@
   </nav>
 
   <div class="hero">
-    <img class="hero-img" src="foto-pastor2.png" alt="Pastora Guadalupe Duran" onerror="this.src='https://ui-avatars.com/api/?name=Guadalupe+Duran&background=0a0a0a&color=c9a84c&size=140'" />
-    <h1>Pastora Guadalupe Duran</h1>
-    <p class="role">Pastora · Ministerio de Mujeres</p>
+    <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
+    <h1>Pastor Manuel Duran</h1>
+    <p class="role">Pastor Principal</p>
   </div>
 
   <div class="content">
 
     <div class="verse-box reveal">
-      "Engañosa es la gracia, y vana la hermosura; la mujer que teme a Jehová, ésa será alabada."
-      <span>— Proverbios 31:30</span>
+      "Y os daré pastores según mi corazón, que os apacienten con ciencia y con inteligencia."
+      <span>— Jeremías 3:15</span>
     </div>
 
     <div class="bio-block">
-      <h2 class="section-title reveal">Acerca de la Pastora</h2>
+      <h2 class="section-title reveal">Acerca del Pastor</h2>
       <p>
-        La Pastora Guadalupe Duran es una mujer de fe y convicción, cuyo corazón late por ver a las mujeres de su comunidad caminar en su identidad en Cristo. Como co-pastora de la Iglesia Cristiana "Diseñados a su Imagen", lidera con amor, sabiduría y un espíritu de servicio genuino.
+        El Pastor Manuel Duran es el pastor principal de la Iglesia Cristiana "Diseñados a su Imagen". Guía a la congregación con un mensaje centrado en la Palabra y el amor de Cristo, con la convicción de que cada persona y cada familia puede ser transformada por el poder de Dios.
       </p>
       <p>
-        Es la fundadora y líder del ministerio "Hijas del Rey", un espacio semanal donde mujeres de todas las edades encuentran comunidad, sanidad emocional y crecimiento espiritual. Su ministerio ha tocado la vida de decenas de familias en Iztapalapa y sus alrededores.
+        Su pasión es ver vidas transformadas y familias restauradas a través de la fe. Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios, alejado de la teoría vacía y anclado en la vida real de su comunidad en Iztapalapa.
       </p>
       <p>
-        La Pastora Guadalupe cree que cada mujer fue diseñada con un propósito poderoso, y que la Palabra de Dios tiene el poder de restaurar la identidad, sanar heridas y encender vocaciones. Su enseñanza es cálida, profunda y siempre práctica.
+        Junto a la Pastora Guadalupe Duran, ha dedicado años a construir una comunidad donde las puertas están siempre abiertas y donde nadie camina solo su proceso de fe.
       </p>
     </div>
 
@@ -295,26 +294,26 @@
       <h2 class="section-title reveal">Su Enfoque Ministerial</h2>
       <div class="values-grid">
         <div class="value-card reveal">
-          <h3>👑 Hijas del Rey</h3>
-          <p>Lidera este ministerio semanal de mujeres que busca fortalecer la identidad espiritual y el crecimiento personal.</p>
+          <h3>📖 Enseñanza Bíblica</h3>
+          <p>Predica cada domingo y jueves con un enfoque práctico, claro y fiel a la Palabra de Dios.</p>
         </div>
         <div class="value-card reveal">
-          <h3>🤝 Consejería</h3>
-          <p>Ofrece orientación espiritual y apoyo a familias que atraviesan momentos difíciles, con base en la Palabra de Dios.</p>
+          <h3>🧭 Liderazgo Pastoral</h3>
+          <p>Guía y forma a los líderes de los distintos ministerios de la iglesia con visión y cercanía.</p>
         </div>
         <div class="value-card reveal">
-          <h3>🌸 Restauración</h3>
-          <p>Con especial sensibilidad hacia quienes han sufrido, ministra sanidad interior y esperanza a corazones heridos.</p>
+          <h3>🌱 Discipulado</h3>
+          <p>Impulsa el crecimiento espiritual sostenido de cada miembro, más allá del servicio dominical.</p>
         </div>
         <div class="value-card reveal">
-          <h3>📣 Intercesión</h3>
-          <p>Lidera tiempos de oración intercesora por la iglesia, las familias y la nación, creyendo en el poder de la oración ferviente.</p>
+          <h3>🏠 Familias Restauradas</h3>
+          <p>Su corazón está puesto en ver hogares sanados y unidos bajo los principios de la fe cristiana.</p>
         </div>
       </div>
     </div>
 
     <div class="cta-box reveal">
-      <p>¿Eres mujer y buscas un espacio seguro para crecer en tu fe? El ministerio "Hijas del Rey" te espera cada semana. ¡Ven y sé parte!</p>
+      <p>¿Quieres escuchar un mensaje del Pastor Manuel? Acompáñanos cada domingo a las 11:30 am, presencial o por Facebook.</p>
       <a class="btn" href="index.html#contacto">Quiero saber más</a>
     </div>
 
