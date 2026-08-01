@@ -187,11 +187,22 @@ header {
 .reveal {
     opacity: 0;
     transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+.menu-links a { position: relative; }
+.menu-links a.activo { color: var(--gold); }
+.menu-links a.activo::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
     .reveal, .mensaje-comunidad, .versiculo-principal, .salmo-referencia, .hero-cta {
@@ -405,6 +416,17 @@ header {
 .red-cuadro:hover i.icono-centro {
     transform: scale(1.1);
 }
+.red-cuadro-tiktok {
+    background: linear-gradient(135deg, #010101 0%, #1a1a1a 60%, #010101 100%);
+}
+.red-cuadro-tiktok::after {
+    background: linear-gradient(135deg, rgba(37,244,238,0.12), rgba(254,44,85,0.12));
+}
+.red-cuadro-tiktok i.icono-centro {
+    color: #fff;
+    text-shadow: 3px 3px 0 #25F4EE, -3px -3px 0 #FE2C55;
+}
+.red-cuadro-tiktok:hover::after { background: rgba(0,0,0,0.15); }
 
 /* ====== PRÉDICA / VIDEO DESTACADO ====== */
 .predica-grid {
@@ -476,44 +498,93 @@ header {
     border-left: 4px solid #d9382b;
 }
 
-/* ====== TABLA DE HORARIOS ====== */
-.tabla-contenedor {
-    width: 100%;
-    overflow-x: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+/* ====== TARJETAS DE HORARIOS (reemplaza la tabla) ====== */
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.horario-dia {
     background-color: var(--dark-gray);
+    border-radius: 12px;
+    padding: 22px 20px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    border-top: 3px solid var(--gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.tabla-horarios {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+.horario-dia:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(212,175,55,0.18);
 }
-.tabla-horarios th {
-    background-color: #111;
-    color: var(--gold);
-    padding: 20px;
+.horario-dia-destacado {
+    background: linear-gradient(160deg, #171512 0%, var(--dark-gray) 60%);
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(212,175,55,0.22);
+}
+.horario-dia-titulo {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
+    color: var(--gold);
+    font-size: 1.15rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-bottom: 2px solid var(--gold);
-}
-.tabla-horarios td {
-    padding: 18px 20px;
-    color: #eee;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #333;
-    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
-.tabla-horarios tr {
-    transition: background-color 0.3s;
-}
-.tabla-horarios tr:hover {
-    background-color: rgba(212, 175, 55, 0.1); 
-}
-.tabla-horarios td:first-child {
+.tag-principal {
+    font-family: 'Poppins', sans-serif;
+    background: var(--gold);
+    color: #0a0a0a;
+    font-size: 0.65rem;
     font-weight: 700;
-    color: var(--gold);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+.horario-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.horario-item:last-child { border-bottom: none; }
+.horario-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.horario-actividad { color: #f2f2f2; font-size: 0.95rem; font-weight: 600; }
+.horario-actividad small { color: #999; font-weight: 400; font-size: 0.78rem; }
+.horario-hora { color: #aaa; font-size: 0.82rem; }
+.horario-hora i { color: var(--gold); margin-right: 4px; }
+
+.badge-modalidad {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.badge-zoom { background: rgba(45, 138, 255, 0.15); color: #4d9fff; }
+.badge-presencial { background: rgba(212, 175, 55, 0.18); color: var(--gold); }
+.badge-mixto { background: rgba(155, 89, 255, 0.18); color: #b98bff; }
+.badge-facebook { background: rgba(66, 103, 178, 0.2); color: #6d8fd6; }
+
+@media (max-width: 600px) {
+    .horario-item { flex-wrap: wrap; }
 }
 
 /* ====== PREGUNTAS FRECUENTES (FAQ) ====== */
