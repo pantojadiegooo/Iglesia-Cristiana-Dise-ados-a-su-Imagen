@@ -77,35 +77,20 @@
 
     <section id="inicio" class="hero">
         <!--
-          VIDEO DE FONDO DEL HERO
-          - poster="IMG_0452.jpg" es tu imagen actual: se muestra instantáneo
-            (protege el LCP) mientras el video carga de fondo.
-          - preload="none" + el propio atributo poster evitan que el video
-            compita por ancho de banda con el resto del critical path.
-          - muted + playsinline son obligatorios para que autoplay funcione
-            en iOS/Safari.
-          - TODO: sube hero-video.mp4 (y hero-video.webm si quieres doble
-            formato) a la raíz del repo. Recomendado: <8MB, 1080p, sin audio,
-            10-20s en loop, comprimido con Handbrake (perfil "Fast 1080p30").
+          FONDO CINEMATOGRÁFICO DEL HERO
+          - .hero-mesh: vignette animado (radial claro al centro -> negro en
+            bordes), tipo "reflector de teatro", respirando lento con CSS puro.
+          - .hero-vignette: oscurece más el lado izquierdo para que el texto
+            blanco siga siendo perfectamente legible encima.
+          - #hero-particulas: canvas con partículas doradas/blancas/negras
+            subiendo lento, con parpadeo individual (glow). Se apaga solo si
+            el usuario tiene prefers-reduced-motion activado (ver JS abajo).
+          - Cero archivos pesados: todo esto es CSS + <canvas>, no imágenes
+            ni video, así que no afecta tu LCP ni tu peso de página.
         -->
-        <video
-            class="hero-video"
-            poster="IMG_0452.jpg"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="none"
-            aria-hidden="true"
-        >
-            <source src="hero-video.webm" type="video/webm">
-            <source src="hero-video.mp4" type="video/mp4">
-        </video>
+        <div class="hero-mesh"></div>
         <div class="hero-overlay"></div>
-
-        <button type="button" class="hero-video-pausa" id="hero-video-pausa" aria-label="Pausar video de fondo" aria-pressed="false">
-            <i class="fas fa-pause" aria-hidden="true"></i>
-        </button>
+        <canvas id="hero-particulas" aria-hidden="true"></canvas>
 
         <div class="texto-bienvenida">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
@@ -544,42 +529,89 @@
     });
     </script>
 
-    <!-- Video del hero: respeta accesibilidad y conecta el botón de pausa -->
+    <!-- Fondo del hero: partículas canvas, respeta prefers-reduced-motion -->
     <script>
     (function () {
-        const video = document.querySelector('.hero-video');
-        const btnPausa = document.getElementById('hero-video-pausa');
-        if (!video || !btnPausa) return;
-
+        const canvas = document.getElementById('hero-particulas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
         const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Si el usuario prefiere menos movimiento, ni siquiera cargamos el video:
-        // se queda el poster (la imagen) como fondo estático.
-        if (prefiereMovimientoReducido) {
-            video.remove();
-            btnPausa.remove();
-            return;
+        function ajustarTamano() {
+            const hero = canvas.closest('.hero');
+            canvas.width = hero.offsetWidth * devicePixelRatio;
+            canvas.height = hero.offsetHeight * devicePixelRatio;
+            canvas.style.width = hero.offsetWidth + 'px';
+            canvas.style.height = hero.offsetHeight + 'px';
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.scale(devicePixelRatio, devicePixelRatio);
+        }
+        ajustarTamano();
+        window.addEventListener('resize', ajustarTamano);
+
+        if (prefiereMovimientoReducido) return; // sin partículas, sin animación
+
+        const anchoCss = () => canvas.width / devicePixelRatio;
+        const altoCss = () => canvas.height / devicePixelRatio;
+
+        const PALETAS = [
+            { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
+            { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
+            { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
+        ];
+
+        function elegirPaleta() {
+            const r = Math.random();
+            let acumulado = 0;
+            for (const p of PALETAS) {
+                acumulado += p.peso;
+                if (r <= acumulado) return p;
+            }
+            return PALETAS[0];
         }
 
-        // Ahora sí, cargamos el video (preload="none" en el HTML evita
-        // descargarlo de más si el usuario prefiere reduced motion).
-        video.preload = 'auto';
-        video.load();
+        function crearParticula() {
+            const paleta = elegirPaleta();
+            const esNegra = paleta.color === '15, 13, 10';
+            return {
+                x: Math.random() * anchoCss(),
+                y: altoCss() + Math.random() * 100,
+                radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
+                velocidadY: Math.random() * 0.35 + 0.12,
+                deriva: Math.random() * 0.4 - 0.2,
+                opacidad: esNegra ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
+                parpadeo: Math.random() * 0.02 + 0.005,
+                fase: Math.random() * Math.PI * 2,
+                paleta
+            };
+        }
 
-        btnPausa.addEventListener('click', () => {
-            const estaPausado = video.paused;
-            if (estaPausado) {
-                video.play();
-                btnPausa.setAttribute('aria-label', 'Pausar video de fondo');
-                btnPausa.setAttribute('aria-pressed', 'false');
-                btnPausa.innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>';
-            } else {
-                video.pause();
-                btnPausa.setAttribute('aria-label', 'Reproducir video de fondo');
-                btnPausa.setAttribute('aria-pressed', 'true');
-                btnPausa.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
-            }
-        });
+        const NUM_PARTICULAS = 130;
+        const particulas = Array.from({ length: NUM_PARTICULAS }, crearParticula);
+
+        function animar() {
+            ctx.clearRect(0, 0, anchoCss(), altoCss());
+            particulas.forEach(p => {
+                p.y -= p.velocidadY;
+                p.x += p.deriva;
+                p.fase += p.parpadeo;
+                const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
+
+                if (p.y < -10) {
+                    Object.assign(p, crearParticula());
+                    p.y = altoCss() + 10;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+                ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
+                ctx.shadowColor = p.paleta.glow;
+                ctx.fill();
+            });
+            requestAnimationFrame(animar);
+        }
+        animar();
     })();
     </script>
 
