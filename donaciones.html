@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 <link rel="stylesheet" href="estilos.css" />
 <style>
-  body { padding-top: 0; }
+  body { padding-top: 0; background: #000; }
 
   .nav-conocenos {
-    background: #0a0a0a; padding: 18px 30px; display: flex; align-items: center;
+    background: #000; padding: 18px 30px; display: flex; align-items: center;
     justify-content: space-between; position: sticky; top: 0; z-index: 999;
     border-bottom: 3px solid var(--gold);
   }
@@ -19,16 +19,71 @@
   .nav-conocenos a.volver { color: var(--gold); text-decoration: none; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; display: flex; align-items: center; gap: 6px; }
   .nav-conocenos a.volver:hover { color: #fff; }
 
+  /* ====== HERO ÉLITE (partículas + mesh) ====== */
   .hero-don {
-    min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    padding: 70px 20px;
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: #000;
+    padding: 90px 20px;
   }
-  .hero-don h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; text-transform: uppercase; margin-bottom: 14px; }
-  .hero-don h1 span { color: var(--gold); }
-  .hero-don p { color: #ccc; font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.75; }
+  .hero-mesh {
+    position: absolute;
+    inset: -10%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 38%, rgba(212,175,55,0.35) 0%, rgba(60,50,20,0.35) 35%, rgba(10,9,7,0.9) 62%, #000000 85%),
+      radial-gradient(circle at 85% 85%, rgba(212,175,55,0.10) 0%, transparent 45%);
+    animation: meshDrift 26s ease-in-out infinite alternate;
+  }
+  @keyframes meshDrift {
+    0% { transform: translate(0%, 0%) scale(1); }
+    50% { transform: translate(-2%, 1.5%) scale(1.06); }
+    100% { transform: translate(1.5%, -2%) scale(1.03); }
+  }
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.95) 100%);
+  }
+  #hero-particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-don-texto {
+    position: relative;
+    z-index: 3;
+    max-width: 640px;
+  }
+  .hero-don-texto .mensaje-comunidad {
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-don-texto h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    line-height: 1.15;
+  }
+  .hero-don-texto h1 span { color: var(--gold); }
+  .hero-don-texto p.hero-don-verso { color: #ccc; font-size: 1.05rem; font-style: italic; max-width: 600px; margin: 0 auto; line-height: 1.75; }
 
-  .page-section { padding: 70px 20px; }
+  .page-section { padding: 70px 20px; background: #000; }
   .inner { max-width: 1000px; margin: 0 auto; }
 
   .metodos-grid {
@@ -38,11 +93,11 @@
   }
 
   .metodo-card {
-    background: linear-gradient(155deg, #221c10 0%, #1a1a1a 55%, #14171f 100%);
+    background: linear-gradient(155deg, #141005 0%, #0a0a0a 55%, #000000 100%);
     border-radius: 14px;
     padding: 32px 28px;
     border-top: 4px solid var(--gold);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     position: relative;
     overflow: hidden;
   }
@@ -56,7 +111,7 @@
   }
   .metodo-card--tarjeta {
     border-top-color: #6c5ce7;
-    background: linear-gradient(155deg, #241b3a 0%, #1a1a2e 55%, #14171f 100%);
+    background: linear-gradient(155deg, #140f22 0%, #0a0a10 55%, #000000 100%);
   }
   .metodo-card--tarjeta::before {
     background: radial-gradient(circle, rgba(108,92,231,0.22) 0%, transparent 70%);
@@ -74,7 +129,7 @@
 
   /* Datos bancarios visibles, sin acordeón */
   .dato-banco {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.6);
     border-left: 4px solid var(--gold);
     border-radius: 0 8px 8px 0;
     padding: 14px 16px;
@@ -111,7 +166,7 @@
     gap: 16px;
     margin-top: 18px;
     padding-top: 18px;
-    border-top: 1px dashed #333;
+    border-top: 1px dashed #222;
   }
   .qr-wrap img {
     width: 96px; height: 96px;
@@ -150,8 +205,8 @@
     margin-bottom: 16px;
   }
   .monto-btn {
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid #333;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid #222;
     color: #eee;
     padding: 10px 4px;
     border-radius: 8px;
@@ -166,8 +221,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255,255,255,0.05);
-    border: 1.5px solid #333;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid #222;
     border-radius: 8px;
     padding: 4px 4px 4px 14px;
     margin-bottom: 18px;
@@ -195,8 +250,8 @@
   .stripe-msg.ok { color: #6bcf6b; }
 
   .transparencia {
-    background: rgba(212,175,55,0.08);
-    border: 1px solid rgba(212,175,55,0.3);
+    background: rgba(212,175,55,0.06);
+    border: 1px solid rgba(212,175,55,0.25);
     border-radius: 10px;
     padding: 20px 24px;
     color: #ddd;
@@ -216,7 +271,11 @@
   }
   .versiculo-siembra span { display: block; color: var(--gold); font-style: normal; margin-top: 8px; font-size: 0.85rem; }
 
-  .footer-mini { background: #111; text-align: center; padding: 20px; color: #666; font-size: 0.8rem; border-top: 1px solid #222; }
+  .footer-mini { background: #000; text-align: center; padding: 20px; color: #666; font-size: 0.8rem; border-top: 1px solid #1a1a1a; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mesh { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -226,14 +285,18 @@
     <a href="index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
   </nav>
 
-  <div class="hero-don">
-    <div>
+  <section class="hero-don">
+    <div class="hero-mesh"></div>
+    <div class="hero-vignette"></div>
+    <canvas id="hero-particulas"></canvas>
+    <div class="hero-don-texto">
+      <p class="mensaje-comunidad">Siembra con un corazón alegre</p>
       <h1>Diezmos y <span>Ofrendas</span></h1>
-      <p>"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
+      <p class="hero-don-verso">"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
     </div>
-  </div>
+  </section>
 
-  <section class="page-section" style="background: radial-gradient(ellipse at top, #1a1710 0%, #0a0a0a 55%);">
+  <section class="page-section">
     <div class="inner">
       <div class="metodos-grid">
 
@@ -396,6 +459,74 @@
         botonDonar.innerHTML = `<i class="fas fa-lock"></i> Donar $${montoSeleccionado} MXN`;
       }
     });
+
+    // ── Hero: partículas doradas animadas (canvas) ──
+    (function () {
+      const canvas = document.getElementById('hero-particulas');
+      const ctx = canvas.getContext('2d');
+      const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function ajustarTamano() {
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+      }
+      ajustarTamano();
+      window.addEventListener('resize', ajustarTamano);
+      const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 110;
+      const particulas = [];
+      const PALETAS = [
+        { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.5 },  // dorado
+        { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.3 }, // blanco
+        { color: '10, 9, 7', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.2 }            // motas de profundidad
+      ];
+      function elegirPaleta() {
+        const r = Math.random();
+        let acumulado = 0;
+        for (const p of PALETAS) {
+          acumulado += p.peso;
+          if (r <= acumulado) return p;
+        }
+        return PALETAS[0];
+      }
+      function crearParticula() {
+        const paleta = elegirPaleta();
+        const esOscura = paleta.color === '10, 9, 7';
+        return {
+          x: Math.random() * canvas.offsetWidth,
+          y: canvas.offsetHeight + Math.random() * 100,
+          radio: esOscura ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
+          velocidadY: Math.random() * 0.35 + 0.12,
+          deriva: Math.random() * 0.4 - 0.2,
+          opacidad: esOscura ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
+          parpadeo: Math.random() * 0.02 + 0.005,
+          fase: Math.random() * Math.PI * 2,
+          paleta
+        };
+      }
+      for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
+      function animar() {
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        particulas.forEach(p => {
+          p.y -= p.velocidadY;
+          p.x += p.deriva;
+          p.fase += p.parpadeo;
+          const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
+          if (p.y < -10) {
+            Object.assign(p, crearParticula());
+            p.y = canvas.offsetHeight + 10;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+          ctx.shadowBlur = p.paleta.color === '10, 9, 7' ? 0 : 4;
+          ctx.shadowColor = p.paleta.glow;
+          ctx.fill();
+        });
+        if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
+      }
+      animar();
+    })();
   </script>
 
   <script src="animaciones.js" defer></script>
