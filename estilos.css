@@ -19,6 +19,10 @@
 
 html { scroll-behavior: smooth; }
 
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--black);
