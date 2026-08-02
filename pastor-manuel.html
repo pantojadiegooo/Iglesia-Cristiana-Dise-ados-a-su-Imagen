@@ -57,17 +57,45 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, var(--negro) 0%, var(--negro-suave) 100%);
-      padding: 4rem 2rem 3rem;
+      background: #0a0a0a;
+      padding: 4.5rem 2rem 3.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
+    .hero-mesh {
+      position: absolute;
+      inset: -15%;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 35%, rgba(201,168,76,0.32) 0%, rgba(70,58,24,0.35) 35%, rgba(10,10,10,0.9) 62%, #0a0a0a 85%),
+        radial-gradient(circle at 85% 90%, rgba(201,168,76,0.12) 0%, transparent 45%);
+      animation: meshDrift 24s ease-in-out infinite alternate;
+    }
+    @keyframes meshDrift {
+      0% { transform: translate(0%, 0%) scale(1); }
+      50% { transform: translate(-2%, 1.5%) scale(1.06); }
+      100% { transform: translate(1.5%, -2%) scale(1.03); }
+    }
+    .hero-vignette {
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
+      background: radial-gradient(ellipse at center, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.75) 78%, rgba(10,10,10,0.95) 100%);
+    }
+    #hero-particulas {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-contenido {
+      position: relative;
+      z-index: 3;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-mesh { animation: none; }
     }
     /* Aro dorado con brillo pulsante, para distinguir al pastor principal */
     .hero-img-wrap {
@@ -349,12 +377,17 @@
   </nav>
 
   <div class="hero">
-    <span class="badge-principal">Pastor Principal</span>
-    <div class="hero-img-wrap">
-      <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
+    <div class="hero-mesh"></div>
+    <div class="hero-vignette"></div>
+    <canvas id="hero-particulas"></canvas>
+    <div class="hero-contenido">
+      <span class="badge-principal">Pastor Principal</span>
+      <div class="hero-img-wrap">
+        <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
+      </div>
+      <h1>Pastor Manuel Duran</h1>
+      <p class="role">Guía Espiritual de Diseñados a su Imagen</p>
     </div>
-    <h1>Pastor Manuel Duran</h1>
-    <p class="role">Guía Espiritual de Diseñados a su Imagen</p>
   </div>
 
   <div class="stats-strip">
@@ -429,6 +462,76 @@
   </div>
 
   <footer>© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</footer>
+
+  <script>
+    // Hero: partículas doradas animadas (canvas)
+    (function () {
+      const canvas = document.getElementById('hero-particulas');
+      const ctx = canvas.getContext('2d');
+      const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function ajustarTamano() {
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+      }
+      ajustarTamano();
+      window.addEventListener('resize', ajustarTamano);
+      const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 90;
+      const particulas = [];
+      const PALETAS = [
+        { color: '201, 168, 76', glow: 'rgba(201, 168, 76, 0.6)', peso: 0.55 }, // dorado
+        { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.3 }, // blanco
+        { color: '10, 10, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.15 }         // motas de profundidad
+      ];
+      function elegirPaleta() {
+        const r = Math.random();
+        let acumulado = 0;
+        for (const p of PALETAS) {
+          acumulado += p.peso;
+          if (r <= acumulado) return p;
+        }
+        return PALETAS[0];
+      }
+      function crearParticula() {
+        const paleta = elegirPaleta();
+        const esOscura = paleta.color === '10, 10, 10';
+        return {
+          x: Math.random() * canvas.offsetWidth,
+          y: canvas.offsetHeight + Math.random() * 100,
+          radio: esOscura ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
+          velocidadY: Math.random() * 0.35 + 0.12,
+          deriva: Math.random() * 0.4 - 0.2,
+          opacidad: esOscura ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
+          parpadeo: Math.random() * 0.02 + 0.005,
+          fase: Math.random() * Math.PI * 2,
+          paleta
+        };
+      }
+      for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
+      function animar() {
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        particulas.forEach(p => {
+          p.y -= p.velocidadY;
+          p.x += p.deriva;
+          p.fase += p.parpadeo;
+          const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
+          if (p.y < -10) {
+            Object.assign(p, crearParticula());
+            p.y = canvas.offsetHeight + 10;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+          ctx.shadowBlur = p.paleta.color === '10, 10, 10' ? 0 : 4;
+          ctx.shadowColor = p.paleta.glow;
+          ctx.fill();
+        });
+        if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
+      }
+      animar();
+    })();
+  </script>
 
   <script src="animaciones.js" defer></script>
 </body>
