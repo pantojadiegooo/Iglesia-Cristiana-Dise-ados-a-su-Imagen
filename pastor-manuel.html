@@ -10,17 +10,17 @@
 
     :root {
       --negro: #0a0a0a;
-      --negro-suave: #1a1a1a;
+      --negro-suave: #161616;
+      --negro-tarjeta: #131313;
       --dorado: #c9a84c;
       --blanco: #ffffff;
-      --gris-claro: #f9f9f9;
-      --texto: #222;
-      --texto-suave: #555;
+      --texto: #d8d8d8;
+      --texto-suave: #9a9a9a;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--gris-claro);
+      background: var(--negro);
       color: var(--texto);
     }
 
@@ -57,8 +57,8 @@
 
     /* HERO */
     .hero {
-      background: #0a0a0a;
-      padding: 4.5rem 2rem 3.5rem;
+      background: var(--negro);
+      padding: 4rem 2rem 3rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -68,8 +68,8 @@
       inset: -15%;
       z-index: 0;
       background:
-        radial-gradient(ellipse 60% 55% at 50% 35%, rgba(201,168,76,0.32) 0%, rgba(70,58,24,0.35) 35%, rgba(10,10,10,0.9) 62%, #0a0a0a 85%),
-        radial-gradient(circle at 85% 90%, rgba(201,168,76,0.12) 0%, transparent 45%);
+        radial-gradient(ellipse 60% 55% at 50% 35%, rgba(201,168,76,0.30) 0%, rgba(70,58,24,0.32) 35%, rgba(10,10,10,0.92) 62%, #0a0a0a 85%),
+        radial-gradient(circle at 85% 90%, rgba(201,168,76,0.10) 0%, transparent 45%);
       animation: meshDrift 24s ease-in-out infinite alternate;
     }
     @keyframes meshDrift {
@@ -81,7 +81,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: radial-gradient(ellipse at center, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.75) 78%, rgba(10,10,10,0.95) 100%);
+      background: radial-gradient(ellipse at center, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.72) 78%, rgba(10,10,10,0.95) 100%);
     }
     #hero-particulas {
       position: absolute;
@@ -90,52 +90,17 @@
       width: 100%;
       height: 100%;
     }
-    .hero-contenido {
-      position: relative;
-      z-index: 3;
-    }
+    .hero-contenido { position: relative; z-index: 3; }
     @media (prefers-reduced-motion: reduce) {
       .hero-mesh { animation: none; }
     }
-    /* Aro dorado con brillo pulsante, para distinguir al pastor principal */
-    .hero-img-wrap {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-    }
-    .hero-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, var(--dorado), transparent 40%, var(--dorado) 100%);
-      animation: girar 6s linear infinite;
-      opacity: 0.55;
-    }
-    @keyframes girar { to { transform: rotate(360deg); } }
     .hero-img {
-      position: relative;
       width: 140px;
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--negro);
-      outline: 2px solid var(--dorado);
-      display: block;
-    }
-    .badge-principal {
-      display: inline-block;
-      background: rgba(201,168,76,0.12);
-      border: 1px solid var(--dorado);
-      color: var(--dorado);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-      border-radius: 50px;
-      margin-bottom: 0.9rem;
+      border: 4px solid var(--dorado);
+      margin-bottom: 1.5rem;
     }
     .hero h1 {
       font-family: 'Oswald', sans-serif;
@@ -154,31 +119,6 @@
       text-transform: uppercase;
     }
 
-    /* Franja de cifras bajo el hero */
-    .stats-strip {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      background: var(--negro-suave);
-      padding: 1.25rem 1rem;
-      border-bottom: 1px solid rgba(201,168,76,0.25);
-    }
-    .stat-item { text-align: center; }
-    .stat-item strong {
-      display: block;
-      color: var(--dorado);
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    .stat-item span {
-      color: #bbb;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
     /* CONTENIDO */
     .content {
       max-width: 760px;
@@ -187,7 +127,7 @@
     }
 
     .verse-box {
-      background: var(--negro);
+      background: var(--negro-tarjeta);
       color: var(--blanco);
       border-left: 4px solid var(--dorado);
       padding: 1.25rem 1.5rem;
@@ -210,7 +150,7 @@
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
       font-size: 1.4rem;
-      color: var(--negro);
+      color: var(--dorado);
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid var(--dorado);
@@ -220,7 +160,7 @@
 
     .bio-block { margin-bottom: 2.5rem; }
     .bio-block p {
-      color: var(--texto-suave);
+      color: var(--texto);
       line-height: 1.85;
       font-size: 1rem;
       margin-bottom: 1rem;
@@ -229,8 +169,8 @@
     /* Cita personal destacada */
     .cita-personal {
       position: relative;
-      background: var(--gris-claro);
-      border: 1px solid #e6dcc0;
+      background: var(--negro-tarjeta);
+      border: 1px solid rgba(201,168,76,0.25);
       border-radius: 10px;
       padding: 1.5rem 1.75rem 1.5rem 3rem;
       margin-bottom: 2.5rem;
@@ -247,7 +187,7 @@
       font-family: Georgia, serif;
       font-size: 2.6rem;
       color: var(--dorado);
-      opacity: 0.6;
+      opacity: 0.7;
       line-height: 1;
     }
     .cita-personal span {
@@ -265,21 +205,21 @@
       margin-bottom: 2.5rem;
     }
     .value-card {
-      background: var(--blanco);
+      background: var(--negro-tarjeta);
       border-radius: 10px;
       padding: 1.25rem;
       border-top: 3px solid var(--dorado);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .value-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 26px rgba(201,168,76,0.2);
+      box-shadow: 0 12px 26px rgba(201,168,76,0.15);
     }
     .value-card h3 {
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
-      color: var(--negro);
+      color: var(--blanco);
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
@@ -291,7 +231,8 @@
     }
 
     .cta-box {
-      background: linear-gradient(135deg, var(--negro) 0%, var(--negro-suave) 100%);
+      background: var(--negro-suave);
+      border: 1px solid rgba(201,168,76,0.2);
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
@@ -334,7 +275,7 @@
     }
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 28px rgba(201,168,76,0.35);
+      box-shadow: 0 14px 28px rgba(201,168,76,0.3);
     }
     .btn:hover::before { left: 130%; }
     .reveal {
@@ -350,7 +291,6 @@
       .reveal { animation: none !important; transition: none !important; opacity: 1 !important; transform: none !important; }
       .btn::before { display: none !important; }
       .btn:hover { transform: none !important; }
-      .hero-img-wrap::before { animation: none !important; }
     }
 
     footer {
@@ -358,14 +298,13 @@
       padding: 1.5rem;
       color: var(--texto-suave);
       font-size: 0.8rem;
-      border-top: 1px solid #e0e0e0;
+      border-top: 1px solid rgba(255,255,255,0.08);
       margin-top: 2rem;
     }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.7rem; }
       .content { padding: 2rem 1.25rem; }
-      .stats-strip { gap: 1.5rem; }
     }
   </style>
 </head>
@@ -381,19 +320,10 @@
     <div class="hero-vignette"></div>
     <canvas id="hero-particulas"></canvas>
     <div class="hero-contenido">
-      <span class="badge-principal">Pastor Principal</span>
-      <div class="hero-img-wrap">
-        <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
-      </div>
+      <img class="hero-img" src="foto-pastor1.png" alt="Pastor Manuel Duran" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
       <h1>Pastor Manuel Duran</h1>
-      <p class="role">Guía Espiritual de Diseñados a su Imagen</p>
+      <p class="role">Pastor Principal</p>
     </div>
-  </div>
-
-  <div class="stats-strip">
-    <div class="stat-item reveal"><strong>15+</strong><span>Años sirviendo</span></div>
-    <div class="stat-item reveal"><strong>3</strong><span>Ministerios impulsados</span></div>
-    <div class="stat-item reveal"><strong>Cientos</strong><span>De familias acompañadas</span></div>
   </div>
 
   <div class="content">
@@ -409,7 +339,7 @@
         Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.
       </p>
       <p>
-        Desde que asumió el llamado de pastorear "Diseñados a su Imagen", su visión ha sido clara: construir una casa donde nadie se sienta extraño, donde el evangelio se predique con verdad y se viva con ternura. Su liderazgo combina firmeza doctrinal con una cercanía genuina hacia cada persona que cruza la puerta de la iglesia.
+        Con más de 15 años sirviendo en el ministerio, su visión ha sido clara: construir una casa donde nadie se sienta extraño, donde el evangelio se predique con verdad y se viva con ternura. Su liderazgo combina firmeza doctrinal con una cercanía genuina hacia cada persona que cruza la puerta de la iglesia.
       </p>
       <p>
         Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios, con una enseñanza fundamentada en las Escrituras y aplicada a los retos reales de cada hogar en Iztapalapa.
