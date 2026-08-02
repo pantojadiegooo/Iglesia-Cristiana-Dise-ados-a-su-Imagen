@@ -1,637 +1,480 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NT774S3Z');</script>
-    <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planea tu Visita | Diseñados a su Imagen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    /* ── Reset de padding-top heredado del body global ── */
+    body { padding-top: 0; }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO básico -->
-    <meta name="description" content="Diseñados a su Imagen es una iglesia cristiana en Iztapalapa, CDMX. Únete a nuestros servicios presenciales los domingos y jueves. Todos son bienvenidos.">
-    <meta name="keywords" content="iglesia cristiana Iztapalapa, iglesia La Era Iztapalapa, iglesia cristiana CDMX, Diseñados a su Imagen">
-
-    <!-- Nueva Verificación de Google Search Console -->
-    <meta name="google-site-verification" content="I72Huk_0g-FP6Gsqqjy08jfVrlgV2flKNOcDbM3_nY0" />
-
-    <title>Diseñados a su Imagen | Iglesia Cristiana</title>
-
-    <!-- Preconexión: acelera la primera carga de fuentes e íconos -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="estilos.css">
-
-    <!-- SEO Local: ayuda a Google Maps/Búsqueda a identificarnos como iglesia en Iztapalapa -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Church",
-      "name": "Diseñados a su Imagen",
-      "image": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/foto-pastor1.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Casimiro Chovell 9, La Era I y II",
-        "addressLocality": "Iztapalapa",
-        "addressRegion": "CDMX",
-        "postalCode": "09860",
-        "addressCountry": "MX"
-      },
-      "telephone": "+52-553-434-6849",
-      "url": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/",
-      "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "12:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "20:00" }
-      ]
+    /* ── NAV LOCAL ── */
+    .nav-conocenos {
+      background: #0a0a0a;
+      padding: 18px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-bottom: 3px solid var(--gold);
     }
-    </script>
+    .nav-conocenos .logo-nav {
+      color: var(--gold);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .nav-conocenos a.volver {
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-conocenos a.volver:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero-conocenos {
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 100%), url('IMG_0452.jpg') center/cover no-repeat;
+      padding: 80px 20px;
+    }
+    .hero-conocenos h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-conocenos h1 span { color: var(--gold); }
+    .hero-conocenos p {
+      color: #ccc;
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── GENERAL ── */
+    .page-section { padding: 90px 20px; }
+    .inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      text-transform: uppercase;
+      color: #0a0a0a;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .section-heading.light { color: #fff; }
+    .divider-gold {
+      width: 56px; height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ── MISIÓN / VISIÓN / VALORES ── */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .mvv-card {
+      background: #1a1a1a; /* Cambiado a negro suave para contrastar con el fondo negro */
+      border-radius: 10px;
+      padding: 32px 28px;
+      border-top: 4px solid var(--gold);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .mvv-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(212,175,55,0.18);
+    }
+    .mvv-card .icon {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .mvv-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: #fff; /* Cambiado a blanco */
+      margin-bottom: 10px;
+    }
+    .mvv-card p {
+      color: #ccc; /* Cambiado a gris claro */
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ── HISTORIA TIMELINE ── */
+    .historia-bg { background: #ffffff; } /* Cambiado a blanco */
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+      border-left: 3px solid var(--gold);
+      display: grid;
+      gap: 40px;
+      max-width: 720px;
+    }
+    .timeline-item { position: relative; }
+    .timeline-dot {
+      position: absolute;
+      left: -44px;
+      top: 4px;
+      width: 18px; height: 18px;
+      background: var(--gold);
+      border-radius: 50%;
+      border: 3px solid #ffffff; /* Cambiado a blanco para acoplarse al fondo */
+    }
+    .timeline-year {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-item h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #0a0a0a; /* Cambiado a negro */
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .timeline-item p {
+      color: #555; /* Cambiado a gris oscuro para lectura óptima */
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ── GALERÍA ── */
+    .galeria-bg { background: #0a0a0a; } /* Cambiado a negro */
+    .galeria-intro {
+      color: #ccc; /* Cambiado a gris claro */
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    /* Grid de fotos */
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .foto-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #222;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      display: block;
+      text-decoration: none;
+    }
+    .foto-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .foto-item:hover img { transform: scale(1.06); }
+    .foto-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      color: #fff;
+      padding: 28px 16px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Placeholder */
+    .foto-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #e8e8e8;
+      color: #aaa;
+      gap: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .foto-placeholder i { font-size: 2.5rem; color: var(--gold); opacity: 0.6; }
+    .foto-placeholder p { font-size: 0.85rem; line-height: 1.5; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      text-align: center;
+      padding: 90px 20px;
+      border-top: 4px solid var(--gold);
+    }
+    .cta-final h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .cta-final p {
+      color: #bbb;
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .cta-btns a {
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cta-btns .btn-gold { background: var(--gold); color: #0a0a0a; }
+    .cta-btns .btn-gold:hover { background: var(--gold-hover); }
+    .cta-btns .btn-wa { background: #25D366; color: #fff; }
+    .cta-btns .btn-wa:hover { background: #1ebe5a; }
+
+    /* ── FOOTER ── */
+    .footer-mini {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 640px) {
+      .page-section { padding: 60px 16px; }
+      .timeline { padding-left: 24px; }
+      .timeline-dot { left: -32px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT774S3Z"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <header>
-        <nav class="nav-principal">
-            <a href="#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
+  <!-- NAV -->
+  <nav class="nav-conocenos">
+    <a href="index.html" class="logo-nav">DISEÑADOS A SU IMAGEN</a>
+    <a href="index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+  </nav>
 
-            <ul class="menu-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#ministerio">Ministerios</a></li>
-                <li><a href="#en-vivo">En Vivo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- HERO -->
+  <div class="hero-conocenos">
+    <div>
+      <h1>Planea tu <span>primera visita</span></h1>
+      <p>Nos encantaría recibirte. Aquí tienes todo lo que necesitas saber antes de venir: horarios, ubicación, qué esperar y, más abajo, la historia detrás de nuestra comunidad.</p>
+    </div>
+  </div>
 
-    
-<section id="inicio" class="hero">
-        <!--
-          FONDO CINEMATOGRÁFICO DEL HERO
-          - .hero-mesh: vignette animado (radial claro al centro -> negro en
-            bordes), tipo "reflector de teatro", respirando lento con CSS puro.
-          - .hero-vignette: oscurece más el lado izquierdo para que el texto
-            blanco siga siendo perfectamente legible encima.
-          - #hero-particulas: canvas con partículas doradas/blancas/negras
-            subiendo lento, con parpadeo individual (glow). Se apaga solo si
-            el usuario tiene prefers-reduced-motion activado (ver JS abajo).
-          - Cero archivos pesados: todo esto es CSS + <canvas>, no imágenes
-            ni video, así que no afecta tu LCP ni tu peso de página.
-        -->
-        <div class="hero-mesh"></div>
-        <div class="hero-overlay"></div>
-        <canvas id="hero-particulas" aria-hidden="true"></canvas>
-
-        <div class="texto-bienvenida">
-            <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
-            <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
-            <p class="salmo-referencia">Jeremías 31:25</p>
-            <div class="hero-cta">
-               <a href="visita.html" class="btn btn-dorado btn-lg">Planear mi visita</a>
-            </div>
-            <div class="hero-horarios-rapidos reveal">
-                <span><i class="far fa-clock"></i> Domingo — Escuela de vida 9:00</span>
-                <span><i class="far fa-clock"></i> Alabanza 10:30</span>
-                <span><i class="far fa-clock"></i> Prédica 11:30</span>
-            </div>
+  <!-- ANTES DE VENIR (Fondo Blanco) -->
+  <section class="page-section" style="background:#ffffff;">
+    <div class="inner">
+      <p class="section-label" style="color:var(--gold);">Primera vez</p>
+      <h2 class="section-heading reveal">Antes de venir</h2>
+      <div class="divider-gold"></div>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal" style="background:#f9f9f9; border-top-color: var(--gold);">
+          <div class="icon"><i class="fas fa-clock"></i></div>
+          <h3 style="color:#0a0a0a;">Mejor horario para tu 1ra visita</h3>
+          <p style="color:#555;">Te recomendamos venir un domingo: 9:00 am Escuela de vida, 10:30 am Alabanza y 11:30 am Prédica. Puedes llegar en cualquiera de esos horarios.</p>
         </div>
-    </section>
-<section id="pastor" class="seccion bg-negro">
-        <div class="contenedor">
-            <div class="pastores-slider-wrap">
-            <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior" onclick="document.querySelector('.pastores-slider').scrollBy({left: -600, behavior: 'smooth'})">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="pastores-slider">
-
-                <div class="pastor-slide">
-                    <div class="pastor-img-container">
-                        <img src="foto-pastor1.png" alt="Pastor principal Manuel Duran predicando en la Iglesia Cristiana Diseñados a su Imagen, Iztapalapa" class="pastor-img" fetchpriority="high">
-                    </div>
-                    <div class="pastor-info">
-                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
-                        <h3>Manuel Duran</h3>
-                        <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
-                        <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
-                       <a href="pastor-manuel.html" class="btn btn-dorado btn-mt">Conocer más</a>
-                    </div>
-                </div>
-
-                <div class="pastor-slide">
-                    <div class="pastor-img-container">
-                        <img src="foto-pastor2.png" alt="Pastora Guadalupe Duran, líder del ministerio Hijas del Rey en Iztapalapa" class="pastor-img" loading="lazy">
-                    </div>
-                    <div class="pastor-info">
-                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
-                        <h3>Guadalupe Duran</h3>
-                        <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
-                        <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
-                       <a href="pastor-guadalupe.html" class="btn btn-dorado btn-mt">Conocer más</a>
-                    </div>
-                </div>
-
-            </div>
-            <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor" onclick="document.querySelector('.pastores-slider').scrollBy({left: 600, behavior: 'smooth'})">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            </div>
+        <div class="mvv-card reveal" style="background:#f9f9f9; border-top-color: var(--gold);">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3 style="color:#0a0a0a;">Cómo llegar</h3>
+          <p style="color:#555;">Nos encontramos en Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX. Tienes el mapa interactivo y la dirección exacta en la sección de Contacto de la página principal.</p>
         </div>
-    </section>
-<section id="ministerio" class="seccion bg-gris">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Nuestros Servicios</h2>
-            <div class="ministerios-grid">
-
-                <div class="tarjeta reveal">
-                    <img src="foto-actividades.jpg" alt="Congregación reunida en actividad presencial de la iglesia" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>ACTIVIDADES PRESENCIALES</h3>
-                        <p>Únete a nuestros servicios semanales presenciales.</p>
-                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <a href="#donaciones" class="tarjeta reveal">
-                    <img src="foto-ofrendas.jpg" alt="Sección de diezmos y ofrendas de la iglesia" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>DIEZMOS Y OFRENDAS</h3>
-                        <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
-                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-
-                <div class="tarjeta reveal">
-                    <img src="foto-envivo.jpg" alt="Transmisión en vivo de la prédica dominical" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>ACTIVIDADES EN VIVO</h3>
-                        <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
-                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="mvv-card reveal" style="background:#f9f9f9; border-top-color: var(--gold);">
+          <div class="icon"><i class="fas fa-tshirt"></i></div>
+          <h3 style="color:#0a0a0a;">Qué esperar</h3>
+          <p style="color:#555;">No hay código de vestimenta: ven como te sientas cómodo. No necesitas registrarte antes; nuestras puertas están abiertas para recibirte libremente.</p>
         </div>
-    </section>
-<section id="en-vivo" class="seccion bg-negro">
-        <div class="contenedor predica-grid">
-            <div class="predica-texto reveal">
-                <h2 class="titulo-predica">VER PRÉDICAS COMPLETAS</h2>
-                <p class="texto-predica">
-                    Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
-                </p>
-                <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
-                <a href="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" class="btn btn-dorado">Ver Canal de YouTube</a>
-            </div>
-            <div class="video-responsive reveal">
-                <!-- TODO: reemplaza LIVE_STREAM_ID por el ID real de un video/transmisión de YouTube -->
-                <iframe src="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+        <div class="mvv-card reveal" style="background:#f9f9f9; border-top-color: var(--gold);">
+          <div class="icon"><i class="fas fa-child"></i></div>
+          <h3 style="color:#0a0a0a;">Niños y familia</h3>
+          <p style="color:#555;">Contamos con ministerios para todas las edades, incluyendo "Hijas del Rey" y "Jóvenes", para que toda tu familia encuentre un espacio propio.</p>
         </div>
-    </section>
-<section id="donaciones" class="seccion bg-negro">
-        <div class="contenedor donaciones-teaser">
-            <div class="donaciones-teaser-texto reveal">
-                <h2 class="titulo-seccion">Diezmos y Ofrendas</h2>
-                <p>"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
-                <p>Siembra en nuestra comunidad y apoya la obra de Dios. Puedes donar por transferencia bancaria o con tarjeta, de forma segura.</p>
-                <a href="donaciones.html" class="btn btn-dorado btn-lg">Formas de donar <i class="fas fa-heart"></i></a>
-            </div>
-            <img src="foto-ofrendas.jpg" alt="Diezmos y ofrendas de la iglesia" loading="lazy" class="donaciones-teaser-img reveal">
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN / VALORES (Fondo Negro) -->
+  <section class="page-section" style="background:#0a0a0a;">
+    <div class="inner">
+      <p class="section-label">Nuestra identidad</p>
+      <h2 class="section-heading light reveal">Misión, Visión y Valores</h2>
+      <div class="divider-gold"></div>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Misión</h3>
+          <p>Llevar el mensaje de salvación y restauración a cada persona y familia, formando discípulos comprometidos con la Palabra de Dios y el servicio a la comunidad.</p>
         </div>
-    </section>
-<section id="contacto" class="seccion bg-blanco">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Contáctanos</h2>
-
-            <div class="contacto-grid">
-                <div class="reveal">
-                    <div class="info-contacto info-contacto--espaciado">
-                        <h4>Información</h4>
-                        <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" rel="noopener noreferrer" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
-                        <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
-                    </div>
-                    <div class="mapa-embed">
-                        <iframe
-                            title="Ubicación de Diseñados a su Imagen en Iztapalapa, CDMX"
-                            src="https://www.google.com/maps?q=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+M%C3%A9xico,+CDMX&z=17&output=embed"
-                            width="100%"
-                            height="100%"
-                            class="mapa-iframe"
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-
-                <div id="oracion" class="reveal">
-                    <h4 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
-                    <!-- Formulario conectado a tu API en Render -->
-                    <form class="formulario" id="formulario-contacto">
-                        <label for="nombre-usuario" class="etiqueta-oculta">Tu nombre</label>
-                        <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
-
-                        <label for="correo-usuario" class="etiqueta-oculta">Tu correo electrónico</label>
-                        <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
-
-                        <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
-                        <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
-
-                        <button type="submit" class="btn btn-dorado btn-full">Enviar Mensaje</button>
-
-                        <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
-                    </form>
-                </div>
-            </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-eye"></i></div>
+          <h3>Visión</h3>
+          <p>Ser una iglesia que trascienda las paredes de un edificio: una comunidad viva, activa y transformadora que impacte Iztapalapa y más allá con el amor de Cristo.</p>
         </div>
-    </section>
-<section id="horarios" class="seccion bg-negro">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">PLANEA TU VISITA</h2>
-            <p class="subtitulo-visita reveal">Estos son nuestros horarios completos. Ven en cualquiera de ellos, ¡te esperamos!</p>
-            <div class="horarios-grid">
-
-                <div class="horario-dia reveal">
-                    <h3 class="horario-dia-titulo">Lunes</h3>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
-                        </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                    </div>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Reunión de varones</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
-                        </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                    </div>
-                </div>
-
-                <div class="horario-dia reveal">
-                    <h3 class="horario-dia-titulo">Martes</h3>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
-                        </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                    </div>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Célula <small>(Grupo de conexión en casa)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 7:30 - 9:00 pm</span>
-                        </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                    </div>
-                </div>
-
-                <div class="horario-dia reveal">
-                    <h3 class="horario-dia-titulo">Jueves</h3>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 10:00 - 12:00 pm</span>
-                        </div>
-                        <div class="badge-doble">
-                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                            <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                        </div>
-                    </div>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Prédica</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 7:00 - 8:00 pm</span>
-                        </div>
-                        <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
-                    </div>
-                </div>
-
-                <div class="horario-dia horario-dia-destacado reveal">
-                    <h3 class="horario-dia-titulo">Domingo <span class="tag-principal">Servicio principal</span></h3>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Escuela de vida</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
-                        </div>
-                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                    </div>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Alabanza</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 10:30 - 11:30 am</span>
-                        </div>
-                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                    </div>
-                    <div class="horario-item">
-                        <div class="horario-item-info">
-                            <span class="horario-actividad">Prédica</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 11:30 - 12:30 pm</span>
-                        </div>
-                        <div class="badge-doble">
-                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                            <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <h3>Valores</h3>
+          <p>Fe, amor, unidad, servicio y restauración. Creemos que toda persona fue diseñada por Dios con un propósito único e irrepetible.</p>
         </div>
-    </section>
-<section id="faq" class="seccion bg-blanco">
-        <div class="contenedor">
-            <div class="icono-faq-box reveal">
-                <span>?</span>
-            </div>
-            <h2 class="titulo-seccion reveal">Preguntas Frecuentes</h2>
+      </div>
+    </div>
+  </section>
 
-            <div class="faq-contenedor">
+  <!-- HISTORIA TIMELINE (Fondo Blanco) -->
+  <section class="page-section historia-bg">
+    <div class="inner">
+      <p class="section-label" style="color:var(--gold);">Nuestra historia</p>
+      <h2 class="section-heading reveal">El camino que Dios<br>ha trazado</h2>
+      <div class="divider-gold"></div>
 
-                <details class="faq-item reveal">
-                    <summary>¿Cuál es el horario de los servicios?</summary>
-                    <div class="faq-respuesta">
-                        Nuestros servicios principales son los domingos a las 9:00 am (Escuela de vida), 10:30 am (Alabanza) y 11:30 am (Prédica). También tenemos actividades virtuales y presenciales entre semana.
-                    </div>
-                </details>
+      <div class="timeline">
 
-                <details class="faq-item reveal">
-                    <summary>¿Dónde se encuentran ubicados?</summary>
-                    <div class="faq-respuesta">
-                        Nos encontramos en Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX. Contamos con un mapa interactivo en la sección superior de Contacto para que puedas llegar fácilmente.
-                    </div>
-                </details>
-
-                <details class="faq-item reveal">
-                    <summary>¿Cómo puedo contactarlos o solicitar oración?</summary>
-                    <div class="faq-respuesta">
-                        Puedes contactarnos o solicitar una oración a través de nuestras redes sociales y nuestro formulario de contacto en esta misma página.
-                    </div>
-                </details>
-
-                <details class="faq-item reveal">
-                    <summary>¿Qué tipo de vestimenta es adecuada para asistir?</summary>
-                    <div class="faq-respuesta">
-                        No tenemos un código de vestimenta estricto. Ven como te sientas cómodo; lo más importante para nosotros es tu presencia y tu corazón dispuesto a recibir la palabra de Dios.
-                    </div>
-                </details>
-
-                <details class="faq-item reveal">
-                    <summary>¿Tienen actividades para diferentes edades?</summary>
-                    <div class="faq-respuesta">
-                        Sí, contamos con ministerios específicos como "Hijas del Rey", "Reunión de varones", "Jovenes".
-                    </div>
-                </details>
-
-                <details class="faq-item reveal">
-                    <summary>¿Es necesario registrarse antes de asistir?</summary>
-                    <div class="faq-respuesta">
-                        No es necesario ningún registro previo. Nuestras puertas están abiertas para recibirte libremente en cualquiera de nuestros horarios de servicio presencial.
-                    </div>
-                </details>
-
-            </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Los Inicios</p>
+          <h3>El llamado de Dios</h3>
+          <p>Todo comenzó con una promesa y una convicción profunda en el corazón del Pastor Manuel Duran: que Dios tenía un propósito para las familias de Iztapalapa. De una reunión en casa nació la semilla de lo que hoy es "Diseñados a su Imagen".</p>
         </div>
-    </section>
-<section id="sigueños" class="seccion bg-gris">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Síguenos</h2>
-<div class="redes-grandes-grid">
 
-                <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-fb.jpg" alt="Síguenos en Facebook" loading="lazy">
-                    <i class="fab fa-facebook-f icono-centro"></i>
-                </a>
-
-                <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-ig.jpg" alt="Síguenos en Instagram" loading="lazy">
-                    <i class="fab fa-instagram icono-centro"></i>
-                </a>
-
-                <a href="https://w.app/xj23cq" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-wa.jpg" alt="Escríbenos por WhatsApp" loading="lazy">
-                    <i class="fab fa-whatsapp icono-centro"></i>
-                </a>
-
-                <!-- TODO: reemplaza esta URL por el link real de tu cuenta de TikTok -->
-                <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" rel="noopener noreferrer" class="red-cuadro red-cuadro-tiktok reveal">
-                   <img src="banner-tt.jpg" alt="Síguenos en Tik Tok" loading="lazy"> 
-                    <i class="fab fa-tiktok icono-centro"></i>
-                </a>
-            </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Crecimiento</p>
+          <h3>Una comunidad que crece</h3>
+          <p>Poco a poco, familias y jóvenes comenzaron a llegar, atraídos por la calidez de la comunidad y la profundidad de las enseñanzas. Los ministerios de mujeres, jóvenes y varones tomaron forma bajo el liderazgo de los pastores.</p>
         </div>
-    </section>
 
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
-                <p class="footer-desc">
-                    Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.
-                </p>
-                <div class="redes-sociales">
-                    <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
-                    <a href="https://www.youtube.com/@TU-CANAL-AQUI" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://w.app/xj23cq" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Menú Principal</h4>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#pastor">El Pastor</a></li>
-                    <li><a href="#ministerio">Ministerios</a></li>
-                    <li><a href="#en-vivo">Transmisión en Vivo</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Ayuda y Enlaces</h4>
-                <ul>
-                    <li><a href="#contacto">Dudas y Sugerencias</a></li>
-                    <li><a href="#horarios">Nuestros Horarios</a></li>
-                    <li><a href="donaciones.html">Diezmos y Ofrendas</a></li>
-                </ul>
-            </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Expansión Digital</p>
+          <h3>Llegando más lejos</h3>
+          <p>La iglesia extendió su alcance a través de transmisiones en Facebook, Zoom y YouTube, permitiendo que personas de distintas partes pudieran conectarse con la Palabra de Dios desde sus hogares.</p>
         </div>
-        <div class="copyright">
-            © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Hoy</p>
+          <h3>Diseñados para el futuro</h3>
+          <p>Seguimos creciendo, sirviendo y creyendo. Cada domingo es una nueva oportunidad de ver vidas transformadas. El mejor capítulo de nuestra historia todavía está por escribirse.</p>
         </div>
-    </footer>
 
-    <!-- Script de JavaScript para enviar los datos a tu API en Render -->
-    <script>
-    document.getElementById('formulario-contacto').addEventListener('submit', async (e) => {
-        e.preventDefault(); // Detiene la recarga automática de la página
+      </div>
+    </div>
+  </section>
 
-        // Captura los valores ingresados por el usuario
-        const nombre = document.getElementById('nombre-usuario').value;
-        const correo = document.getElementById('correo-usuario').value;
-        const mensaje = document.getElementById('mensaje-usuario').value;
+  <!-- GALERÍA DE EVENTOS / ANIVERSARIOS (Fondo Negro) -->
+  <section class="page-section galeria-bg">
+    <div class="inner">
+      <p class="section-label">Momentos especiales</p>
+      <h2 class="section-heading light reveal">Galería de Eventos<br>y Aniversarios</h2>
+      <div class="divider-gold"></div>
+      <p class="galeria-intro">Cada foto cuenta una historia de fe, amor y comunidad. Aquí guardamos los momentos que Dios ha regalado a nuestra congregación a lo largo de los años.</p>
 
-        const botonSubmit = e.target.querySelector('button[type="submit"]');
-        const textoOriginalBoton = botonSubmit.innerText;
-        const cajaMensaje = document.getElementById('mensaje-estado');
+      <div class="foto-grid">
 
-        // Limpia cualquier mensaje anterior
-        cajaMensaje.textContent = '';
-        cajaMensaje.className = 'mensaje-estado';
+        <!-- Tarjeta 1: Aniversario -->
+        <a href="aniversario.html" class="foto-item reveal">
+          <img src="portada-aniversario.jpg" alt="Aniversario de la Iglesia">
+          <div class="foto-caption">Aniversario de la Iglesia</div>
+        </a>
 
-        botonSubmit.innerText = "Enviando...";
-        botonSubmit.disabled = true;
+        <!-- Tarjeta 2: Bautismos -->
+        <a href="bautismos.html" class="foto-item reveal">
+          <img src="portada-bautismos.jpg" alt="Bautismos">
+          <div class="foto-caption">Bautismos</div>
+        </a>
 
-        // Si Render tiene el servicio "dormido" (plan gratis), la primera
-        // petición puede tardar 30-50 segundos en despertar. Avisamos al
-        // usuario después de unos segundos para que no piense que está roto.
-        const avisoTardanza = setTimeout(() => {
-            botonSubmit.innerText = "Esto puede tardar unos segundos...";
-        }, 4000);
+        <!-- Tarjeta 3: Convivios y Retiros -->
+        <a href="convivios.html" class="foto-item reveal">
+          <img src="portada-convivios.jpg" alt="Convivios y Retiros">
+          <div class="foto-caption">Convivios y Retiros</div>
+        </a>
 
-        try {
-            const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su.onrender.com/api/contacto', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nombre: nombre,
-                    correo: correo,
-                    mensaje: mensaje
-                })
-            });
+        <!-- Tarjeta 4: Hijas del Rey -->
+        <a href="hijas-del-rey.html" class="foto-item reveal">
+          <img src="portada-hijas.jpg" alt="Hijas del Rey">
+          <div class="foto-caption">Hijas del Rey</div>
+        </a>
 
-            const resultado = await respuesta.json();
+        <!-- Tarjeta 5: Ministerio de Jóvenes -->
+        <a href="jovenes.html" class="foto-item reveal">
+          <img src="portada-jovenes.jpg" alt="Ministerio de Jóvenes">
+          <div class="foto-caption">Ministerio de Jóvenes</div>
+        </a>
 
-            if (respuesta.ok && resultado.status === 'success') {
-                cajaMensaje.textContent = resultado.message;
-                cajaMensaje.className = 'mensaje-estado mensaje-estado--exito';
-                document.getElementById('formulario-contacto').reset();
-            } else if (respuesta.status === 429) {
-                // Límite de peticiones alcanzado (rate limiting del backend)
-                cajaMensaje.textContent = 'Enviaste varios mensajes muy seguido. Espera unos minutos e inténtalo de nuevo.';
-                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
-            } else if (respuesta.status === 400) {
-                // Error de validación: el backend ya manda un mensaje específico
-                cajaMensaje.textContent = resultado.message || 'Revisa los datos del formulario e intenta de nuevo.';
-                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
-            } else {
-                cajaMensaje.textContent = 'Hubo un problema al procesar tu mensaje. Intenta de nuevo en unos minutos.';
-                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
-            }
-        } catch (error) {
-            console.error('Error detectado:', error);
-            cajaMensaje.textContent = 'No pudimos conectar con el servidor. Revisa tu conexión a internet e intenta de nuevo.';
-            cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
-        } finally {
-            clearTimeout(avisoTardanza);
-            botonSubmit.innerText = textoOriginalBoton;
-            botonSubmit.disabled = false;
-        }
-    });
-    </script>
+        <!-- Tarjeta 6: Fechas Especiales -->
+        <a href="fechas-especiales.html" class="foto-item reveal">
+          <img src="portada-fechas.jpg" alt="Fechas Especiales">
+          <div class="foto-caption">Fechas Especiales</div>
+        </a>
 
-    <!-- Fondo del hero: partículas canvas, respeta prefers-reduced-motion -->
-    <script>
-    (function () {
-        const canvas = document.getElementById('hero-particulas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      </div>
+    </div>
+  </section>
 
-        function ajustarTamano() {
-            const hero = canvas.closest('.hero');
-            canvas.width = hero.offsetWidth * devicePixelRatio;
-            canvas.height = hero.offsetHeight * devicePixelRatio;
-            canvas.style.width = hero.offsetWidth + 'px';
-            canvas.style.height = hero.offsetHeight + 'px';
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.scale(devicePixelRatio, devicePixelRatio);
-        }
-        ajustarTamano();
-        window.addEventListener('resize', ajustarTamano);
+  <!-- CTA FINAL -->
+  <div class="cta-final">
+    <h2>¿Listo para visitarnos?</h2>
+    <p>Nos encantaría conocerte. Ven cualquier domingo a las 9:00 am a Casimiro Chovell 9, Iztapalapa, CDMX.</p>
+    <div class="cta-btns">
+      <a href="index.html#contacto" class="btn-gold">Ver horarios y mapa</a>
+      <a href="https://w.app/xj23cq" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Escribir por WhatsApp</a>
+    </div>
+  </div>
 
-        if (prefiereMovimientoReducido) return; // sin partículas, sin animación
+  <div class="footer-mini">© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</div>
 
-        const anchoCss = () => canvas.width / devicePixelRatio;
-        const altoCss = () => canvas.height / devicePixelRatio;
+  <!-- Animaciones de scroll reveal -->
+  <script src="animaciones.js" defer></script>
 
-        const PALETAS = [
-            { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
-            { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
-            { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
-        ];
-
-        function elegirPaleta() {
-            const r = Math.random();
-            let acumulado = 0;
-            for (const p of PALETAS) {
-                acumulado += p.peso;
-                if (r <= acumulado) return p;
-            }
-            return PALETAS[0];
-        }
-
-        function crearParticula() {
-            const paleta = elegirPaleta();
-            const esNegra = paleta.color === '15, 13, 10';
-            return {
-                x: Math.random() * anchoCss(),
-                y: altoCss() + Math.random() * 100,
-                radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
-                velocidadY: Math.random() * 0.35 + 0.12,
-                deriva: Math.random() * 0.4 - 0.2,
-                opacidad: esNegra ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
-                parpadeo: Math.random() * 0.02 + 0.005,
-                fase: Math.random() * Math.PI * 2,
-                paleta
-            };
-        }
-
-        const NUM_PARTICULAS = 130;
-        const particulas = Array.from({ length: NUM_PARTICULAS }, crearParticula);
-
-        function animar() {
-            ctx.clearRect(0, 0, anchoCss(), altoCss());
-            particulas.forEach(p => {
-                p.y -= p.velocidadY;
-                p.x += p.deriva;
-                p.fase += p.parpadeo;
-                const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
-
-                if (p.y < -10) {
-                    Object.assign(p, crearParticula());
-                    p.y = altoCss() + 10;
-                }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
-                ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
-                ctx.shadowColor = p.paleta.glow;
-                ctx.fill();
-            });
-            requestAnimationFrame(animar);
-        }
-        animar();
-    })();
-    </script>
-
-    <!-- Animaciones de scroll reveal -->
-    <script src="animaciones.js" defer></script>
 </body>
 </html>
