@@ -241,7 +241,7 @@ header {
     .btn-dorado::before, .btn-gold::before, .btn-wa::before { animation: none !important; }
 }
 
-/* ====== HERO SECTION (con video de fondo) ====== */
+/* ====== HERO SECTION (fondo cinematográfico: mesh + partículas) ====== */
 .hero {
     position: relative;
     height: 85vh;
@@ -249,56 +249,50 @@ header {
     align-items: center;
     padding: 0 5%;
     overflow: hidden;
-    /* Fallback: si el video no carga o el navegador es muy viejo,
-       esta imagen de fondo sigue funcionando como antes. */
-    background: url('IMG_0452.jpg');
-    background-size: cover;
-    background-position: center;
+    background: #0a0a0a;
 }
 
-.hero-video {
+/* Vignette animado: resplandor cálido al centro-arriba que se apaga a negro
+   en las orillas, tipo "reflector de teatro". Respira lento con CSS puro. */
+.hero-mesh {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    inset: -10%;
     z-index: 0;
+    background:
+        radial-gradient(ellipse 60% 55% at 50% 38%, rgba(245,240,228,0.95) 0%, rgba(120,110,90,0.55) 35%, rgba(20,18,14,0.9) 62%, #000000 85%),
+        radial-gradient(circle at 15% 85%, rgba(212,175,55,0.10) 0%, transparent 45%);
+    animation: heroMeshDrift 26s ease-in-out infinite alternate;
 }
 
+@keyframes heroMeshDrift {
+    0%   { transform: translate(0%, 0%) scale(1); }
+    50%  { transform: translate(-2%, 1.5%) scale(1.06); }
+    100% { transform: translate(1.5%, -2%) scale(1.03); }
+}
+
+/* Oscurece más el lado del texto para que siga legible sobre el vignette */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
     z-index: 1;
+    background: linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.55) 100%);
 }
 
-.hero-video-pausa {
+#hero-particulas {
     position: absolute;
-    bottom: 24px;
-    right: 24px;
+    inset: 0;
     z-index: 2;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255,255,255,0.4);
-    background: rgba(0,0,0,0.35);
-    color: var(--white);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    transition: background 0.2s, border-color 0.2s;
+    width: 100%;
+    height: 100%;
 }
-.hero-video-pausa:hover,
-.hero-video-pausa:focus-visible {
-    background: rgba(0,0,0,0.55);
-    border-color: var(--gold);
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-mesh { animation: none; }
 }
 
 .texto-bienvenida {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     max-width: 650px;
 }
 .mensaje-comunidad { color: var(--gold); font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
