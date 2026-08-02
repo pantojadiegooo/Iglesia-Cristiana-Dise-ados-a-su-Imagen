@@ -90,7 +90,6 @@
   </style>
 </head>
 <body>
-
   <!-- NAV GLOBAL -->
   <header>
       <nav class="nav-principal">
@@ -103,28 +102,24 @@
           </ul>
       </nav>
   </header>
-
   <!-- HERO ELITE -->
   <section class="hero">
       <div class="hero-mesh"></div>
       <div class="hero-vignette"></div>
       <canvas id="hero-particulas"></canvas>
       <div class="texto-bienvenida reveal" style="text-align: center; max-width: 800px;">
-          <img class="hero-img" src="foto-pastor2.png" alt="Pastora Guadalupe Duran" style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 3;" onerror="this.src='https://ui-avatars.com/api/?name=Guadalupe+Duran&background=0a0a0a&color=c9a84c&size=140'" />
+          <img class="hero-img" src="foto-pastor2.png" alt="Pastor Manuel Duran" style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 3;" onerror="this.src='https://ui-avatars.com/api/?name=Manuel+Duran&background=0a0a0a&color=c9a84c&size=140'" />
           <h1 class="versiculo-principal" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 5px;">PASTOR MANUEL DURAN</h1>
           <p class="mensaje-comunidad" style="letter-spacing: 0.1em; color: var(--gold);">Pastor · Principal</p>
       </div>
   </section>
-
   <!-- CONTENIDO -->
   <section class="seccion">
     <div class="contenedor panel-elegante" style="max-width: 900px;">
-
       <div class="verse-box reveal">
         "Y os daré pastores según mi corazón, que os apacienten con ciencia y con inteligencia."
         <span>— Jeremías 3:15</span>
       </div>
-
       <div class="bio-block">
         <h2 class="section-title reveal">Acerca del Pastor</h2>
         <p class="reveal">
@@ -137,7 +132,6 @@
           Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios, con una enseñanza fundamentada en las Escrituras y aplicada a los retos reales de cada hogar en Iztapalapa.
         </p>
       </div>
-
       <div class="bio-block">
         <h2 class="section-title reveal">Su Enfoque Ministerial</h2>
         <div class="values-grid">
@@ -156,20 +150,19 @@
           <div class="value-card reveal">
             <h3>🙌 Discipulado</h3>
             <p>Forma nuevos líderes y acompaña a los nuevos creyentes en sus primeros pasos de fe.</p>
-         </div>
+          </div>
           <div class="value-card reveal">
             <h3>🌍 Visión de Iglesia</h3>
             <p>Sueña con una iglesia que impacte cada hogar de Iztapalapa, llevando esperanza más allá de sus paredes.</p>
+          </div>
           <div class="value-card reveal">
             <h3>🔥 Vida de Oración</h3>
             <p>Cree que toda obra genuina nace de rodillas, y por eso hace de la oración el corazón de su liderazgo.</p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
   <!-- CTA FINAL -->
   <section class="seccion">
       <div class="contenedor panel-elegante" style="text-align: center;">
@@ -181,7 +174,6 @@
           </div>
       </div>
   </section>
-
   <!-- FOOTER GLOBAL -->
   <footer class="footer-elegante">
       <div class="footer-grid">
@@ -218,7 +210,6 @@
           © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
       </div>
   </footer>
-
   <!-- Script del Hero Élite -->
   <script>
   (function () {
@@ -226,7 +217,6 @@
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
     const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     function ajustarTamano() {
       canvas.width = canvas.offsetWidth * devicePixelRatio;
       canvas.height = canvas.offsetHeight * devicePixelRatio;
@@ -237,7 +227,6 @@
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ajustarTamano();
     });
-
     const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 130;
     const particulas = [];
     const PALETAS = [
@@ -245,7 +234,6 @@
       { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
       { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
     ];
-
     function elegirPaleta() {
       const r = Math.random();
       let acumulado = 0;
@@ -255,7 +243,6 @@
       }
       return PALETAS[0];
     }
-
     function crearParticula() {
       const paleta = elegirPaleta();
       const esNegra = paleta.color === '15, 13, 10';
@@ -271,9 +258,7 @@
         paleta
       };
     }
-
     for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
-
     function animar() {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
       particulas.forEach(p => {
@@ -297,7 +282,6 @@
     animar();
   })();
   </script>
-
   <script src="animaciones.js" defer></script>
 </body>
 </html>
