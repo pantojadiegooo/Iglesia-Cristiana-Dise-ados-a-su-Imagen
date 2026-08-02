@@ -68,27 +68,14 @@
                 <li><a href="#en-vivo">En Vivo</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+
+            <div class="botones-accion">
+                <a href="donaciones.html" class="btn btn-dorado">Donar <i class="fas fa-heart"></i></a>
+            </div>
         </nav>
     </header>
 
-    
-<section id="inicio" class="hero">
-        <!--
-          FONDO CINEMATOGRÁFICO DEL HERO
-          - .hero-mesh: vignette animado (radial claro al centro -> negro en
-            bordes), tipo "reflector de teatro", respirando lento con CSS puro.
-          - .hero-vignette: oscurece más el lado izquierdo para que el texto
-            blanco siga siendo perfectamente legible encima.
-          - #hero-particulas: canvas con partículas doradas/blancas/negras
-            subiendo lento, con parpadeo individual (glow). Se apaga solo si
-            el usuario tiene prefers-reduced-motion activado (ver JS abajo).
-          - Cero archivos pesados: todo esto es CSS + <canvas>, no imágenes
-            ni video, así que no afecta tu LCP ni tu peso de página.
-        -->
-        <div class="hero-mesh"></div>
-        <div class="hero-overlay"></div>
-        <canvas id="hero-particulas" aria-hidden="true"></canvas>
-
+    <section id="inicio" class="hero">
         <div class="texto-bienvenida">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
             <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
@@ -96,17 +83,181 @@
             <div class="hero-cta">
                <a href="visita.html" class="btn btn-dorado btn-lg">Planear mi visita</a>
             </div>
-            <div class="hero-horarios-rapidos reveal">
-                <span><i class="far fa-clock"></i> Domingo — Escuela de vida 9:00</span>
-                <span><i class="far fa-clock"></i> Alabanza 10:30</span>
-                <span><i class="far fa-clock"></i> Prédica 11:30</span>
+        </div>
+    </section>
+
+    <section id="pastor" class="seccion bg-negro">
+        <div class="contenedor">
+            <div class="pastores-slider-wrap">
+            <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior" onclick="document.querySelector('.pastores-slider').scrollBy({left: -600, behavior: 'smooth'})">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="pastores-slider">
+
+                <div class="pastor-slide">
+                    <div class="pastor-img-container">
+                        <img src="foto-pastor1.png" alt="Pastor principal Manuel Duran predicando en la Iglesia Cristiana Diseñados a su Imagen, Iztapalapa" class="pastor-img" fetchpriority="high">
+                    </div>
+                    <div class="pastor-info">
+                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
+                        <h3>Manuel Duran</h3>
+                        <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
+                        <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
+                       <a href="pastor-manuel.html" class="btn btn-dorado btn-mt">Conocer más</a>
+                    </div>
+                </div>
+
+                <div class="pastor-slide">
+                    <div class="pastor-img-container">
+                        <img src="foto-pastor2.png" alt="Pastora Guadalupe Duran, líder del ministerio Hijas del Rey en Iztapalapa" class="pastor-img" loading="lazy">
+                    </div>
+                    <div class="pastor-info">
+                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
+                        <h3>Guadalupe Duran</h3>
+                        <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
+                        <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
+                       <a href="pastor-guadalupe.html" class="btn btn-dorado btn-mt">Conocer más</a>
+                    </div>
+                </div>
+
+            </div>
+            <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor" onclick="document.querySelector('.pastores-slider').scrollBy({left: 600, behavior: 'smooth'})">
+                <i class="fas fa-chevron-right"></i>
+            </button>
             </div>
         </div>
     </section>
-<section id="horarios" class="seccion bg-negro">
+
+    <section id="ministerio" class="seccion bg-gris">
         <div class="contenedor">
-            <h2 class="titulo-seccion reveal">PLANEA TU VISITA</h2>
-            <p class="subtitulo-visita reveal">Estos son nuestros horarios completos. Ven en cualquiera de ellos, ¡te esperamos!</p>
+            <h2 class="titulo-seccion reveal">Conoce Más</h2>
+            <div class="ministerios-grid">
+
+                <div class="tarjeta reveal">
+                    <img src="foto-actividades.jpg" alt="Congregación reunida en actividad presencial de la iglesia" loading="lazy">
+                    <div class="tarjeta-overlay">
+                        <h3>ACTIVIDADES PRESENCIALES</h3>
+                        <p>Únete a nuestros servicios semanales presenciales.</p>
+                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <a href="donaciones.html" class="tarjeta reveal" id="donaciones">
+                    <img src="foto-ofrendas.jpg" alt="Sección de diezmos y ofrendas de la iglesia" loading="lazy">
+                    <div class="tarjeta-overlay">
+                        <h3>DIEZMOS Y OFRENDAS</h3>
+                        <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
+                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <div class="tarjeta reveal">
+                    <img src="foto-envivo.jpg" alt="Transmisión en vivo de la prédica dominical" loading="lazy">
+                    <div class="tarjeta-overlay">
+                        <h3>ACTIVIDADES EN VIVO</h3>
+                        <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
+                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="redes-grandes-grid">
+
+                <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-fb.jpg" alt="Síguenos en Facebook" loading="lazy">
+                    <i class="fab fa-facebook-f icono-centro"></i>
+                </a>
+
+                <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-ig.jpg" alt="Síguenos en Instagram" loading="lazy">
+                    <i class="fab fa-instagram icono-centro"></i>
+                </a>
+
+                <a href="https://w.app/xj23cq" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-wa.jpg" alt="Escríbenos por WhatsApp" loading="lazy">
+                    <i class="fab fa-whatsapp icono-centro"></i>
+                </a>
+
+                <!-- TODO: reemplaza esta URL por el link real de tu cuenta de TikTok -->
+                <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" class="red-cuadro red-cuadro-tiktok reveal">
+                   <img src="banner-tt.jpg" alt="Síguenos en Tik Tok" loading="lazy"> 
+                    <i class="fab fa-tiktok icono-centro"></i>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="en-vivo" class="seccion bg-negro">
+        <div class="contenedor predica-grid">
+            <div class="predica-texto reveal">
+                <h2 class="titulo-predica">VER PRÉDICAS COMPLETAS</h2>
+                <p class="texto-predica">
+                    Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
+                </p>
+                <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
+                <a href="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" class="btn btn-dorado">Ver Canal de YouTube</a>
+            </div>
+            <div class="video-responsive reveal">
+                <!-- TODO: reemplaza LIVE_STREAM_ID por el ID real de un video/transmisión de YouTube -->
+                <iframe src="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="seccion bg-blanco">
+        <div class="contenedor">
+            <h2 class="titulo-seccion reveal">Ubicación y Contacto</h2>
+
+            <div class="contacto-grid">
+                <div id="oracion" class="reveal">
+                    <div class="info-contacto info-contacto--espaciado">
+                        <h4>Información</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
+                        <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
+                        <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
+                    </div>
+
+                    <h4 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
+                    <!-- Formulario conectado a tu API en Render -->
+                    <form class="formulario" id="formulario-contacto">
+                        <label for="nombre-usuario" class="etiqueta-oculta">Tu nombre</label>
+                        <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
+
+                        <label for="correo-usuario" class="etiqueta-oculta">Tu correo electrónico</label>
+                        <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
+
+                        <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
+                        <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
+
+                        <button type="submit" class="btn btn-dorado btn-full">Enviar Mensaje</button>
+
+                        <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+
+                <div class="mapa-embed reveal">
+                    <iframe
+                        title="Ubicación de Diseñados a su Imagen en Iztapalapa, CDMX"
+                        src="https://www.google.com/maps?q=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+M%C3%A9xico,+CDMX&z=17&output=embed"
+                        width="100%"
+                        height="100%"
+                        class="mapa-iframe"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="horarios" class="seccion bg-negro">
+        <div class="contenedor">
+            <h2 class="titulo-seccion reveal">NUESTROS HORARIOS</h2>
             <div class="horarios-grid">
 
                 <div class="horario-dia reveal">
@@ -152,10 +303,7 @@
                             <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
                             <span class="horario-hora"><i class="far fa-clock"></i> 10:00 - 12:00 pm</span>
                         </div>
-                        <div class="badge-doble">
-                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                            <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
-                        </div>
+                        <span class="badge-modalidad badge-mixto"><i class="fas fa-users"></i> Presencial + Zoom</span>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
@@ -195,134 +343,11 @@
                 </div>
 
             </div>
-
-            <div class="ubicacion-grid">
-                <div class="info-contacto reveal">
-                    <h4>Ubicación</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" rel="noopener noreferrer" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
-                    <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
-                </div>
-                <div class="mapa-embed reveal">
-                    <iframe
-                        title="Ubicación de Diseñados a su Imagen en Iztapalapa, CDMX"
-                        src="https://www.google.com/maps?q=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+M%C3%A9xico,+CDMX&z=17&output=embed"
-                        width="100%"
-                        height="100%"
-                        class="mapa-iframe"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
         </div>
     </section>
-<section id="pastor" class="seccion bg-negro">
-        <div class="contenedor">
-            <div class="pastores-slider-wrap">
-            <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior" onclick="document.querySelector('.pastores-slider').scrollBy({left: -600, behavior: 'smooth'})">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="pastores-slider">
 
-                <div class="pastor-slide">
-                    <div class="pastor-img-container">
-                        <img src="foto-pastor1.png" alt="Pastor principal Manuel Duran predicando en la Iglesia Cristiana Diseñados a su Imagen, Iztapalapa" class="pastor-img" fetchpriority="high">
-                    </div>
-                    <div class="pastor-info">
-                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
-                        <h3>Manuel Duran</h3>
-                        <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
-                        <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
-                       <a href="pastor-manuel.html" class="btn btn-dorado btn-mt">Conocer más</a>
-                    </div>
-                </div>
-
-                <div class="pastor-slide">
-                    <div class="pastor-img-container">
-                        <img src="foto-pastor2.png" alt="Pastora Guadalupe Duran, líder del ministerio Hijas del Rey en Iztapalapa" class="pastor-img" loading="lazy">
-                    </div>
-                    <div class="pastor-info">
-                        <h2 class="subtitulo-pastores">NUESTROS PASTORES</h2>
-                        <h3>Guadalupe Duran</h3>
-                        <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
-                        <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
-                       <a href="pastor-guadalupe.html" class="btn btn-dorado btn-mt">Conocer más</a>
-                    </div>
-                </div>
-
-            </div>
-            <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor" onclick="document.querySelector('.pastores-slider').scrollBy({left: 600, behavior: 'smooth'})">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </section>
-<section id="ministerio" class="seccion bg-gris">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Nuestros Servicios</h2>
-            <div class="ministerios-grid">
-
-                <div class="tarjeta reveal">
-                    <img src="foto-actividades.jpg" alt="Congregación reunida en actividad presencial de la iglesia" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>ACTIVIDADES PRESENCIALES</h3>
-                        <p>Únete a nuestros servicios semanales presenciales.</p>
-                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <a href="#donaciones" class="tarjeta reveal">
-                    <img src="foto-ofrendas.jpg" alt="Sección de diezmos y ofrendas de la iglesia" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>DIEZMOS Y OFRENDAS</h3>
-                        <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
-                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
-                    </div>
-                </a>
-
-                <div class="tarjeta reveal">
-                    <img src="foto-envivo.jpg" alt="Transmisión en vivo de la prédica dominical" loading="lazy">
-                    <div class="tarjeta-overlay">
-                        <h3>ACTIVIDADES EN VIVO</h3>
-                        <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
-                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-<section id="en-vivo" class="seccion bg-negro">
-        <div class="contenedor predica-grid">
-            <div class="predica-texto reveal">
-                <h2 class="titulo-predica">VER PRÉDICAS COMPLETAS</h2>
-                <p class="texto-predica">
-                    Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
-                </p>
-                <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
-                <a href="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" class="btn btn-dorado">Ver Canal de YouTube</a>
-            </div>
-            <div class="video-responsive reveal">
-                <!-- TODO: reemplaza LIVE_STREAM_ID por el ID real de un video/transmisión de YouTube -->
-                <iframe src="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-<section id="donaciones" class="seccion bg-negro">
-        <div class="contenedor donaciones-teaser">
-            <div class="donaciones-teaser-texto reveal">
-                <h2 class="titulo-seccion">Diezmos y Ofrendas</h2>
-                <p>"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
-                <p>Siembra en nuestra comunidad y apoya la obra de Dios. Puedes donar por transferencia bancaria o con tarjeta, de forma segura.</p>
-                <a href="donaciones.html" class="btn btn-dorado btn-lg">Formas de donar <i class="fas fa-heart"></i></a>
-            </div>
-            <img src="foto-ofrendas.jpg" alt="Diezmos y ofrendas de la iglesia" loading="lazy" class="donaciones-teaser-img reveal">
-        </div>
-    </section>
-<section id="faq" class="seccion bg-blanco">
+    <!-- ====== PREGUNTAS FRECUENTES ====== -->
+    <section id="faq" class="seccion bg-blanco">
         <div class="contenedor">
             <div class="icono-faq-box reveal">
                 <span>?</span>
@@ -376,69 +401,6 @@
             </div>
         </div>
     </section>
-<section id="contacto" class="seccion bg-blanco">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Contáctanos</h2>
-
-            <div class="contacto-grid">
-                <div class="reveal">
-                    <div class="info-contacto info-contacto--espaciado">
-                        <h4>Información</h4>
-                        <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</p>
-                    </div>
-                </div>
-
-                <div id="oracion" class="reveal">
-                    <h4 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
-                    <!-- Formulario conectado a tu API en Render -->
-                    <form class="formulario" id="formulario-contacto">
-                        <label for="nombre-usuario" class="etiqueta-oculta">Tu nombre</label>
-                        <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
-
-                        <label for="correo-usuario" class="etiqueta-oculta">Tu correo electrónico</label>
-                        <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
-
-                        <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
-                        <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
-
-                        <button type="submit" class="btn btn-dorado btn-full">Enviar Mensaje</button>
-
-                        <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-<section id="sigueños" class="seccion bg-gris">
-        <div class="contenedor">
-            <h2 class="titulo-seccion reveal">Síguenos</h2>
-<div class="redes-grandes-grid">
-
-                <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-fb.jpg" alt="Síguenos en Facebook" loading="lazy">
-                    <i class="fab fa-facebook-f icono-centro"></i>
-                </a>
-
-                <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-ig.jpg" alt="Síguenos en Instagram" loading="lazy">
-                    <i class="fab fa-instagram icono-centro"></i>
-                </a>
-
-                <a href="https://w.app/xj23cq" target="_blank" rel="noopener noreferrer" class="red-cuadro reveal">
-                    <img src="banner-wa.jpg" alt="Escríbenos por WhatsApp" loading="lazy">
-                    <i class="fab fa-whatsapp icono-centro"></i>
-                </a>
-
-                <!-- TODO: reemplaza esta URL por el link real de tu cuenta de TikTok -->
-                <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" rel="noopener noreferrer" class="red-cuadro red-cuadro-tiktok reveal">
-                   <img src="banner-tt.jpg" alt="Síguenos en Tik Tok" loading="lazy"> 
-                    <i class="fab fa-tiktok icono-centro"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
 
     <footer>
         <div class="footer-grid">
@@ -449,11 +411,10 @@
                 </p>
                 <div class="redes-sociales">
                     <!-- TODO: reemplaza esta URL por el link real de tu canal de YouTube -->
-                    <a href="https://www.youtube.com/@TU-CANAL-AQUI" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://w.app/xj23cq" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/@TU-CANAL-AQUI" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://w.app/xj23cq" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
 
@@ -550,92 +511,6 @@
             botonSubmit.disabled = false;
         }
     });
-    </script>
-
-    <!-- Fondo del hero: partículas canvas, respeta prefers-reduced-motion -->
-    <script>
-    (function () {
-        const canvas = document.getElementById('hero-particulas');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function ajustarTamano() {
-            const hero = canvas.closest('.hero');
-            canvas.width = hero.offsetWidth * devicePixelRatio;
-            canvas.height = hero.offsetHeight * devicePixelRatio;
-            canvas.style.width = hero.offsetWidth + 'px';
-            canvas.style.height = hero.offsetHeight + 'px';
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.scale(devicePixelRatio, devicePixelRatio);
-        }
-        ajustarTamano();
-        window.addEventListener('resize', ajustarTamano);
-
-        if (prefiereMovimientoReducido) return; // sin partículas, sin animación
-
-        const anchoCss = () => canvas.width / devicePixelRatio;
-        const altoCss = () => canvas.height / devicePixelRatio;
-
-        const PALETAS = [
-            { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
-            { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
-            { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
-        ];
-
-        function elegirPaleta() {
-            const r = Math.random();
-            let acumulado = 0;
-            for (const p of PALETAS) {
-                acumulado += p.peso;
-                if (r <= acumulado) return p;
-            }
-            return PALETAS[0];
-        }
-
-        function crearParticula() {
-            const paleta = elegirPaleta();
-            const esNegra = paleta.color === '15, 13, 10';
-            return {
-                x: Math.random() * anchoCss(),
-                y: altoCss() + Math.random() * 100,
-                radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
-                velocidadY: Math.random() * 0.35 + 0.12,
-                deriva: Math.random() * 0.4 - 0.2,
-                opacidad: esNegra ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
-                parpadeo: Math.random() * 0.02 + 0.005,
-                fase: Math.random() * Math.PI * 2,
-                paleta
-            };
-        }
-
-        const NUM_PARTICULAS = 130;
-        const particulas = Array.from({ length: NUM_PARTICULAS }, crearParticula);
-
-        function animar() {
-            ctx.clearRect(0, 0, anchoCss(), altoCss());
-            particulas.forEach(p => {
-                p.y -= p.velocidadY;
-                p.x += p.deriva;
-                p.fase += p.parpadeo;
-                const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
-
-                if (p.y < -10) {
-                    Object.assign(p, crearParticula());
-                    p.y = altoCss() + 10;
-                }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
-                ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
-                ctx.shadowColor = p.paleta.glow;
-                ctx.fill();
-            });
-            requestAnimationFrame(animar);
-        }
-        animar();
-    })();
     </script>
 
     <!-- Animaciones de scroll reveal -->
