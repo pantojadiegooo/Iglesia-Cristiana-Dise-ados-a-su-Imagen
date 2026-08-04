@@ -1,7 +1,7 @@
 """
 app.py — Diseñados a su Imagen
 Backend único: donaciones (Stripe) + panel de administración + API de
-contenido para el sitio estático en GitHub Pages.
+contenido para el sitio estático en GitHub Pages + API de Contacto.
 
 Cómo se conecta con el sitio público:
 - GitHub Pages sigue siendo 100% estático (no cambia cómo lo publicas).
@@ -33,6 +33,8 @@ Variables de entorno nuevas (además de las que ya tenías para Stripe):
 
 import os
 import json
+import urllib.request
+import urllib.parse
 from datetime import datetime
 
 from flask import Flask, request, jsonify, render_template, redirect, url_for, flash, abort
@@ -157,6 +159,53 @@ def api_leer_todo_el_contenido():
         else:
             resultado[clave] = meta["ejemplo"]
     return jsonify(resultado)
+
+
+# ===========================================================================
+# FORMULARIO DE CONTACTO Y VERIFICACIÓN ANTIBOT (Cloudflare Turnstile)
+# ===========================================================================
+
+@app.route("/api/contacto", methods=["POST", "OPTIONS"])
+def api_contacto():
+    if request.method == "OPTIONS":
+        return jsonify({}), 200
+
+    datos = request.get_json(silent=True) or {}
+    nombre = datos.get("nombre")
+    correo = datos.get("correo")
+    mensaje = datos.get("mensaje")
+    token = datos.get("token")
+
+    # 1. Validar presencia del token
+    if not token:
+        return jsonify({"status": "error", "message": "Falta la verificación de seguridad antibots."}), 400
+
+    # 2. Validar token con Cloudflare
+    secret_key = os.environ.get("TURNSTILE_SECRET_KEY", "TU_SECRET_KEY_AQUI")
+    cloudflare_data = urllib.parse.urlencode({
+        'secret': secret_key,
+        'response': token
+    }).encode('utf-8')
+    
+    req = urllib.request.Request('https://challenges.cloudflare.com/turnstile/v0/siteverify', data=cloudflare_data)
+    try:
+        with urllib.request.urlopen(req) as response:
+            result = json.loads(response.read().decode('utf-8'))
+            if not result.get("success"):
+                app.logger.warning("Intento de bot bloqueado por Turnstile.")
+                return jsonify({"status": "error", "message": "Fallo la verificación antibots."}), 400
+    except Exception as e:
+        app.logger.error(f"Error al conectar con Cloudflare: {e}")
+        return jsonify({"status": "error", "message": "Error interno al validar seguridad."}), 500
+
+    # 3. Validar datos básicos
+    if not nombre or not correo or not mensaje:
+        return jsonify({"status": "error", "message": "Todos los campos son obligatorios."}), 400
+
+    # Aquí puedes añadir la lógica para guardar en DB o enviar un correo
+    app.logger.info(f"Nuevo mensaje de contacto recibido de: {nombre} ({correo})")
+
+    return jsonify({"status": "success", "message": "Mensaje enviado correctamente."}), 200
 
 
 # ===========================================================================
