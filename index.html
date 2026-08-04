@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NT774S3Z');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Diseñados a su Imagen es una iglesia cristiana en Iztapalapa, CDMX. Únete a nuestros servicios presenciales los domingos y jueves. Todos son bienvenidos.">
+    <meta name="keywords" content="iglesia cristiana Iztapalapa, iglesia La Era Iztapalapa, iglesia cristiana CDMX, Diseñados a su Imagen">
+    <meta name="google-site-verification" content="I72Huk_0g-FP6Gsqqjy08jfVrlgV2flKNOcDbM3_nY0" />
+
+    <title>Diseñados a su Imagen | Iglesia Cristiana</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="dinamico.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Diseñados a su Imagen",
+      "image": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/foto-pastor1.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Casimiro Chovell 9, La Era I y II",
+        "addressLocality": "Iztapalapa",
+        "addressRegion": "CDMX",
+        "postalCode": "09860",
+        "addressCountry": "MX"
+      },
+      "telephone": "+52-553-434-6849",
+      "url": "https://pantojadiegooo.github.io/Iglesia-Cristiana-Dise-ados-a-su-Imagen/",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "09:00", "closes": "12:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "20:00" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT774S3Z"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header>
+        <nav class="nav-principal">
+            <a href="#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
+
+            <ul class="menu-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#ministerio">Ministerios</a></li>
+                <li><a href="#en-vivo">En Vivo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-mesh"></div>
+        <div class="hero-vignette"></div>
+        <canvas id="hero-particulas"></canvas>
+
+        <div class="texto-bienvenida reveal">
+            <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
+            <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
+            <p class="salmo-referencia">Jeremías 31:25</p>
+            <div class="hero-cta">
+               <a href="visita.html" class="btn-dorado btn-lg">Planear mi visita</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="contenedor versiculo-carta-wrap reveal" style="max-width: 700px; margin: 0 auto;">
+            <div class="versiculo-carta" style="padding: 30px 28px;">
+                <div class="versiculo-carta-icono"><i class="fas fa-book-open"></i></div>
+                <p class="versiculo-carta-texto" data-contenido="versiculo_dia.texto" style="font-size: clamp(1.1rem, 2.2vw, 1.5rem);">
+                    Cargando versículo del día…
+                </p>
+                <p class="versiculo-carta-referencia" data-contenido="versiculo_dia.referencia"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pastor" class="seccion">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">NUESTROS PASTORES</h2>
+            <div class="pastores-slider-wrap">
+                <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior" onclick="document.querySelector('.pastores-slider').scrollBy({left: -600, behavior: 'smooth'})">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="pastores-slider">
+                    <div class="pastor-slide">
+                        <div class="pastor-img-container">
+                            <img src="foto-pastor1.webp" alt="Pastor principal Manuel Duran" class="pastor-img" loading="lazy" decoding="async">
+                        </div>
+                        <div class="pastor-info">
+                            <h3>Manuel Duran</h3>
+                            <p>Como pastor principal, Manuel guía a nuestra congregación con un mensaje centrado en la Palabra y el amor de Cristo. Su pasión es ver vidas transformadas y familias restauradas a través de la fe.</p>
+                            <p>Cada mensaje que comparte busca llevar claridad, esperanza y dirección práctica para el caminar diario con Dios.</p>
+                            <a href="pastor-manuel.html" class="btn-dorado btn-mt">Conocer más</a>
+                        </div>
+                    </div>
+                    <div class="pastor-slide">
+                        <div class="pastor-img-container">
+                            <img src="foto-pastor2.webp" alt="Pastora Guadalupe Hernandez" class="pastor-img" loading="lazy" decoding="async">
+                        </div>
+                        <div class="pastor-info">
+                            <h3>Guadalupe Hernandez</h3>
+                            <p>Guadalupe acompaña a la congregación desde el discipulado y el cuidado pastoral, con un enfoque especial en las familias y en el ministerio de mujeres "Hijas del Rey".</p>
+                            <p>Su corazón está puesto en que cada persona encuentre un espacio seguro para crecer espiritualmente y sanar.</p>
+                            <a href="pastor-guadalupe.html" class="btn-dorado btn-mt">Conocer más</a>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor" onclick="document.querySelector('.pastores-slider').scrollBy({left: 600, behavior: 'smooth'})">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ministerio" class="seccion">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">Conoce Más</h2>
+            <div class="ministerios-grid">
+                <div class="tarjeta reveal">
+                    <img src="foto-actividades.webp" alt="Actividad presencial" loading="lazy" decoding="async">
+                    <div class="tarjeta-overlay">
+                        <h3>ACTIVIDADES PRESENCIALES</h3>
+                        <p>Únete a nuestros servicios semanales presenciales.</p>
+                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <a href="donaciones.html" class="tarjeta reveal" id="donaciones">
+                    <img src="foto-ofrendas.webp" alt="Diezmos y ofrendas" loading="lazy" decoding="async">
+                    <div class="tarjeta-overlay">
+                        <h3>DIEZMOS Y OFRENDAS</h3>
+                        <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
+                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <div class="tarjeta reveal">
+                    <img src="foto-envivo.webp" alt="Transmisión en vivo" loading="lazy" decoding="async">
+                    <div class="tarjeta-overlay">
+                        <h3>ACTIVIDADES EN VIVO</h3>
+                        <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
+                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="redes" class="seccion">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">REDES SOCIALES</h2>
+            <div class="redes-grandes-grid">
+                <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-fb.webp" alt="Síguenos en Facebook" loading="lazy" decoding="async">
+                    <i class="fab fa-facebook-f icono-centro"></i>
+                </a>
+                <a href="https://www.instagram.com/disenados_a_su_imagen_/" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-ig.webp" alt="Síguenos en Instagram" loading="lazy" decoding="async">
+                    <i class="fab fa-instagram icono-centro"></i>
+                </a>
+                <a href="https://w.app/xj23cq" target="_blank" class="red-cuadro reveal">
+                    <img src="banner-wa.webp" alt="Escríbenos por WhatsApp" loading="lazy" decoding="async">
+                    <i class="fab fa-whatsapp icono-centro"></i>
+                </a>
+                <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" class="red-cuadro red-cuadro-tiktok reveal">
+                   <img src="banner-tt.webp" alt="Síguenos en Tik Tok" loading="lazy" decoding="async"> 
+                   <i class="fab fa-tiktok icono-centro"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="en-vivo" class="seccion">
+        <div class="contenedor panel-elegante predica-grid">
+            <div class="predica-texto reveal">
+                <h2 class="titulo-predica">VER PRÉDICAS COMPLETAS</h2>
+                <p class="texto-predica">
+                    Acompáñanos a descubrir lo que Dios tiene preparado para ti en cada mensaje. Revive nuestras enseñanzas, fortalece tu fe y encuentra dirección para tu vida a través de su Palabra. No importa dónde te encuentres, conéctate y sé parte de lo que Dios está haciendo en nuestra congregación.
+                </p>
+                <a href="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" class="btn-dorado" target="_blank">Ver Canal de YouTube</a>
+            </div>
+            <div class="video-responsive reveal">
+                <iframe src="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="seccion">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">Ubicación y Contacto</h2>
+            <div class="contacto-grid">
+                <div id="oracion" class="reveal">
+                    <div class="info-contacto info-contacto--espaciado">
+                        <h4>Información</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
+                        <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
+                        <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
+                    </div>
+
+                    <h4 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h4>
+                    <form class="formulario" id="formulario-contacto">
+                        <label for="nombre-usuario" class="etiqueta-oculta">Tu nombre</label>
+                        <input type="text" id="nombre-usuario" placeholder="Tu Nombre" required>
+
+                        <label for="correo-usuario" class="etiqueta-oculta">Tu correo electrónico</label>
+                        <input type="email" id="correo-usuario" placeholder="Tu Correo Electrónico" required>
+
+                        <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
+                        <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
+
+                        <button type="submit" class="btn-dorado btn-full">Enviar Mensaje</button>
+                        <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+                <div class="mapa-embed reveal">
+                    <iframe title="Ubicación" src="https://www.google.com/maps?q=Casimiro+Chovell+9,+La+Era+I+y+II,+Iztapalapa,+09860+Ciudad+de+M%C3%A9xico,+CDMX&z=17&output=embed" width="100%" height="100%" class="mapa-iframe" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="horarios" class="seccion">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">NUESTROS HORARIOS</h2>
+            <div class="horarios-grid">
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Lunes</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Reunión de varones</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Martes</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Célula <small>(Grupo de conexión en casa)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 7:30 - 9:00 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia reveal">
+                    <h3 class="horario-dia-titulo">Jueves</h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 10:00 - 12:00 pm</span>
+                        </div>
+                        <div class="badge-doble">
+                            <span class="badge-modalidad badge-amarillo"><i class="fas fa-users"></i> Presencial</span>
+                            <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                        </div>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Prédica</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 7:00 - 8:00 pm</span>
+                        </div>
+                        <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
+                    </div>
+                </div>
+
+                <div class="horario-dia horario-dia-destacado reveal">
+                    <h3 class="horario-dia-titulo">Domingo <span class="tag-principal">Servicio principal</span></h3>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Escuela de vida</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Alabanza</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 10:30 - 11:30 am</span>
+                        </div>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                    </div>
+                    <div class="horario-item">
+                        <div class="horario-item-info">
+                            <span class="horario-actividad">Prédica</span>
+                            <span class="horario-hora"><i class="far fa-clock"></i> 11:30 - 12:30 pm</span>
+                        </div>
+                        <div class="badge-doble">
+                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                            <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="avisos">
+        <div class="contenedor panel-elegante">
+            <h2 class="titulo-seccion reveal">Avisos Importantes</h2>
+            <div id="avisos-lista" class="avisos-grid"></div>
+        </div>
+    </section>
+
+    <section id="faq" class="seccion">
+        <div class="contenedor panel-elegante">
+            <div class="icono-faq-box reveal"><span>?</span></div>
+            <h2 class="titulo-seccion reveal">Preguntas Frecuentes</h2>
+            <div class="faq-contenedor">
+                <details class="faq-item reveal">
+                    <summary>¿Cuál es el horario de los servicios?</summary>
+                    <div class="faq-respuesta">Nuestros servicios principales son los domingos a las 9:00 am (Escuela de vida), 10:30 am (Alabanza) y 11:30 am (Prédica). También tenemos actividades virtuales y presenciales entre semana.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>¿Dónde se encuentran ubicados?</summary>
+                    <div class="faq-respuesta">Nos encontramos en Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX. Contamos con un mapa interactivo en la sección superior de Contacto para que puedas llegar fácilmente.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>¿Cómo puedo contactarlos o solicitar oración?</summary>
+                    <div class="faq-respuesta">Puedes contactarnos o solicitar una oración a través de nuestras redes sociales y nuestro formulario de contacto en esta misma página.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>¿Qué tipo de vestimenta es adecuada para asistir?</summary>
+                    <div class="faq-respuesta">No tenemos un código de vestimenta estricto. Ven como te sientas cómodo; lo más importante para nosotros es tu presencia y tu corazón dispuesto a recibir la palabra de Dios.</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>¿Tienen actividades para diferentes edades?</summary>
+                    <div class="faq-respuesta">Sí, contamos con ministerios específicos como "Hijas del Rey", "Reunión de varones", "Jóvenes".</div>
+                </details>
+                <details class="faq-item reveal">
+                    <summary>¿Es necesario registrarse antes de asistir?</summary>
+                    <div class="faq-respuesta">No es necesario ningún registro previo. Nuestras puertas están abiertas para recibirte libremente en cualquiera de nuestros horarios de servicio presencial.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-elegante">
+        <div class="footer-grid">
+            <div class="footer-col footer-branding">
+                <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
+                <p class="footer-desc">Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.</p>
+                <div class="redes-sociales">
+                    <a href="https://www.youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://w.app/xj23cq" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Menú Principal</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#pastor">El Pastor</a></li>
+                    <li><a href="#ministerio">Ministerios</a></li>
+                    <li><a href="#en-vivo">Transmisión en Vivo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ayuda y Enlaces</h4>
+                <ul>
+                    <li><a href="#contacto">Dudas y Sugerencias</a></li>
+                    <li><a href="#horarios">Nuestros Horarios</a></li>
+                    <li><a href="donaciones.html">Diezmos y Ofrendas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
+        </div>
+    </footer>
+
+    <!-- Script del Hero Élite -->
+    <script>
+    (function () {
+      const canvas = document.getElementById('hero-particulas');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function ajustarTamano() {
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+      }
+      ajustarTamano();
+      window.addEventListener('resize', () => {
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ajustarTamano();
+      });
+
+      const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 130;
+      const particulas = [];
+      const PALETAS = [
+        { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
+        { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
+        { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
+      ];
+
+      function elegirPaleta() {
+        const r = Math.random();
+        let acumulado = 0;
+        for (const p of PALETAS) {
+          acumulado += p.peso;
+          if (r <= acumulado) return p;
+        }
+        return PALETAS[0];
+      }
+
+      function crearParticula() {
+        const paleta = elegirPaleta();
+        const esNegra = paleta.color === '15, 13, 10';
+        return {
+          x: Math.random() * canvas.offsetWidth,
+          y: canvas.offsetHeight + Math.random() * 100,
+          radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
+          velocidadY: Math.random() * 0.35 + 0.12,
+          deriva: Math.random() * 0.4 - 0.2,
+          opacidad: esNegra ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
+          parpadeo: Math.random() * 0.02 + 0.005,
+          fase: Math.random() * Math.PI * 2,
+          paleta
+        };
+      }
+
+      for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
+
+      function animar() {
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        particulas.forEach(p => {
+          p.y -= p.velocidadY;
+          p.x += p.deriva;
+          p.fase += p.parpadeo;
+          const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
+          if (p.y < -10) {
+            Object.assign(p, crearParticula());
+            p.y = canvas.offsetHeight + 10;
+          }
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+          ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
+          ctx.shadowColor = p.paleta.glow;
+          ctx.fill();
+        });
+        if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
+      }
+      animar();
+    })();
+    </script>
+
+    <!-- Script de Backend / API Formulario -->
+    <script>
+    document.getElementById('formulario-contacto').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre-usuario').value;
+        const correo = document.getElementById('correo-usuario').value;
+        const mensaje = document.getElementById('mensaje-usuario').value;
+        const botonSubmit = e.target.querySelector('button[type="submit"]');
+        const textoOriginalBoton = botonSubmit.innerText;
+        const cajaMensaje = document.getElementById('mensaje-estado');
+
+        cajaMensaje.textContent = '';
+        cajaMensaje.className = 'mensaje-estado';
+        botonSubmit.innerText = "Enviando...";
+        botonSubmit.disabled = true;
+
+        const avisoTardanza = setTimeout(() => { botonSubmit.innerText = "Esto puede tardar unos segundos..."; }, 4000);
+
+        try {
+            const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su.onrender.com/api/contacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, correo, mensaje })
+            });
+            const resultado = await respuesta.json();
+            if (respuesta.ok && resultado.status === 'success') {
+                cajaMensaje.textContent = resultado.message;
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--exito';
+                document.getElementById('formulario-contacto').reset();
+            } else if (respuesta.status === 429) {
+                cajaMensaje.textContent = 'Enviaste varios mensajes muy seguido. Espera unos minutos e inténtalo de nuevo.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+            } else if (respuesta.status === 400) {
+                cajaMensaje.textContent = resultado.message || 'Revisa los datos del formulario e intenta de nuevo.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+            } else {
+                cajaMensaje.textContent = 'Hubo un problema al procesar tu mensaje. Intenta de nuevo en unos minutos.';
+                cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+            }
+        } catch (error) {
+            console.error('Error detectado:', error);
+            cajaMensaje.textContent = 'No pudimos conectar con el servidor. Revisa tu conexión a internet e intenta de nuevo.';
+            cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+        } finally {
+            clearTimeout(avisoTardanza);
+            botonSubmit.innerText = textoOriginalBoton;
+            botonSubmit.disabled = false;
+        }
+    });
+    </script>
+
+    <!-- Animaciones de scroll reveal -->
+    <script src="animaciones.js" defer></script>
+    <script src="dinamico.js" defer></script>
+</body>
+</html>

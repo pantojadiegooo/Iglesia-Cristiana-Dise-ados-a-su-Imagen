@@ -1,0 +1,143 @@
+/* =========================================================
+   Diseñados a su Imagen — Galería de Eventos y Aniversarios
+   Extensión de estilos.css (usa las mismas variables y fuentes
+   del sitio: --gold, --black, --panel-bg, Montserrat/Oswald).
+   Cargar DESPUÉS de estilos.css.
+   ========================================================= */
+
+.galeria-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+.galeria-eyebrow::before {
+    content: '';
+    width: 26px;
+    height: 2px;
+    background: var(--gold);
+    display: inline-block;
+}
+
+.galeria-hero p.galeria-intro {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 68ch;
+    margin: 0 auto 25px;
+}
+
+.galeria-hero { text-align: center; }
+.galeria-hero .titulo-seccion { margin-bottom: 20px; }
+
+.volver-galeria {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 3px;
+    transition: color 0.3s, border-color 0.3s;
+}
+.volver-galeria:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ====== GRID DE FOTOS ====== */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.foto-placeholder {
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
+    border: 1.5px dashed var(--panel-border);
+    background: rgba(212, 175, 55, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    padding: 18px;
+    transition: border-color 0.3s, background 0.3s;
+}
+.foto-placeholder:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.08); }
+.foto-placeholder i { font-size: 1.7rem; color: var(--gold); opacity: 0.75; }
+.foto-placeholder .slot-label {
+    font-family: 'Oswald', sans-serif;
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.foto-placeholder .slot-hint {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    max-width: 20ch;
+}
+
+/* Cuando se reemplace el placeholder por una foto real:
+   <div class="foto-placeholder foto-real"><img src="fotos/CARPETA/foto-01.jpg" alt="..."></div> */
+.foto-placeholder.foto-real {
+    border-style: solid;
+    padding: 0;
+    overflow: hidden;
+}
+.foto-placeholder.foto-real img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ====== NOTA PARA EDITAR ====== */
+.nota-editor {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px 25px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+.nota-editor code {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+}
+
+/* ====== CTA FINAL ====== */
+.galeria-cta { text-align: center; }
+.galeria-cta p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; }
+.galeria-cta .cta-botones { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-fantasma {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+    color: var(--white);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+}
+.btn-fantasma:hover { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 480px) {
+    .galeria-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+}

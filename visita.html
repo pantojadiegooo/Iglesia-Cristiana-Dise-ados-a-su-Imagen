@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planea tu Visita | Diseñados a su Imagen</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    /* Estilos específicos adaptados a la paleta OLED */
+    .section-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .section-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .divider-gold {
+      width: 56px; height: 4px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* Misión, Visión y Valores en base a panel-elegante */
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .mvv-card {
+      background: #000000;
+      border-radius: 10px;
+      padding: 32px 28px;
+      border-top: 4px solid var(--gold);
+      border-left: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .mvv-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(212,175,55,0.18);
+    }
+    .mvv-card .icon {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .mvv-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .mvv-card p {
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* Timeline adaptado a negro OLED */
+    .timeline {
+      position: relative;
+      padding-left: 36px;
+      border-left: 3px solid var(--gold);
+      display: grid;
+      gap: 40px;
+      max-width: 720px;
+    }
+    .timeline-item { position: relative; }
+    .timeline-dot {
+      position: absolute;
+      left: -44px;
+      top: 4px;
+      width: 18px; height: 18px;
+      background: var(--gold);
+      border-radius: 50%;
+      border: 3px solid #000000;
+    }
+    .timeline-year {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-item h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .timeline-item p {
+      color: #cccccc;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* Galería */
+    .galeria-intro {
+      color: #cccccc;
+      font-size: 1rem;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+    .foto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .foto-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+      display: block;
+      text-decoration: none;
+    }
+    .foto-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .foto-item:hover img { transform: scale(1.06); }
+    .foto-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.95));
+      color: #fff;
+      padding: 28px 16px 14px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA Whatsapp ajustado a diseño general */
+    .btn-wa {
+      display: inline-block;
+      background: #25D366;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-wa:hover {
+      background: #1ebe5a;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(37, 211, 102, 0.3);
+    }
+    
+    @media (max-width: 640px) {
+      .timeline { padding-left: 24px; }
+      .timeline-dot { left: -32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV GLOBAL -->
+  <header>
+      <nav class="nav-principal">
+          <a href="index.html#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
+          <ul class="menu-links">
+              <li><a href="index.html#inicio">Inicio</a></li>
+              <li><a href="index.html#ministerio">Ministerios</a></li>
+              <li><a href="index.html#en-vivo">En Vivo</a></li>
+              <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+      </nav>
+  </header>
+
+  <!-- HERO ELITE -->
+  <section class="hero">
+      <div class="hero-mesh"></div>
+      <div class="hero-vignette"></div>
+      <canvas id="hero-particulas"></canvas>
+      <div class="texto-bienvenida reveal" style="text-align: center;">
+          <p class="mensaje-comunidad">PRIMERA VEZ</p>
+          <h1 class="versiculo-principal" style="font-size: clamp(2.2rem, 5vw, 4rem);">PLANEA TU <span style="color: var(--gold);">VISITA</span></h1>
+          <p class="salmo-referencia" style="max-width: 600px; margin: 0 auto 32px; font-style: normal;">Nos encantaría recibirte. Aquí tienes todo lo que necesitas saber antes de venir: horarios, ubicación, qué esperar y la historia detrás de nuestra comunidad.</p>
+      </div>
+  </section>
+
+  <!-- ANTES DE VENIR -->
+  <section class="seccion">
+    <div class="contenedor panel-elegante">
+      <p class="section-label">Primera vez</p>
+      <h2 class="section-heading reveal">Antes de venir</h2>
+      <div class="divider-gold"></div>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-clock"></i></div>
+          <h3>Mejor horario para tu 1ra visita</h3>
+          <p>Te recomendamos venir un domingo: 9:00 am Escuela de vida, 10:30 am Alabanza y 11:30 am Prédica. Puedes llegar en cualquiera de esos horarios.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Cómo llegar</h3>
+          <p>Nos encontramos en Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX. Tienes el mapa interactivo y la dirección exacta en la sección de Contacto de la página principal.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-tshirt"></i></div>
+          <h3>Qué esperar</h3>
+          <p>No hay código de vestimenta: ven como te sientas cómodo. No necesitas registrarte antes; nuestras puertas están abiertas para recibirte libremente.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-child"></i></div>
+          <h3>Niños y familia</h3>
+          <p>Contamos con ministerios para todas las edades, incluyendo "Hijas del Rey" y "Jóvenes", para que toda tu familia encuentre un espacio propio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN / VALORES -->
+  <section class="seccion">
+    <div class="contenedor panel-elegante">
+      <p class="section-label">Nuestra identidad</p>
+      <h2 class="section-heading reveal">Misión, Visión y Valores</h2>
+      <div class="divider-gold"></div>
+      <div class="mvv-grid">
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Misión</h3>
+          <p>Llevar el mensaje de salvación y restauración a cada persona y familia, formando discípulos comprometidos con la Palabra de Dios y el servicio a la comunidad.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-eye"></i></div>
+          <h3>Visión</h3>
+          <p>Ser una iglesia que trascienda las paredes de un edificio: una comunidad viva, activa y transformadora que impacte Iztapalapa y más allá con el amor de Cristo.</p>
+        </div>
+        <div class="mvv-card reveal">
+          <div class="icon"><i class="fas fa-heart"></i></div>
+          <h3>Valores</h3>
+          <p>Fe, amor, unidad, servicio y restauración. Creemos que toda persona fue diseñada por Dios con un propósito único e irrepetible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA TIMELINE -->
+  <section class="seccion">
+    <div class="contenedor panel-elegante">
+      <p class="section-label">Nuestra historia</p>
+      <h2 class="section-heading reveal">El camino que Dios ha trazado</h2>
+      <div class="divider-gold"></div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Los Inicios</p>
+          <h3>El llamado de Dios</h3>
+          <p>Todo comenzó con una promesa y una convicción profunda en el corazón del Pastor Manuel Duran: que Dios tenía un propósito para las familias de Iztapalapa. De una reunión en casa nació la semilla de lo que hoy es "Diseñados a su Imagen".</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Crecimiento</p>
+          <h3>Una comunidad que crece</h3>
+          <p>Poco a poco, familias y jóvenes comenzaron a llegar, atraídos por la calidez de la comunidad y la profundidad de las enseñanzas. Los ministerios de mujeres, jóvenes y varones tomaron forma bajo el liderazgo de los pastores.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Expansión Digital</p>
+          <h3>Llegando más lejos</h3>
+          <p>La iglesia extendió su alcance a través de transmisiones en Facebook, Zoom y YouTube, permitiendo que personas de distintas partes pudieran conectarse con la Palabra de Dios desde sus hogares.</p>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <p class="timeline-year">Hoy</p>
+          <h3>Diseñados para el futuro</h3>
+          <p>Seguimos creciendo, sirviendo y creyendo. Cada domingo es una nueva oportunidad de ver vidas transformadas. El mejor capítulo de nuestra historia todavía está por escribirse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE EVENTOS / ANIVERSARIOS -->
+  <section class="seccion">
+    <div class="contenedor panel-elegante">
+      <p class="section-label">Momentos especiales</p>
+      <h2 class="section-heading reveal">Galería de Eventos y Aniversarios</h2>
+      <div class="divider-gold"></div>
+      <p class="galeria-intro reveal">Cada foto cuenta una historia de fe, amor y comunidad. Aquí guardamos los momentos que Dios ha regalado a nuestra congregación a lo largo de los años.</p>
+
+      <div class="foto-grid">
+        <a href="aniversario.html" class="foto-item reveal">
+          <img src="portada-aniversario.webp" alt="Aniversario de la Iglesia" loading="lazy" decoding="async">
+          <div class="foto-caption">Aniversario de la Iglesia</div>
+        </a>
+        <a href="bautismos.html" class="foto-item reveal">
+          <img src="portada-bautismos.webp" alt="Bautismos" loading="lazy" decoding="async">
+          <div class="foto-caption">Bautismos</div>
+        </a>
+        <a href="convivios.html" class="foto-item reveal">
+          <img src="portada-convivios.webp" alt="Convivios y Retiros" loading="lazy" decoding="async">
+          <div class="foto-caption">Convivios y Retiros</div>
+        </a>
+        <a href="hijas-del-rey.html" class="foto-item reveal">
+          <img src="portada-hijas.webp" alt="Hijas del Rey" loading="lazy" decoding="async">
+          <div class="foto-caption">Hijas del Rey</div>
+        </a>
+        <a href="jovenes.html" class="foto-item reveal">
+          <img src="portada-jovenes.webp" alt="Ministerio de Jóvenes" loading="lazy" decoding="async">
+          <div class="foto-caption">Ministerio de Jóvenes</div>
+        </a>
+        <a href="fechas-especiales.html" class="foto-item reveal">
+          <img src="portada-fechas.webp" alt="Fechas Especiales" loading="lazy" decoding="async">
+          <div class="foto-caption">Fechas Especiales</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="seccion">
+    <div class="contenedor panel-elegante" style="text-align: center;">
+      <h2 class="section-heading reveal" style="text-align: center;">¿LISTO PARA VISITARNOS?</h2>
+      <p class="galeria-intro reveal" style="margin: 0 auto 36px; text-align: center;">Nos encantaría conocerte. Ven cualquier domingo a las 9:00 am a Casimiro Chovell 9, Iztapalapa, CDMX.</p>
+      <div class="cta-btns reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="index.html#contacto" class="btn-dorado">Ver horarios y mapa</a>
+        <a href="https://w.app/xj23cq" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER GLOBAL -->
+  <footer class="footer-elegante">
+      <div class="footer-grid">
+          <div class="footer-col footer-branding">
+              <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
+              <p class="footer-desc">Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.</p>
+              <div class="redes-sociales">
+                  <a href="https://www.youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://w.app/xj23cq" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                  <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+              </div>
+          </div>
+          <div class="footer-col">
+              <h4>Menú Principal</h4>
+              <ul>
+                  <li><a href="index.html#inicio">Inicio</a></li>
+                  <li><a href="index.html#pastor">El Pastor</a></li>
+                  <li><a href="index.html#ministerio">Ministerios</a></li>
+                  <li><a href="index.html#en-vivo">Transmisión en Vivo</a></li>
+              </ul>
+          </div>
+          <div class="footer-col">
+              <h4>Ayuda y Enlaces</h4>
+              <ul>
+                  <li><a href="index.html#contacto">Dudas y Sugerencias</a></li>
+                  <li><a href="index.html#horarios">Nuestros Horarios</a></li>
+                  <li><a href="donaciones.html">Diezmos y Ofrendas</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="copyright">
+          © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
+      </div>
+  </footer>
+
+  <!-- Script del Hero Élite -->
+  <script>
+  (function () {
+    const canvas = document.getElementById('hero-particulas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function ajustarTamano() {
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+    }
+    ajustarTamano();
+    window.addEventListener('resize', () => {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ajustarTamano();
+    });
+
+    const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 130;
+    const particulas = [];
+    const PALETAS = [
+      { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
+      { color: '255, 255, 255', glow: 'rgba(255, 255, 255, 0.5)', peso: 0.35 },
+      { color: '15, 13, 10', glow: 'rgba(0, 0, 0, 0.4)', peso: 0.20 }
+    ];
+
+    function elegirPaleta() {
+      const r = Math.random();
+      let acumulado = 0;
+      for (const p of PALETAS) {
+        acumulado += p.peso;
+        if (r <= acumulado) return p;
+      }
+      return PALETAS[0];
+    }
+
+    function crearParticula() {
+      const paleta = elegirPaleta();
+      const esNegra = paleta.color === '15, 13, 10';
+      return {
+        x: Math.random() * canvas.offsetWidth,
+        y: canvas.offsetHeight + Math.random() * 100,
+        radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
+        velocidadY: Math.random() * 0.35 + 0.12,
+        deriva: Math.random() * 0.4 - 0.2,
+        opacidad: esNegra ? (Math.random() * 0.3 + 0.15) : (Math.random() * 0.5 + 0.15),
+        parpadeo: Math.random() * 0.02 + 0.005,
+        fase: Math.random() * Math.PI * 2,
+        paleta
+      };
+    }
+
+    for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
+
+    function animar() {
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      particulas.forEach(p => {
+        p.y -= p.velocidadY;
+        p.x += p.deriva;
+        p.fase += p.parpadeo;
+        const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
+        if (p.y < -10) {
+          Object.assign(p, crearParticula());
+          p.y = canvas.offsetHeight + 10;
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+        ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
+        ctx.shadowColor = p.paleta.glow;
+        ctx.fill();
+      });
+      if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
+    }
+    animar();
+  })();
+  </script>
+
+  <script src="animaciones.js" defer></script>
+</body>
+</html>
