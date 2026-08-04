@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iglesia-cristiana-dise-ados-a-su-im.vercel.app/sitemap.xml
