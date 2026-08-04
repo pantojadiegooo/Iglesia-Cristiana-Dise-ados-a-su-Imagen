@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Conexión con el backend de Stripe Checkout
   // IMPORTANTE: reemplaza esta URL por la de TU servidor Flask (ver app_donaciones.py)
   // y agrega ese mismo dominio a connect-src en la CSP (vercel.json).
-  const API_DONACIONES = 'https://TU-SERVIDOR-AQUI.onrender.com/api/crear-donacion';
+  const API_DONACIONES = 'https://iglesia-cristiana-dise-ados-a-su-imagen.onrender.com/api/crear-donacion';
 
   botonDonar.addEventListener('click', async () => {
     const msg = document.getElementById('stripe-msg');
