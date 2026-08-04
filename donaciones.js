@@ -1,106 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Diezmos y Ofrendas | Diseñados a su Imagen</title>
-<meta name="description" content="Formas de dar tus diezmos y ofrendas a la Iglesia Cristiana Diseñados a su Imagen en Iztapalapa, CDMX: transferencia, QR o tarjeta.">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-<link rel="stylesheet" href="estilos.css" />
-<link rel="stylesheet" href="seguridad.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Cada aniversario es un recordatorio de todo lo que Dios ha hecho desde aquella primera reunión en casa. Aquí guardamos las fotos de nuestras celebraciones año con año, incluyendo el 15° aniversario de Diseñados a su Imagen.">
+
+    <title>Aniversario de la Iglesia | Diseñados a su Imagen</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="galeria-extra.css">
 </head>
-<body class="donaciones-body">
+<body>
+    <header>
+        <nav class="nav-principal">
+            <a href="https://disenados-asu-imagen.github.io/index.html#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
 
-  <nav class="nav-conocenos">
-    <a href="index.html" class="logo-nav">DISEÑADOS A SU IMAGEN</a>
-    <a href="index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-  </nav>
+            <ul class="menu-links">
+                <li><a href="https://disenados-asu-imagen.github.io/index.html#inicio">Inicio</a></li>
+                <li><a href="https://disenados-asu-imagen.github.io/index.html#ministerio">Ministerios</a></li>
+                <li><a href="https://disenados-asu-imagen.github.io/index.html#en-vivo">En Vivo</a></li>
+                <li><a href="https://disenados-asu-imagen.github.io/visita.html">Galería</a></li>
+                <li><a href="https://disenados-asu-imagen.github.io/index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="hero-don">
-    <div class="hero-mesh"></div>
-    <div class="hero-vignette"></div>
-    <canvas id="hero-particulas"></canvas>
-    <div class="hero-don-texto">
-      <p class="mensaje-comunidad">Siembra con un corazón alegre</p>
-      <h1>Diezmos y <span>Ofrendas</span></h1>
-      <p class="hero-don-verso">"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
-    </div>
-  </section>
+    <section class="seccion">
+        <div class="contenedor panel-elegante galeria-hero">
+            <span class="galeria-eyebrow reveal">Momentos especiales</span>
+            <h1 class="titulo-seccion reveal">ANIVERSARIO DE LA IGLESIA</h1>
+            <p class="galeria-intro reveal">Cada aniversario es un recordatorio de todo lo que Dios ha hecho desde aquella primera reunión en casa. Aquí guardamos las fotos de nuestras celebraciones año con año, incluyendo el 15° aniversario de Diseñados a su Imagen.</p>
+            <a class="volver-galeria reveal" href="https://disenados-asu-imagen.github.io/visita.html"><i class="fas fa-arrow-left"></i> Volver a la Galería de Eventos y Aniversarios</a>
 
-  <section class="page-section">
-    <div class="inner">
-      <div class="metodos-grid">
+            <div class="galeria-grid">
+                <div class="foto-placeholder reveal" data-slot="01">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 01</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-01.jpg" alt="Descripción de la foto"></div> -->
 
-        <!-- MÉTODO 1: Transferencia -->
-        <div class="metodo-card reveal">
-          <h2><i class="fas fa-building-columns"></i> Transferencia</h2>
-          <p class="metodo-desc">Copia los datos y transfiere directo desde tu app bancaria.</p>
+                <div class="foto-placeholder reveal" data-slot="02">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 02</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-02.jpg" alt="Descripción de la foto"></div> -->
 
-          <div class="dato-banco">
-            <div class="dato-banco-texto">
-              <span class="dato-banco-label">Cuenta BBVA</span>
-              <span class="dato-banco-valor" id="valor-bbva">2948317593</span>
+                <div class="foto-placeholder reveal" data-slot="03">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 03</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-03.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="04">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 04</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-04.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="05">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 05</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-05.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="06">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 06</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-06.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="07">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 07</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-07.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="08">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 08</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-08.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="09">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 09</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-09.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="10">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 10</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-10.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="11">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 11</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-11.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="12">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 12</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-12.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="13">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 13</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-13.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="14">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 14</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-14.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="15">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 15</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-15.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="16">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 16</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-16.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="17">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 17</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-17.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="18">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 18</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-18.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="19">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 19</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-19.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="20">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 20</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-20.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="21">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 21</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-21.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="22">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 22</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-22.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="23">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 23</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-23.jpg" alt="Descripción de la foto"></div> -->
+
+                <div class="foto-placeholder reveal" data-slot="24">
+                    <i class="fas fa-camera"></i>
+                    <span class="slot-label">Espacio 24</span>
+                    <span class="slot-hint">Foto de celebración de aniversario</span>
+                </div>
+                <!-- Foto real: reemplaza el <div> de arriba por
+                     <div class="foto-placeholder foto-real reveal"><img src="fotos/CARPETA/foto-24.jpg" alt="Descripción de la foto"></div> -->
             </div>
-            <button class="btn-copiar" data-copiar="valor-bbva">Copiar</button>
-          </div>
+        </div>
+    </section>
 
-          <div class="dato-banco">
-            <div class="dato-banco-texto">
-              <span class="dato-banco-label">CLABE interbancaria</span>
-              <span class="dato-banco-valor" id="valor-clabe">012180029483175933</span>
+    <section class="seccion">
+        <div class="contenedor panel-elegante galeria-cta">
+            <h2 class="titulo-seccion reveal">¿TIENES FOTOS DE ESTE MOMENTO?</h2>
+            <p class="reveal">Compártelas con nosotros y ayúdanos a completar este álbum para toda la congregación.</p>
+            <div class="cta-botones reveal">
+                <a class="btn-dorado" href="https://w.app/xj23cq">Enviar fotos por WhatsApp</a>
+                <a class="btn-fantasma" href="https://disenados-asu-imagen.github.io/visita.html">Ver todos los álbumes</a>
             </div>
-            <button class="btn-copiar" data-copiar="valor-clabe">Copiar</button>
-          </div>
-
-          <div class="qr-wrap">
-            <!-- TODO: sube tu QR real de CoDi/BBVA a /qr-donaciones.png -->
-            <img src="qr-donaciones.png" alt="Código QR para donar por transferencia" data-fallback="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CLABE:012180029483175933">
-            <p>Escanea con tu app bancaria (CoDi) para transferir sin escribir los datos a mano.</p>
-          </div>
         </div>
+    </section>
 
-        <!-- MÉTODO 2: Tarjeta (Stripe Checkout) -->
-        <div class="metodo-card metodo-card--tarjeta reveal">
-          <h2><i class="fas fa-credit-card"></i> Tarjeta débito/crédito</h2>
-          <p class="metodo-desc">Pago seguro procesado por Stripe. Nosotros nunca vemos ni guardamos tu número de tarjeta.</p>
-
-          <div class="monto-opciones" id="monto-opciones">
-            <button class="monto-btn" data-monto="100">$100</button>
-            <button class="monto-btn activo" data-monto="300">$300</button>
-            <button class="monto-btn" data-monto="500">$500</button>
-            <button class="monto-btn" data-monto="1000">$1000</button>
-          </div>
-
-          <label class="monto-libre" id="monto-libre-wrap">
-            <span>$</span>
-            <input type="number" id="monto-libre-input" placeholder="Otro monto (MXN)" min="10" step="1" inputmode="numeric">
-          </label>
-
-          <button class="btn-stripe" id="btn-donar-stripe">
-            <i class="fas fa-lock"></i> Donar $300 MXN
-          </button>
-          <p class="stripe-msg" id="stripe-msg"></p>
+    <footer class="footer-elegante">
+        <div class="footer-grid">
+            <div class="footer-col footer-branding">
+                <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
+                <p class="footer-desc">Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.</p>
+                <div class="redes-sociales">
+                    <a href="https://www.youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/disenadosasuimagen/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://w.app/xj23cq" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Menú Principal</h4>
+                <ul>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#inicio">Inicio</a></li>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#pastor">El Pastor</a></li>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#ministerio">Ministerios</a></li>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#en-vivo">Transmisión en Vivo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ayuda y Enlaces</h4>
+                <ul>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#contacto">Dudas y Sugerencias</a></li>
+                    <li><a href="https://disenados-asu-imagen.github.io/index.html#horarios">Nuestros Horarios</a></li>
+                    <li><a href="https://disenados-asu-imagen.github.io/donaciones.html">Diezmos y Ofrendas</a></li>
+                </ul>
+            </div>
         </div>
+        <div class="copyright">
+            © 2026 Diseñados a su Imagen – Todos los Derechos Reservados.
+        </div>
+    </footer>
 
-      </div>
-
-      <div class="transparencia reveal">
-        <strong>Transparencia:</strong> el 100% de tus diezmos y ofrendas se destina al sostenimiento de la iglesia, sus ministerios (Hijas del Rey, Jóvenes, Reunión de Varones) y proyectos de ayuda a la comunidad de Iztapalapa.
-      </div>
-
-      <p class="versiculo-siembra reveal">
-        "Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto, dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos, y derramaré sobre vosotros bendición hasta que sobreabunde."
-        <span>— Malaquías 3:10</span>
-      </p>
-    </div>
-  </section>
-
-  <div class="footer-mini">© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</div>
-
-
-  <script src="imagenes-fallback.js" defer></script>
-  <script src="particulas.js" defer></script>
-  <script src="donaciones.js" defer></script>
-  <script src="animaciones.js" defer></script>
+    <script src="animaciones.js" defer></script>
 </body>
 </html>
