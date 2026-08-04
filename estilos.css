@@ -147,7 +147,7 @@ header {
     inset: -10%;
     z-index: 0;
     background:
-        radial-gradient(ellipse 60% 55% at 50% 38%, rgba(245,240,228,0.95) 0%, rgba(120,110,90,0.55) 35%, rgba(20,18,14,0.9) 62%, #000000 85%),
+        radial-gradient(ellipse 60% 55% at 50% 38%, rgba(245,240,228,0.95) 0%, rgba(120,110,90,0.55) 35%, rgba(70,64,52,0.75) 48%, rgba(35,31,24,0.85) 60%, rgba(12,11,8,0.94) 72%, #000000 88%),
         radial-gradient(circle at 15% 85%, rgba(212,175,55,0.10) 0%, transparent 45%);
     animation: meshDrift 26s ease-in-out infinite alternate;
 }
