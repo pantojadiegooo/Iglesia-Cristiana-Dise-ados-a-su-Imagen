@@ -181,6 +181,17 @@ header {
     text-align: center;
 }
 
+/* Refuerza el contraste (WCAG AA 4.5:1) del texto sobre la zona clara
+   del hero-mesh, sin tapar el efecto de fondo. */
+.texto-bienvenida::before {
+    content: '';
+    position: absolute;
+    inset: -40px -60px;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
+    border-radius: 30px;
+}
+
 .mensaje-comunidad {
     color: var(--gold);
     font-family: 'Oswald', sans-serif;
