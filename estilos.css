@@ -238,6 +238,16 @@ header {
     border-radius: 2px;
 }
 
+/* ====== VERSÍCULO DEL DÍA ====== */
+.versiculo-carta {
+    min-height: clamp(220px, 28vw, 280px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /* ====== SCROLL REVEAL ====== */
 .reveal {
     opacity: 0;
