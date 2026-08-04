@@ -47,6 +47,7 @@
       ]
     }
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT774S3Z"
@@ -223,6 +224,8 @@
 
                         <label for="mensaje-usuario" class="etiqueta-oculta">Tu mensaje</label>
                         <textarea id="mensaje-usuario" placeholder="Escribe tu duda o sugerencia..." required></textarea>
+
+                        <div class="cf-turnstile" data-sitekey="TU_SITE_KEY_AQUI" style="margin-bottom: 15px;"></div>
 
                         <button type="submit" class="btn-dorado btn-full">Enviar Mensaje</button>
                         <div id="mensaje-estado" class="mensaje-estado" role="status" aria-live="polite"></div>
@@ -492,12 +495,21 @@
         const nombre = document.getElementById('nombre-usuario').value;
         const correo = document.getElementById('correo-usuario').value;
         const mensaje = document.getElementById('mensaje-usuario').value;
+        
+        const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
         const botonSubmit = e.target.querySelector('button[type="submit"]');
         const textoOriginalBoton = botonSubmit.innerText;
         const cajaMensaje = document.getElementById('mensaje-estado');
 
         cajaMensaje.textContent = '';
         cajaMensaje.className = 'mensaje-estado';
+
+        if (!turnstileToken) {
+            cajaMensaje.textContent = 'Por favor, completa la verificación de seguridad.';
+            cajaMensaje.className = 'mensaje-estado mensaje-estado--error';
+            return;
+        }
+
         botonSubmit.innerText = "Enviando...";
         botonSubmit.disabled = true;
 
@@ -507,7 +519,7 @@
             const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su.onrender.com/api/contacto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nombre, correo, mensaje })
+                body: JSON.stringify({ nombre, correo, mensaje, token: turnstileToken })
             });
             const resultado = await respuesta.json();
             if (respuesta.ok && resultado.status === 'success') {
@@ -532,6 +544,9 @@
             clearTimeout(avisoTardanza);
             botonSubmit.innerText = textoOriginalBoton;
             botonSubmit.disabled = false;
+            if (window.turnstile) {
+                turnstile.reset();
+            }
         }
     });
     </script>
