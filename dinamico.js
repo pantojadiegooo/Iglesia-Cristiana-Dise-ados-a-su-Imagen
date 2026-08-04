@@ -1,13 +1,9 @@
 /**
  * dinamico.js — Diseñados a su Imagen
- * Va en el sitio ESTÁTICO (GitHub Pages), no en el backend.
- *
- * Jala /api/contenido del backend en Render y llena:
- * 1) Cualquier elemento con [data-contenido="clave.campo"] → texto simple.
+ * Consume /api/contenido del backend y llena:
+ * 1) Elementos con [data-contenido="clave.campo"] → texto simple.
  * 2) #avisos-lista → tarjetas de avisos importantes.
  * 3) #predicas-lista → lista de enlaces a predicas/Zoom.
- *
- * Cambia BASE_API por la URL real de tu backend en Render antes de subir esto.
  */
 (function () {
   const BASE_API = "https://iglesia-cristiana-dise-ados-a-su-imagen.onrender.com";
@@ -23,8 +19,6 @@
       llenarPredicas(datos.enlaces_predicas || []);
     })
     .catch((err) => {
-      // Si el backend está dormido (plan gratis de Render) o falla, el
-      // sitio sigue funcionando con lo que ya tenía escrito en el HTML.
       console.warn("Contenido dinámico no disponible:", err);
       mostrarVersiculoFallback();
       const contenedorAvisos = document.getElementById("avisos-lista");
@@ -33,10 +27,9 @@
       }
     });
 
-  // Si el backend tarda más de 5s en responder (arranque en frío de Render),
-  // mostramos el versículo de respaldo de inmediato en vez de dejar
-  // "Cargando versículo del día…" indefinidamente. Si el backend responde
-  // después, el .then() de arriba sobreescribe este texto con el real.
+  // Si el backend tarda más de 5s (arranque en frío), se muestra el
+  // versículo de respaldo de inmediato; si el backend responde después,
+  // el .then() de arriba sobrescribe este texto con el real.
   const avisoTardanzaVersiculo = setTimeout(mostrarVersiculoFallback, 5000);
   let versiculoYaMostrado = false;
 
@@ -109,19 +102,14 @@
     return div.innerHTML;
   }
 
-  // ==========================================
-  // LÓGICA DE CONSENTIMIENTO DE COOKIES
-  // ==========================================
+  // Consentimiento de cookies
   document.addEventListener("DOMContentLoaded", () => {
     const banner = document.getElementById("cookie-banner");
     const btnAceptar = document.getElementById("btn-aceptar-cookies");
     const btnRechazar = document.getElementById("btn-rechazar-cookies");
 
-    // Verificar si ya existe una preferencia guardada en localStorage
     const estadoCookies = localStorage.getItem("consentimientoCookies");
-
     if (!estadoCookies) {
-      // Mostrar el banner si no hay decisión previa
       banner.style.display = "block";
     }
 
@@ -134,7 +122,6 @@
     btnRechazar.addEventListener("click", () => {
       localStorage.setItem("consentimientoCookies", "rechazadas");
       banner.style.display = "none";
-      // Aquí se bloquean o evitan los scripts de rastreo no esenciales
     });
   });
 
