@@ -1,14 +1,10 @@
 /**
  * main-scripts.js — Diseñados a su Imagen (solo index.html)
- * Antes inline en index.html: GTM, botones del slider de pastores
- * (onclick=""), y el envío del formulario de contacto + Turnstile.
- * Se separó a un archivo externo para poder quitar 'unsafe-inline'
- * de script-src en la CSP.
+ * Google Tag Manager, slider de pastores y envío del formulario de
+ * contacto con verificación Turnstile.
  */
 
-// 1. Google Tag Manager — SOLO se carga si el usuario aceptó cookies.
-// Antes se cargaba siempre al leer el archivo, sin importar la decisión
-// del banner, así que el banner no bloqueaba nada de verdad.
+// GTM solo se carga si el usuario aceptó cookies.
 window.cargarGTM = function () {
   if (window._gtmCargado) return;
   window._gtmCargado = true;
@@ -24,13 +20,11 @@ window.cargarGTM = function () {
   })(window, document, 'script', 'dataLayer', 'GTM-NT774S3Z');
 };
 
-// Si el usuario ya había aceptado en una visita anterior, carga GTM ahora.
 if (localStorage.getItem('consentimientoCookies') === 'aceptadas') {
   window.cargarGTM();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 2. Slider de pastores (antes onclick="" inline)
   const btnIzq = document.querySelector('.slider-flecha-izq');
   const btnDer = document.querySelector('.slider-flecha-der');
   const slider = document.querySelector('.pastores-slider');
@@ -42,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btnDer.addEventListener('click', () => slider.scrollBy({ left: 600, behavior: 'smooth' }));
   }
 
-  // 3. Formulario de contacto + Cloudflare Turnstile
   const formContacto = document.getElementById('formulario-contacto');
   if (formContacto) {
     formContacto.addEventListener('submit', async (e) => {
