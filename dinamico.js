@@ -26,7 +26,33 @@
       // Si el backend está dormido (plan gratis de Render) o falla, el
       // sitio sigue funcionando con lo que ya tenía escrito en el HTML.
       console.warn("Contenido dinámico no disponible:", err);
+      mostrarVersiculoFallback();
+      const contenedorAvisos = document.getElementById("avisos-lista");
+      if (contenedorAvisos && !contenedorAvisos.innerHTML.trim()) {
+        contenedorAvisos.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay avisos por el momento. Vuelve pronto.</p>';
+      }
     });
+
+  // Si el backend tarda más de 5s en responder (arranque en frío de Render),
+  // mostramos el versículo de respaldo de inmediato en vez de dejar
+  // "Cargando versículo del día…" indefinidamente. Si el backend responde
+  // después, el .then() de arriba sobreescribe este texto con el real.
+  const avisoTardanzaVersiculo = setTimeout(mostrarVersiculoFallback, 5000);
+  let versiculoYaMostrado = false;
+
+  function mostrarVersiculoFallback() {
+    if (versiculoYaMostrado) return;
+    versiculoYaMostrado = true;
+    clearTimeout(avisoTardanzaVersiculo);
+    const textoEl = document.querySelector('[data-contenido="versiculo_dia.texto"]');
+    const refEl = document.querySelector('[data-contenido="versiculo_dia.referencia"]');
+    if (textoEl && textoEl.textContent.includes("Cargando")) {
+      textoEl.textContent = "Todo lo puedo en Cristo que me fortalece.";
+    }
+    if (refEl && !refEl.textContent.trim()) {
+      refEl.textContent = "Filipenses 4:13";
+    }
+  }
 
   function llenarCamposSimples(datos) {
     document.querySelectorAll("[data-contenido]").forEach((el) => {
@@ -102,7 +128,7 @@
     btnAceptar.addEventListener("click", () => {
       localStorage.setItem("consentimientoCookies", "aceptadas");
       banner.style.display = "none";
-      // Aquí puedes inicializar scripts de rastreo si es necesario
+      if (typeof window.cargarGTM === "function") window.cargarGTM();
     });
 
     btnRechazar.addEventListener("click", () => {
