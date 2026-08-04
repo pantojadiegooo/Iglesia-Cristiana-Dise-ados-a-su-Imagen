@@ -6,17 +6,28 @@
  * de script-src en la CSP.
  */
 
-// 1. Google Tag Manager
-(function (w, d, s, l, i) {
-  w[l] = w[l] || [];
-  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-  const f = d.getElementsByTagName(s)[0],
-    j = d.createElement(s),
-    dl = l != 'dataLayer' ? '&l=' + l : '';
-  j.async = true;
-  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-  f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-NT774S3Z');
+// 1. Google Tag Manager — SOLO se carga si el usuario aceptó cookies.
+// Antes se cargaba siempre al leer el archivo, sin importar la decisión
+// del banner, así que el banner no bloqueaba nada de verdad.
+window.cargarGTM = function () {
+  if (window._gtmCargado) return;
+  window._gtmCargado = true;
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-NT774S3Z');
+};
+
+// Si el usuario ya había aceptado en una visita anterior, carga GTM ahora.
+if (localStorage.getItem('consentimientoCookies') === 'aceptadas') {
+  window.cargarGTM();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // 2. Slider de pastores (antes onclick="" inline)
