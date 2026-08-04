@@ -72,7 +72,7 @@ def cargar_usuario(user_id):
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 DOMINIO_SITIO = os.environ.get("DOMINIO_SITIO", "http://localhost:5500")
-DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+DISCORD_WEBHOOK_URL = os.environ.get("https://discord.com/api/webhooks/1527480658757292135/U8q0y8LlfFwdRmIxFVexgauekGpAj5iL7mS-EOUfwR4jwGtB48QB6kfKZexOUq_HC_iN")
 MONTO_MINIMO_MXN = 10
 MONTO_MAXIMO_MXN = 50000
 
