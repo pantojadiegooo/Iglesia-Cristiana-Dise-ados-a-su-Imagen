@@ -516,7 +516,7 @@
         const avisoTardanza = setTimeout(() => { botonSubmit.innerText = "Esto puede tardar unos segundos..."; }, 4000);
 
         try {
-            const respuesta = await fetch('https://api-iglesia-cristiana-disenados-a-su.onrender.com/api/contacto', {
+            const respuesta = await fetch('https://iglesia-cristiana-dise-ados-a-su-imagen.onrender.com/api/contacto', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nombre, correo, mensaje, token: turnstileToken })
