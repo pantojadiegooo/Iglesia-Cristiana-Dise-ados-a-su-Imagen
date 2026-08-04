@@ -444,6 +444,64 @@ header {
 .redes-sociales a:hover { color: var(--gold); transform: translateY(-3px); }
 .copyright { text-align: center; color: #666; font-size: 0.85rem; }
 
+/* ====== BANNER DE COOKIES ====== */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--panel-bg);
+    border-top: 1px solid var(--panel-border);
+    padding: 20px 5%;
+    z-index: 9999;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.cookie-content {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cookie-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+    min-width: 280px;
+    margin: 0;
+}
+
+.cookie-botones {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--card-border);
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.btn-secundario:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-muted);
+}
+
 /* ====== RESPONSIVE ====== */
 @media (prefers-reduced-motion: reduce) {
     .reveal, .hero-mesh, .btn-dorado::before, .red-cuadro img, .tarjeta img { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
@@ -472,6 +530,21 @@ header {
     .redes-sociales { justify-content: center; }
     
     .slider-flecha { display: none; }
+
+    /* Ajustes Banner Cookies */
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .cookie-botones {
+        width: 100%;
+        flex-direction: column;
+    }
+    .btn-dorado, .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 @media (max-width: 600px) {
