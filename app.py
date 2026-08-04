@@ -70,7 +70,7 @@ def cargar_usuario(user_id):
     return db.session.get(Usuario, int(user_id))
 
 
-stripe.api_key = os.environ.get("0x4AAAAAAEGRDrbSVb0geA_6PCU9fSuPg2g")
+stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 DOMINIO_SITIO = os.environ.get("DOMINIO_SITIO", "http://localhost:5500")
 MONTOS_PERMITIDOS_MXN = {50, 100, 200, 300, 500, 1000, 2000, 5000}
 
