@@ -30,6 +30,7 @@
 
     <!-- PWA / iconografía -->
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -139,7 +140,7 @@
         <div class="hero-vignette"></div>
         <canvas id="hero-particulas"></canvas>
 
-        <div class="texto-bienvenida reveal">
+        <div class="texto-bienvenida reveal visible">
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
             <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
             <p class="salmo-referencia">Colosenses 3:10 (NTV)</p>
@@ -171,7 +172,11 @@
                 <div class="pastores-slider">
                     <div class="pastor-slide">
                         <div class="pastor-img-container">
-                            <img src="foto-pastor1.webp" alt="Pastor principal Manuel Duran" class="pastor-img" width="800" height="1000" loading="lazy" decoding="async">
+                            <picture>
+                                <source type="image/avif" srcset="foto-pastor1-480.avif 480w, foto-pastor1-768.avif 768w, foto-pastor1-1200.avif 1200w, foto-pastor1-1321.avif 1321w" sizes="(max-width: 600px) 90vw, 420px">
+                                <source type="image/webp" srcset="foto-pastor1-480.webp 480w, foto-pastor1-768.webp 768w, foto-pastor1-1200.webp 1200w, foto-pastor1-1321.webp 1321w" sizes="(max-width: 600px) 90vw, 420px">
+                                <img src="foto-pastor1-1200.webp" alt="Pastor principal Manuel Duran" class="pastor-img" width="800" height="1000" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="pastor-info">
                             <h3>Manuel Duran</h3>
@@ -182,7 +187,11 @@
                     </div>
                     <div class="pastor-slide">
                         <div class="pastor-img-container">
-                            <img src="foto-pastor2.webp" alt="Pastora Guadalupe Hernandez" class="pastor-img" width="800" height="1000" loading="lazy" decoding="async">
+                            <picture>
+                                <source type="image/avif" srcset="foto-pastor2-480.avif 480w, foto-pastor2-768.avif 768w, foto-pastor2-1200.avif 1200w, foto-pastor2-1321.avif 1321w" sizes="(max-width: 600px) 90vw, 420px">
+                                <source type="image/webp" srcset="foto-pastor2-480.webp 480w, foto-pastor2-768.webp 768w, foto-pastor2-1200.webp 1200w, foto-pastor2-1321.webp 1321w" sizes="(max-width: 600px) 90vw, 420px">
+                                <img src="foto-pastor2-1200.webp" alt="Pastora Guadalupe Hernandez" class="pastor-img" width="800" height="1000" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="pastor-info">
                             <h3>Guadalupe Hernandez</h3>
@@ -204,7 +213,11 @@
             <h2 class="titulo-seccion reveal">Conoce Más</h2>
             <div class="ministerios-grid">
                 <div class="tarjeta reveal">
-                    <img src="foto-actividades.webp" alt="Actividad presencial" width="800" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="foto-actividades-480.avif 480w, foto-actividades-768.avif 768w, foto-actividades-1200.avif 1200w, foto-actividades-1600.avif 1600w, foto-actividades-2400.avif 2400w, foto-actividades-4096.avif 4096w" sizes="(max-width: 768px) 100vw, 380px">
+                        <source type="image/webp" srcset="foto-actividades-480.webp 480w, foto-actividades-768.webp 768w, foto-actividades-1200.webp 1200w, foto-actividades-1600.webp 1600w, foto-actividades-2400.webp 2400w, foto-actividades-4096.webp 4096w" sizes="(max-width: 768px) 100vw, 380px">
+                        <img src="foto-actividades-1200.webp" alt="Actividad presencial" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES PRESENCIALES</h3>
                         <p>Únete a nuestros servicios semanales presenciales.</p>
@@ -212,7 +225,11 @@
                     </div>
                 </div>
                 <a href="donaciones.html" class="tarjeta reveal" id="donaciones">
-                    <img src="foto-ofrendas.webp" alt="Diezmos y ofrendas" width="800" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="foto-ofrendas-480.avif 480w, foto-ofrendas-768.avif 768w, foto-ofrendas-1080.avif 1080w" sizes="(max-width: 768px) 100vw, 380px">
+                        <source type="image/webp" srcset="foto-ofrendas-480.webp 480w, foto-ofrendas-768.webp 768w, foto-ofrendas-1080.webp 1080w" sizes="(max-width: 768px) 100vw, 380px">
+                        <img src="foto-ofrendas-768.webp" alt="Diezmos y ofrendas" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <div class="tarjeta-overlay">
                         <h3>DIEZMOS Y OFRENDAS</h3>
                         <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
@@ -220,7 +237,11 @@
                     </div>
                 </a>
                 <div class="tarjeta reveal">
-                    <img src="foto-envivo.webp" alt="Transmisión en vivo" width="800" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="foto-envivo-480.avif 480w, foto-envivo-768.avif 768w, foto-envivo-1200.avif 1200w, foto-envivo-1600.avif 1600w, foto-envivo-2400.avif 2400w, foto-envivo-4096.avif 4096w" sizes="(max-width: 768px) 100vw, 380px">
+                        <source type="image/webp" srcset="foto-envivo-480.webp 480w, foto-envivo-768.webp 768w, foto-envivo-1200.webp 1200w, foto-envivo-1600.webp 1600w, foto-envivo-2400.webp 2400w, foto-envivo-4096.webp 4096w" sizes="(max-width: 768px) 100vw, 380px">
+                        <img src="foto-envivo-1200.webp" alt="Transmisión en vivo" width="800" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES EN VIVO</h3>
                         <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
@@ -236,19 +257,35 @@
             <h2 class="titulo-seccion reveal">REDES SOCIALES</h2>
             <div class="redes-grandes-grid">
                 <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-fb.webp" alt="Síguenos en Facebook" width="600" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="banner-fb-480.avif 480w, banner-fb-768.avif 768w, banner-fb-1200.avif 1200w, banner-fb-1280.avif 1280w" sizes="(max-width: 480px) 45vw, 200px">
+                        <source type="image/webp" srcset="banner-fb-480.webp 480w, banner-fb-768.webp 768w, banner-fb-1200.webp 1200w, banner-fb-1280.webp 1280w" sizes="(max-width: 480px) 45vw, 200px">
+                        <img src="banner-fb-768.webp" alt="Síguenos en Facebook" width="600" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <i class="fab fa-facebook-f icono-centro"></i>
                 </a>
                 <a href="https://www.instagram.com/disenados_a_su_imagen_/" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-ig.webp" alt="Síguenos en Instagram" width="600" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="banner-ig-480.avif 480w, banner-ig-768.avif 768w, banner-ig-1200.avif 1200w, banner-ig-1280.avif 1280w" sizes="(max-width: 480px) 45vw, 200px">
+                        <source type="image/webp" srcset="banner-ig-480.webp 480w, banner-ig-768.webp 768w, banner-ig-1200.webp 1200w, banner-ig-1280.webp 1280w" sizes="(max-width: 480px) 45vw, 200px">
+                        <img src="banner-ig-768.webp" alt="Síguenos en Instagram" width="600" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <i class="fab fa-instagram icono-centro"></i>
                 </a>
                 <a href="https://w.app/xj23cq" target="_blank" class="red-cuadro reveal">
-                    <img src="banner-wa.webp" alt="Escríbenos por WhatsApp" width="600" height="600" loading="lazy" decoding="async">
+                    <picture>
+                        <source type="image/avif" srcset="banner-wa-480.avif 480w, banner-wa-768.avif 768w, banner-wa-1200.avif 1200w, banner-wa-1323.avif 1323w" sizes="(max-width: 480px) 45vw, 200px">
+                        <source type="image/webp" srcset="banner-wa-480.webp 480w, banner-wa-768.webp 768w, banner-wa-1200.webp 1200w, banner-wa-1323.webp 1323w" sizes="(max-width: 480px) 45vw, 200px">
+                        <img src="banner-wa-768.webp" alt="Escríbenos por WhatsApp" width="600" height="600" loading="lazy" decoding="async">
+                    </picture>
                     <i class="fab fa-whatsapp icono-centro"></i>
                 </a>
                 <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" class="red-cuadro red-cuadro-tiktok reveal">
-                   <img src="banner-tt.webp" alt="Síguenos en Tik Tok" width="600" height="600" loading="lazy" decoding="async">
+                   <picture>
+                       <source type="image/avif" srcset="banner-tt-480.avif 480w, banner-tt-768.avif 768w, banner-tt-1080.avif 1080w" sizes="(max-width: 480px) 45vw, 200px">
+                       <source type="image/webp" srcset="banner-tt-480.webp 480w, banner-tt-768.webp 768w, banner-tt-1080.webp 1080w" sizes="(max-width: 480px) 45vw, 200px">
+                       <img src="banner-tt-768.webp" alt="Síguenos en Tik Tok" width="600" height="600" loading="lazy" decoding="async">
+                   </picture>
                    <i class="fab fa-tiktok icono-centro"></i>
                 </a>
             </div>
