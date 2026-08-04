@@ -10,7 +10,7 @@
  * Cambia BASE_API por la URL real de tu backend en Render antes de subir esto.
  */
 (function () {
-  const BASE_API = "https://api-iglesia-cristiana-disenados-a-su.onrender.com";
+  const BASE_API = "https://iglesia-cristiana-dise-ados-a-su-imagen.onrender.com";
 
   fetch(`${BASE_API}/api/contenido`)
     .then((resp) => {
