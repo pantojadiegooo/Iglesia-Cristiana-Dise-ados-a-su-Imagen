@@ -72,7 +72,9 @@ def cargar_usuario(user_id):
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 DOMINIO_SITIO = os.environ.get("DOMINIO_SITIO", "http://localhost:5500")
-MONTOS_PERMITIDOS_MXN = {50, 100, 200, 300, 500, 1000, 2000, 5000}
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+MONTO_MINIMO_MXN = 10
+MONTO_MAXIMO_MXN = 50000
 
 
 # ===========================================================================
@@ -84,8 +86,8 @@ def crear_donacion():
     datos = request.get_json(silent=True) or {}
     monto_mxn = datos.get("monto_mxn")
 
-    if not isinstance(monto_mxn, (int, float)) or int(monto_mxn) not in MONTOS_PERMITIDOS_MXN:
-        return jsonify({"error": "Monto inválido."}), 400
+    if not isinstance(monto_mxn, (int, float)) or not (MONTO_MINIMO_MXN <= int(monto_mxn) <= MONTO_MAXIMO_MXN):
+        return jsonify({"error": f"Monto inválido. Debe estar entre ${MONTO_MINIMO_MXN} y ${MONTO_MAXIMO_MXN} MXN."}), 400
 
     monto_mxn = int(monto_mxn)
 
@@ -165,6 +167,35 @@ def api_leer_todo_el_contenido():
 # FORMULARIO DE CONTACTO Y VERIFICACIÓN ANTIBOT (Cloudflare Turnstile)
 # ===========================================================================
 
+def enviar_notificacion_discord(nombre, correo, mensaje):
+    """Envía el mensaje del formulario de contacto a un canal de Discord
+    vía webhook. Si DISCORD_WEBHOOK_URL no está configurada, o si Discord
+    falla, no interrumpe el flujo: el mensaje ya se recibió correctamente,
+    esto es solo una notificación adicional."""
+    if not DISCORD_WEBHOOK_URL:
+        return
+    payload = {
+        "embeds": [{
+            "title": "Nuevo mensaje de contacto",
+            "color": 0xD4AF37,
+            "fields": [
+                {"name": "Nombre", "value": nombre[:1000], "inline": False},
+                {"name": "Correo", "value": correo[:1000], "inline": False},
+                {"name": "Mensaje", "value": mensaje[:1000], "inline": False},
+            ],
+        }]
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        DISCORD_WEBHOOK_URL, data=data,
+        headers={"Content-Type": "application/json"}
+    )
+    try:
+        urllib.request.urlopen(req, timeout=5)
+    except Exception as e:
+        app.logger.error(f"No se pudo notificar a Discord: {e}")
+
+
 @app.route("/api/contacto", methods=["POST", "OPTIONS"])
 def api_contacto():
     if request.method == "OPTIONS":
@@ -204,6 +235,7 @@ def api_contacto():
 
     # Aquí puedes añadir la lógica para guardar en DB o enviar un correo
     app.logger.info(f"Nuevo mensaje de contacto recibido de: {nombre} ({correo})")
+    enviar_notificacion_discord(nombre, correo, mensaje)
 
     return jsonify({"status": "success", "message": "Mensaje enviado correctamente."}), 200
 
