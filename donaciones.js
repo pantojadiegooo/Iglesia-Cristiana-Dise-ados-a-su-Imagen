@@ -1,99 +1,106 @@
-/**
- * donaciones.js — Diseñados a su Imagen (solo donaciones.html)
- * Antes inline en donaciones.html: copiar CLABE/cuenta, selección
- * de monto y conexión con Stripe Checkout. La animación de partículas
- * del hero ahora vive en particulas.js (compartida entre páginas).
- */
-document.addEventListener('DOMContentLoaded', () => {
-  // Copiar CLABE / cuenta con un clic
-  document.querySelectorAll('.btn-copiar').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const valor = document.getElementById(btn.dataset.copiar).textContent.trim();
-      try {
-        await navigator.clipboard.writeText(valor);
-        const original = btn.textContent;
-        btn.textContent = '¡Copiado!';
-        btn.classList.add('copiado');
-        setTimeout(() => { btn.textContent = original; btn.classList.remove('copiado'); }, 2000);
-      } catch (e) {
-        alert('No se pudo copiar automáticamente. Cópialo manualmente: ' + valor);
-      }
-    });
-  });
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diezmos y Ofrendas | Diseñados a su Imagen</title>
+<meta name="description" content="Formas de dar tus diezmos y ofrendas a la Iglesia Cristiana Diseñados a su Imagen en Iztapalapa, CDMX: transferencia, QR o tarjeta.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link rel="stylesheet" href="estilos.css" />
+<link rel="stylesheet" href="seguridad.css" />
+</head>
+<body class="donaciones-body">
 
-  // Selección de monto (botones preestablecidos + campo de monto libre)
-  let montoSeleccionado = 300;
-  const botonDonar = document.getElementById('btn-donar-stripe');
-  const inputLibre = document.getElementById('monto-libre-input');
-  const wrapLibre = document.getElementById('monto-libre-wrap');
+  <nav class="nav-conocenos">
+    <a href="index.html" class="logo-nav">DISEÑADOS A SU IMAGEN</a>
+    <a href="index.html" class="volver"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+  </nav>
 
-  function actualizarBotonDonar() {
-    botonDonar.innerHTML = `<i class="fas fa-lock"></i> Donar $${montoSeleccionado} MXN`;
-  }
+  <section class="hero-don">
+    <div class="hero-mesh"></div>
+    <div class="hero-vignette"></div>
+    <canvas id="hero-particulas"></canvas>
+    <div class="hero-don-texto">
+      <p class="mensaje-comunidad">Siembra con un corazón alegre</p>
+      <h1>Diezmos y <span>Ofrendas</span></h1>
+      <p class="hero-don-verso">"Cada uno dé como propuso en su corazón: no con tristeza, ni por necesidad, porque Dios ama al dador alegre." — 2 Corintios 9:7</p>
+    </div>
+  </section>
 
-  document.querySelectorAll('.monto-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.monto-btn').forEach(b => b.classList.remove('activo'));
-      btn.classList.add('activo');
-      wrapLibre.classList.remove('activo');
-      inputLibre.value = '';
-      montoSeleccionado = parseInt(btn.dataset.monto, 10);
-      actualizarBotonDonar();
-    });
-  });
+  <section class="page-section">
+    <div class="inner">
+      <div class="metodos-grid">
 
-  inputLibre.addEventListener('input', () => {
-    const valor = parseInt(inputLibre.value, 10);
-    if (valor && valor > 0) {
-      document.querySelectorAll('.monto-btn').forEach(b => b.classList.remove('activo'));
-      wrapLibre.classList.add('activo');
-      montoSeleccionado = valor;
-    } else if (!inputLibre.value) {
-      wrapLibre.classList.remove('activo');
-      const activo = document.querySelector('.monto-btn.activo');
-      montoSeleccionado = activo ? parseInt(activo.dataset.monto, 10) : 300;
-    }
-    actualizarBotonDonar();
-  });
+        <!-- MÉTODO 1: Transferencia -->
+        <div class="metodo-card reveal">
+          <h2><i class="fas fa-building-columns"></i> Transferencia</h2>
+          <p class="metodo-desc">Copia los datos y transfiere directo desde tu app bancaria.</p>
 
-  // Conexión con el backend de Stripe Checkout
-  // IMPORTANTE: reemplaza esta URL por la de TU servidor Flask (ver app_donaciones.py)
-  // y agrega ese mismo dominio a connect-src en la CSP (vercel.json).
-  const API_DONACIONES = 'https://TU-SERVIDOR-AQUI.onrender.com/api/crear-donacion';
+          <div class="dato-banco">
+            <div class="dato-banco-texto">
+              <span class="dato-banco-label">Cuenta BBVA</span>
+              <span class="dato-banco-valor" id="valor-bbva">2948317593</span>
+            </div>
+            <button class="btn-copiar" data-copiar="valor-bbva">Copiar</button>
+          </div>
 
-  botonDonar.addEventListener('click', async () => {
-    const msg = document.getElementById('stripe-msg');
-    msg.textContent = '';
-    msg.className = 'stripe-msg';
+          <div class="dato-banco">
+            <div class="dato-banco-texto">
+              <span class="dato-banco-label">CLABE interbancaria</span>
+              <span class="dato-banco-valor" id="valor-clabe">012180029483175933</span>
+            </div>
+            <button class="btn-copiar" data-copiar="valor-clabe">Copiar</button>
+          </div>
 
-    if (!montoSeleccionado || montoSeleccionado < 10) {
-      msg.textContent = 'Ingresa un monto válido (mínimo $10 MXN).';
-      msg.className = 'stripe-msg error';
-      return;
-    }
+          <div class="qr-wrap">
+            <!-- TODO: sube tu QR real de CoDi/BBVA a /qr-donaciones.png -->
+            <img src="qr-donaciones.png" alt="Código QR para donar por transferencia" data-fallback="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CLABE:012180029483175933">
+            <p>Escanea con tu app bancaria (CoDi) para transferir sin escribir los datos a mano.</p>
+          </div>
+        </div>
 
-    botonDonar.disabled = true;
-    botonDonar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirigiendo...';
+        <!-- MÉTODO 2: Tarjeta (Stripe Checkout) -->
+        <div class="metodo-card metodo-card--tarjeta reveal">
+          <h2><i class="fas fa-credit-card"></i> Tarjeta débito/crédito</h2>
+          <p class="metodo-desc">Pago seguro procesado por Stripe. Nosotros nunca vemos ni guardamos tu número de tarjeta.</p>
 
-    try {
-      const resp = await fetch(API_DONACIONES, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ monto_mxn: montoSeleccionado })
-      });
-      const data = await resp.json();
+          <div class="monto-opciones" id="monto-opciones">
+            <button class="monto-btn" data-monto="100">$100</button>
+            <button class="monto-btn activo" data-monto="300">$300</button>
+            <button class="monto-btn" data-monto="500">$500</button>
+            <button class="monto-btn" data-monto="1000">$1000</button>
+          </div>
 
-      if (resp.ok && data.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        throw new Error(data.error || 'No se pudo iniciar el pago.');
-      }
-    } catch (err) {
-      console.error(err);
-      msg.textContent = 'No pudimos conectar con el servidor de pagos. Intenta de nuevo o usa transferencia.';
-      msg.className = 'stripe-msg error';
-      botonDonar.disabled = false;
-      botonDonar.innerHTML = `<i class="fas fa-lock"></i> Donar $${montoSeleccionado} MXN`;
-    }
-  });
-});
+          <label class="monto-libre" id="monto-libre-wrap">
+            <span>$</span>
+            <input type="number" id="monto-libre-input" placeholder="Otro monto (MXN)" min="10" step="1" inputmode="numeric">
+          </label>
+
+          <button class="btn-stripe" id="btn-donar-stripe">
+            <i class="fas fa-lock"></i> Donar $300 MXN
+          </button>
+          <p class="stripe-msg" id="stripe-msg"></p>
+        </div>
+
+      </div>
+
+      <div class="transparencia reveal">
+        <strong>Transparencia:</strong> el 100% de tus diezmos y ofrendas se destina al sostenimiento de la iglesia, sus ministerios (Hijas del Rey, Jóvenes, Reunión de Varones) y proyectos de ayuda a la comunidad de Iztapalapa.
+      </div>
+
+      <p class="versiculo-siembra reveal">
+        "Traed todos los diezmos al alfolí y haya alimento en mi casa; y probadme ahora en esto, dice Jehová de los ejércitos, si no os abriré las ventanas de los cielos, y derramaré sobre vosotros bendición hasta que sobreabunde."
+        <span>— Malaquías 3:10</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="footer-mini">© 2026 Diseñados a su Imagen – Todos los Derechos Reservados.</div>
+
+
+  <script src="imagenes-fallback.js" defer></script>
+  <script src="particulas.js" defer></script>
+  <script src="donaciones.js" defer></script>
+  <script src="animaciones.js" defer></script>
+</body>
+</html>
