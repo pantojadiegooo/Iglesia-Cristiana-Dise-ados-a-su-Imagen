@@ -82,4 +82,34 @@
     div.textContent = String(texto);
     return div.innerHTML;
   }
+
+  // ==========================================
+  // LÓGICA DE CONSENTIMIENTO DE COOKIES
+  // ==========================================
+  document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("cookie-banner");
+    const btnAceptar = document.getElementById("btn-aceptar-cookies");
+    const btnRechazar = document.getElementById("btn-rechazar-cookies");
+
+    // Verificar si ya existe una preferencia guardada en localStorage
+    const estadoCookies = localStorage.getItem("consentimientoCookies");
+
+    if (!estadoCookies) {
+      // Mostrar el banner si no hay decisión previa
+      banner.style.display = "block";
+    }
+
+    btnAceptar.addEventListener("click", () => {
+      localStorage.setItem("consentimientoCookies", "aceptadas");
+      banner.style.display = "none";
+      // Aquí puedes inicializar scripts de rastreo si es necesario
+    });
+
+    btnRechazar.addEventListener("click", () => {
+      localStorage.setItem("consentimientoCookies", "rechazadas");
+      banner.style.display = "none";
+      // Aquí se bloquean o evitan los scripts de rastreo no esenciales
+    });
+  });
+
 })();
