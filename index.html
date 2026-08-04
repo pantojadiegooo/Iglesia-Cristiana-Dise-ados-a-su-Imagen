@@ -405,6 +405,8 @@
 
     <script>
     (function () {
+      if (window.innerWidth < 768) return;
+
       const canvas = document.getElementById('hero-particulas');
       if(!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -417,6 +419,7 @@
       }
       ajustarTamano();
       window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) return;
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ajustarTamano();
       });
@@ -458,6 +461,8 @@
       for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
 
       function animar() {
+        if (window.innerWidth < 768) return;
+
         ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
         particulas.forEach(p => {
           p.y -= p.velocidadY;
