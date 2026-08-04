@@ -11,6 +11,29 @@
 .texto-dorado { color: var(--gold); }
 .oculto-inicial { display: none; }
 
+/* ============ Accesibilidad: navegación por teclado ============ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+.slider-flecha:focus-visible,
+.btn-copiar:focus-visible,
+.monto-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+summary { cursor: pointer; }
+summary:focus-visible { outline-offset: 6px; }
+
+/* Quita el outline solo para clics de mouse, nunca para teclado */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* ============ index.html ============ */
 .gtm-iframe { display: none; visibility: hidden; }
 
