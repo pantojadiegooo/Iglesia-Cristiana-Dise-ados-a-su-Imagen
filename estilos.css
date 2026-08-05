@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 header {
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
-    padding: 15px 0;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -61,6 +61,9 @@ header {
     font-weight: 700;
     letter-spacing: 1px;
     text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .menu-links { 
@@ -69,7 +72,7 @@ header {
     align-items: center; 
 }
 
-.menu-links li { margin: 0 15px; }
+.menu-links li { margin: 0 10px; }
 .menu-links li a {
     text-decoration: none;
     color: var(--white);
@@ -78,12 +81,16 @@ header {
     text-transform: uppercase;
     transition: color 0.3s;
     position: relative;
+    min-height: 44px;
+    padding: 12px 8px;
+    display: inline-flex;
+    align-items: center;
 }
 .menu-links li a:hover, .menu-links a.activo { color: var(--gold); }
 .menu-links a.activo::after {
     content: '';
     position: absolute;
-    left: 0; right: 0; bottom: -6px;
+    left: 0; right: 0; bottom: 2px;
     height: 2px;
     background: var(--gold);
     border-radius: 2px;
@@ -91,7 +98,10 @@ header {
 
 /* ====== COMPONENTES GLOBALES ====== */
 .btn-dorado {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     background: var(--gold);
     color: var(--black);
     padding: 14px 32px;
@@ -127,7 +137,7 @@ header {
 }
 .btn-dorado:hover::before { left: 130%; }
 
-.btn-lg { padding: 18px 40px; font-size: 1.1rem; }
+.btn-lg { padding: 18px 40px; font-size: 1.1rem; min-height: 52px; }
 .btn-mt { margin-top: 25px; }
 .btn-full { width: 100%; }
 
@@ -181,13 +191,11 @@ header {
     text-align: center;
 }
 
-/* Refuerza el contraste (WCAG AA 4.5:1) del texto sobre la zona clara
-   del hero-mesh, sin tapar el efecto de fondo. */
 .texto-bienvenida::before {
     content: '';
     position: absolute;
     inset: -40px -60px;
-    z-index: -1;
+    z-index:-1;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
     border-radius: 30px;
 }
@@ -274,7 +282,7 @@ header {
     scroll-snap-type: x mandatory;
     gap: 40px;
     padding-bottom: 20px;
-    scrollbar-width: none; /* Ocultar scrollbar visual */
+    scrollbar-width: none;
     flex: 1;
 }
 .pastores-slider::-webkit-scrollbar { display: none; }
@@ -286,7 +294,12 @@ header {
     gap: 60px;
     align-items: center;
 }
-.pastor-img-container { height: clamp(300px, 40vw, 500px); }
+.pastor-img-container {
+    height: clamp(300px, 40vw, 500px);
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 16px;
+}
 .pastor-img {
     width: 100%; height: 100%;
     object-fit: cover;
@@ -300,6 +313,7 @@ header {
 .slider-flecha {
     flex-shrink: 0;
     width: 54px; height: 54px;
+    min-width: 44px; min-height: 44px;
     border-radius: 50%;
     border: 1px solid var(--gold);
     background: transparent;
@@ -307,6 +321,9 @@ header {
     font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .slider-flecha:hover { background: var(--gold); color: var(--black); transform: scale(1.05); }
 
@@ -319,6 +336,7 @@ header {
 .tarjeta {
     position: relative;
     height: 450px;
+    aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--card-border);
@@ -333,13 +351,22 @@ header {
 }
 .tarjeta-overlay h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--gold); }
 .tarjeta-overlay p { font-size: 0.95rem; color: #eee; line-height: 1.5; margin-bottom: 15px; }
-.enlace-tarjeta { color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+.enlace-tarjeta {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
 
 /* ====== REDES SOCIALES ====== */
 .redes-grandes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 .red-cuadro {
     position: relative;
     aspect-ratio: 1 / 1;
+    min-height: 150px;
     display: flex; align-items: center; justify-content: center;
     border-radius: 16px;
     border: 1px solid var(--card-border);
@@ -367,9 +394,9 @@ header {
 /* ====== CONTACTO ====== */
 .contacto-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
 .info-contacto h4 { font-size: 1.5rem; margin-bottom: 25px; color: var(--white); }
-.info-contacto p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-muted); }
+.info-contacto p { margin-bottom: 18px; display: flex; align-items: center; gap: 12px; color: var(--text-muted); min-height: 44px; }
 .info-contacto i { color: var(--gold); font-size: 1.3rem; }
-.enlace-info { color: inherit; text-decoration: none; transition: color 0.3s; }
+.enlace-info { color: inherit; text-decoration: none; transition: color 0.3s; min-height: 44px; display: inline-flex; align-items: center; }
 .enlace-info:hover { color: var(--gold); }
 .info-contacto--espaciado { margin-bottom: 50px; }
 .subtitulo-form { margin-bottom: 20px; font-size: 1.2rem; }
@@ -381,6 +408,7 @@ header {
     font-family: 'Montserrat', sans-serif; font-size: 0.95rem;
     background: rgba(255,255,255,0.03); color: var(--white);
     transition: border-color 0.3s, background 0.3s;
+    min-height: 48px;
 }
 .formulario input:focus, .formulario textarea:focus { outline: none; border-color: var(--gold); background: rgba(255,255,255,0.05); }
 .formulario textarea { resize: vertical; min-height: 140px; }
@@ -434,7 +462,7 @@ header {
 .faq-contenedor { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
 .faq-item { background-color: rgba(255,255,255,0.02); border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border); transition: border-color 0.3s; }
 .faq-item:hover { border-color: var(--panel-border); }
-.faq-item summary { padding: 22px 25px; font-size: 1.05rem; color: var(--white); font-weight: 600; cursor: pointer; list-style: none; transition: color 0.3s; }
+.faq-item summary { padding: 22px 25px; min-height: 48px; display: flex; align-items: center; font-size: 1.05rem; color: var(--white); font-weight: 600; cursor: pointer; list-style: none; transition: color 0.3s; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary:hover { color: var(--gold); }
 .faq-respuesta { padding: 0 25px 25px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
@@ -446,10 +474,10 @@ header {
 .footer-desc { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 30px; max-width: 400px; }
 .footer-col h4 { color: var(--white); font-size: 1.2rem; margin-bottom: 25px; letter-spacing: 1px; }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 15px; }
-.footer-col ul li a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
+.footer-col ul li a { color: var(--text-muted); text-decoration: none; transition: color 0.3s; font-size: 0.95rem; min-height: 44px; display: inline-flex; align-items: center; }
 .footer-col ul li a:hover { color: var(--gold); }
 .redes-sociales { display: flex; gap: 18px; }
-.redes-sociales a { color: var(--text-muted); font-size: 1.4rem; transition: color 0.3s, transform 0.3s; }
+.redes-sociales a { color: var(--text-muted); font-size: 1.4rem; transition: color 0.3s, transform 0.3s; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 .redes-sociales a:hover { color: var(--gold); transform: translateY(-3px); }
 .copyright { text-align: center; color: #666; font-size: 0.85rem; }
 
@@ -504,6 +532,10 @@ header {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background 0.3s, border-color 0.3s;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-secundario:hover {
@@ -540,7 +572,6 @@ header {
     
     .slider-flecha { display: none; }
 
-    /* Ajustes Banner Cookies */
     .cookie-content {
         flex-direction: column;
         text-align: center;
