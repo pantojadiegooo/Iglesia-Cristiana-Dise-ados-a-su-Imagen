@@ -72,6 +72,22 @@ header {
     align-items: center; 
 }
 
+/* Botón hamburguesa: oculto en escritorio, visible solo en móvil (ver media query abajo) */
+.btn-menu-movil {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--gold);
+    font-size: 1.3rem;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.btn-menu-movil:hover { border-color: var(--gold); }
+
 .menu-links li { margin: 0 10px; }
 .menu-links li a {
     text-decoration: none;
@@ -456,6 +472,14 @@ header {
 .badge-presencial { background: rgba(212, 175, 55, 0.18); color: var(--gold); }
 .badge-facebook { background: rgba(66, 103, 178, 0.2); color: #6d8fd6; }
 
+/* ====== CTA DESPUÉS DE HORARIOS ====== */
+.cta-horarios-texto {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 0 auto 35px;
+    max-width: 500px;
+}
+
 /* ====== PREGUNTAS FRECUENTES ====== */
 .icono-faq-box { display: flex; justify-content: center; margin-bottom: 20px; }
 .icono-faq-box span { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; color: var(--gold); font-size: 2rem; font-weight: bold; border: 2px solid var(--panel-border); border-radius: 12px; }
@@ -555,10 +579,29 @@ header {
 }
 
 @media (max-width: 768px) {
-    .nav-principal { flex-direction: column; padding: 15px; }
-    .logo { margin-bottom: 15px; }
-    .menu-links { flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .menu-links li { margin: 0 5px; }
+    .nav-principal { flex-direction: row; flex-wrap: nowrap; padding: 12px 20px; justify-content: space-between; }
+    .logo { margin-bottom: 0; font-size: 1.2rem; }
+
+    .btn-menu-movil { display: inline-flex; }
+
+    .menu-links {
+        position: fixed;
+        top: 62px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+    .menu-links.menu-abierto { max-height: 320px; }
+    .menu-links li { margin: 0; width: 100%; }
+    .menu-links li a { width: 100%; padding: 16px 24px; justify-content: flex-start; }
     
     .panel-elegante { padding: 40px 20px; border-radius: 16px; }
     .titulo-seccion { font-size: 2rem; margin-bottom: 30px; }
