@@ -116,6 +116,44 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el horario de los servicios?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nuestros servicios principales son los domingos a las 9:00 am (Escuela de vida), 10:30 am (Alabanza) y 11:30 am (Prédica). También tenemos actividades virtuales y presenciales entre semana." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde se encuentran ubicados?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nos encontramos en Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX. Contamos con un mapa interactivo en la sección de Contacto para llegar fácilmente." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo puedo contactarlos o solicitar oración?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Puedes contactarnos o solicitar una oración a través de nuestras redes sociales y nuestro formulario de contacto en esta misma página." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipo de vestimenta es adecuada para asistir?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No tenemos un código de vestimenta estricto. Ven como te sientas cómodo; lo más importante para nosotros es tu presencia y tu corazón dispuesto a recibir la palabra de Dios." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tienen actividades para diferentes edades?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, contamos con ministerios específicos como Hijas del Rey, Reunión de varones y Jóvenes." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es necesario registrarse antes de asistir?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No es necesario ningún registro previo. Nuestras puertas están abiertas para recibirte libremente en cualquiera de nuestros horarios de servicio presencial." }
+        }
+      ]
+    }
+    </script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
@@ -126,7 +164,11 @@
         <nav class="nav-principal">
             <a href="#inicio" class="logo">DISEÑADOS A SU IMAGEN</a>
 
-            <ul class="menu-links">
+            <button type="button" id="btn-menu-movil" class="btn-menu-movil" aria-expanded="false" aria-controls="menu-links-principal" aria-label="Abrir menú">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <ul class="menu-links" id="menu-links-principal">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#ministerio">Ministerios</a></li>
                 <li><a href="#en-vivo">En Vivo</a></li>
@@ -153,7 +195,7 @@
     <section class="seccion">
         <div class="contenedor versiculo-carta-wrap reveal versiculo-wrap">
             <div class="versiculo-carta versiculo-caja">
-                <div class="versiculo-carta-icono"><i class="fas fa-book-open"></i></div>
+                <div class="versiculo-carta-icono"><i class="fas fa-book-open" aria-hidden="true"></i></div>
                 <p class="versiculo-carta-texto versiculo-texto" data-contenido="versiculo_dia.texto">
                     Cargando versículo del día…
                 </p>
@@ -167,7 +209,7 @@
             <h2 class="titulo-seccion reveal">NUESTROS PASTORES</h2>
             <div class="pastores-slider-wrap">
                 <button type="button" class="slider-flecha slider-flecha-izq" aria-label="Pastor anterior">
-                    <i class="fas fa-chevron-left"></i>
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
                 <div class="pastores-slider">
                     <div class="pastor-slide">
@@ -202,7 +244,7 @@
                     </div>
                 </div>
                 <button type="button" class="slider-flecha slider-flecha-der" aria-label="Siguiente pastor">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -221,7 +263,7 @@
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES PRESENCIALES</h3>
                         <p>Únete a nuestros servicios semanales presenciales.</p>
-                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right"></i></a>
+                        <a href="#horarios" class="enlace-tarjeta">Ver Horarios <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <a href="donaciones.html" class="tarjeta reveal" id="donaciones">
@@ -233,7 +275,7 @@
                     <div class="tarjeta-overlay">
                         <h3>DIEZMOS Y OFRENDAS</h3>
                         <p>Siembra en nuestra comunidad y apoya la obra de Dios.</p>
-                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right"></i></span>
+                        <span class="enlace-tarjeta">Formas de donar <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
                 <div class="tarjeta reveal">
@@ -245,7 +287,7 @@
                     <div class="tarjeta-overlay">
                         <h3>ACTIVIDADES EN VIVO</h3>
                         <p>Escucha nuestras predicas y transmisiones donde quiera que estés.</p>
-                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right"></i></a>
+                        <a href="#en-vivo" class="enlace-tarjeta">Ver Más <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -262,7 +304,7 @@
                         <source type="image/webp" srcset="banner-fb-480.webp 480w, banner-fb-768.webp 768w, banner-fb-1200.webp 1200w, banner-fb-1280.webp 1280w" sizes="(max-width: 480px) 88vw, (max-width: 900px) 45vw, 300px">
                         <img src="banner-fb-768.webp" alt="Síguenos en Facebook" width="600" height="600" loading="lazy" decoding="async">
                     </picture>
-                    <i class="fab fa-facebook-f icono-centro"></i>
+                    <i class="fab fa-facebook-f icono-centro" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.instagram.com/disenados_a_su_imagen_/" target="_blank" class="red-cuadro reveal">
                     <picture>
@@ -270,7 +312,7 @@
                         <source type="image/webp" srcset="banner-ig-480.webp 480w, banner-ig-768.webp 768w, banner-ig-1200.webp 1200w, banner-ig-1280.webp 1280w" sizes="(max-width: 480px) 88vw, (max-width: 900px) 45vw, 300px">
                         <img src="banner-ig-768.webp" alt="Síguenos en Instagram" width="600" height="600" loading="lazy" decoding="async">
                     </picture>
-                    <i class="fab fa-instagram icono-centro"></i>
+                    <i class="fab fa-instagram icono-centro" aria-hidden="true"></i>
                 </a>
                 <a href="https://w.app/xj23cq" target="_blank" class="red-cuadro reveal">
                     <picture>
@@ -278,7 +320,7 @@
                         <source type="image/webp" srcset="banner-wa-480.webp 480w, banner-wa-768.webp 768w, banner-wa-1200.webp 1200w, banner-wa-1323.webp 1323w" sizes="(max-width: 480px) 88vw, (max-width: 900px) 45vw, 300px">
                         <img src="banner-wa-768.webp" alt="Escríbenos por WhatsApp" width="600" height="600" loading="lazy" decoding="async">
                     </picture>
-                    <i class="fab fa-whatsapp icono-centro"></i>
+                    <i class="fab fa-whatsapp icono-centro" aria-hidden="true"></i>
                 </a>
                 <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" class="red-cuadro red-cuadro-tiktok reveal">
                    <picture>
@@ -286,7 +328,7 @@
                        <source type="image/webp" srcset="banner-tt-480.webp 480w, banner-tt-768.webp 768w, banner-tt-1080.webp 1080w" sizes="(max-width: 480px) 88vw, (max-width: 900px) 45vw, 300px">
                        <img src="banner-tt-768.webp" alt="Síguenos en Tik Tok" width="600" height="600" loading="lazy" decoding="async">
                    </picture>
-                   <i class="fab fa-tiktok icono-centro"></i>
+                   <i class="fab fa-tiktok icono-centro" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -314,9 +356,9 @@
                 <div id="oracion" class="reveal">
                     <div class="info-contacto info-contacto--espaciado">
                         <h3>Información</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
-                        <p><i class="fas fa-clock"></i> Jue / Dom 8 AM - 2 PM</p>
-                        <p><i class="fas fa-phone"></i> +52 553 434 6849</p>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <a href="https://maps.app.goo.gl/6MnHgUBPi12odsLx6" target="_blank" class="enlace-info">Casimiro Chovell 9, La Era I y II, Iztapalapa, CDMX</a></p>
+                        <p><i class="fas fa-clock" aria-hidden="true"></i> Jue / Dom 8 AM - 2 PM</p>
+                        <p><i class="fas fa-phone" aria-hidden="true"></i> +52 553 434 6849</p>
                     </div>
 
                     <h3 class="subtitulo-form">DÉJANOS TUS DUDAS O SUGERENCIAS</h3>
@@ -352,16 +394,16 @@
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 9:00 - 9:40 am</span>
                         </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video" aria-hidden="true"></i> Zoom</span>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Reunión de varones</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 9:00 - 10:00 am</span>
                         </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video" aria-hidden="true"></i> Zoom</span>
                     </div>
                 </div>
 
@@ -370,16 +412,16 @@
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 9:40 am</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 9:00 - 9:40 am</span>
                         </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video" aria-hidden="true"></i> Zoom</span>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Célula <small>(Grupo de conexión en casa)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 7:30 - 9:00 pm</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 7:30 - 9:00 pm</span>
                         </div>
-                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                        <span class="badge-modalidad badge-zoom"><i class="fas fa-video" aria-hidden="true"></i> Zoom</span>
                     </div>
                 </div>
 
@@ -388,19 +430,19 @@
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Hijas del Rey <small>(Ministerio de mujeres)</small></span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 10:00 - 12:00 pm</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 10:00 - 12:00 pm</span>
                         </div>
                         <div class="badge-doble">
-                            <span class="badge-modalidad badge-amarillo"><i class="fas fa-users"></i> Presencial</span>
-                            <span class="badge-modalidad badge-zoom"><i class="fas fa-video"></i> Zoom</span>
+                            <span class="badge-modalidad badge-amarillo"><i class="fas fa-users" aria-hidden="true"></i> Presencial</span>
+                            <span class="badge-modalidad badge-zoom"><i class="fas fa-video" aria-hidden="true"></i> Zoom</span>
                         </div>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Prédica</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 7:00 - 8:00 pm</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 7:00 - 8:00 pm</span>
                         </div>
-                        <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
+                        <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</span>
                     </div>
                 </div>
 
@@ -409,28 +451,39 @@
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Escuela de vida</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 9:00 - 10:00 am</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 9:00 - 10:00 am</span>
                         </div>
-                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users" aria-hidden="true"></i> Presencial</span>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Alabanza</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 10:30 - 11:30 am</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 10:30 - 11:30 am</span>
                         </div>
-                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
+                        <span class="badge-modalidad badge-presencial"><i class="fas fa-users" aria-hidden="true"></i> Presencial</span>
                     </div>
                     <div class="horario-item">
                         <div class="horario-item-info">
                             <span class="horario-actividad">Prédica</span>
-                            <span class="horario-hora"><i class="far fa-clock"></i> 11:30 - 12:30 pm</span>
+                            <span class="horario-hora"><i class="far fa-clock" aria-hidden="true"></i> 11:30 - 12:30 pm</span>
                         </div>
                         <div class="badge-doble">
-                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users"></i> Presencial</span>
-                            <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f"></i> Facebook</span>
+                            <span class="badge-modalidad badge-presencial"><i class="fas fa-users" aria-hidden="true"></i> Presencial</span>
+                            <span class="badge-modalidad badge-facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="contenedor panel-elegante texto-centrado">
+            <h2 class="titulo-seccion reveal">¿YA SABES CUÁNDO VENIR?</h2>
+            <p class="cta-horarios-texto reveal">Nos encantaría recibirte. No necesitas registrarte, solo llegar.</p>
+            <div class="cta-btns reveal cta-botones-flex">
+                <a href="visita.html" class="btn-dorado">Planear mi visita</a>
+                <a href="https://w.app/xj23cq" target="_blank" class="btn-wa"><i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
             </div>
         </div>
     </section>
@@ -481,11 +534,11 @@
                 <div class="footer-logo">DISEÑADOS A SU IMAGEN</div>
                 <p class="footer-desc">Nuestra misión es llevar la presencia de Dios a cada hogar y restaurar las vidas a través de la fe.</p>
                 <div class="redes-sociales">
-                    <a href="https://www.youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/disenados_a_su_imagen_/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://w.app/xj23cq" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" target="_blank" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064418572744&locale=es_LA" target="_blank" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/disenados_a_su_imagen_/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://w.app/xj23cq" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    <a href="https://www.tiktok.com/@disenadosasuimagen?_r=1&_t=ZS-98UqigoqQQW" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -523,6 +576,7 @@
     </div>
 
     <script src="particulas.js" defer></script>
+    <script src="menu-movil.js" defer></script>
     <script src="main-scripts.js" defer></script>
     <script src="animaciones.js" defer></script>
     <script src="dinamico.js" defer></script>
