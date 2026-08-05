@@ -146,6 +146,7 @@ button:focus:not(:focus-visible) {
 .texto-centrado-ancho { text-align: center; max-width: 800px; }
 .pastor-foto {
   width: 140px; height: 140px; border-radius: 50%;
+  object-fit: cover;
   border: 4px solid var(--gold); margin-bottom: 1.5rem;
   position: relative; z-index: 3;
 }
