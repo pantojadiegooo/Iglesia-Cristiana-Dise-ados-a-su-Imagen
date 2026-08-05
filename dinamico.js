@@ -14,18 +14,35 @@
       return resp.json();
     })
     .then((datos) => {
+      clearTimeout(avisoTardanzaAvisos);
       llenarCamposSimples(datos);
       llenarAvisos(datos.avisos || []);
       llenarPredicas(datos.enlaces_predicas || []);
     })
     .catch((err) => {
       console.warn("Contenido dinámico no disponible:", err);
+      clearTimeout(avisoTardanzaAvisos);
       mostrarVersiculoFallback();
       const contenedorAvisos = document.getElementById("avisos-lista");
-      if (contenedorAvisos && !contenedorAvisos.innerHTML.trim()) {
-        contenedorAvisos.innerHTML = '<p style="color:var(--text-muted); text-align:center;">No hay avisos por el momento. Vuelve pronto.</p>';
+      if (contenedorAvisos) {
+        contenedorAvisos.innerHTML = '<p class="avisos-vacio">No hay avisos por el momento. Vuelve pronto.</p>';
       }
     });
+
+  // El backend (Render, plan gratuito) puede tardar 30-50s en "despertar"
+  // tras estar inactivo. Sin esto, #avisos-lista se ve como un hueco roto
+  // durante ese tiempo. Mostramos un estado de carga visible de inmediato
+  // y lo reemplazamos en cuanto la petición de arriba responda.
+  const contenedorAvisosInicial = document.getElementById("avisos-lista");
+  if (contenedorAvisosInicial) {
+    contenedorAvisosInicial.innerHTML = '<p class="avisos-vacio"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Cargando avisos…</p>';
+  }
+  const avisoTardanzaAvisos = setTimeout(() => {
+    const contenedor = document.getElementById("avisos-lista");
+    if (contenedor) {
+      contenedor.innerHTML = '<p class="avisos-vacio">Esto está tardando más de lo normal. Sigue intentando cargar…</p>';
+    }
+  }, 6000);
 
   // Si el backend tarda más de 5s (arranque en frío), se muestra el
   // versículo de respaldo de inmediato; si el backend responde después,
