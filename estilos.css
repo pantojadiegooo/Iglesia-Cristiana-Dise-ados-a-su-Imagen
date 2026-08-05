@@ -235,6 +235,7 @@ header {
     max-width: 1250px;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
 }
 
 .titulo-seccion {
@@ -330,12 +331,12 @@ header {
 /* ====== TARJETAS (MINISTERIOS) ====== */
 .ministerios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    max-width: 100%;
 }
 .tarjeta {
     position: relative;
-    height: 450px;
     aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: hidden;
