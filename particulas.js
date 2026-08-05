@@ -30,7 +30,7 @@
     ajustarTamano();
   });
 
-  const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 130;
+  const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 90;
   const particulas = [];
   const PALETAS = [
     { color: '212, 175, 55', glow: 'rgba(212, 175, 55, 0.6)', peso: 0.45 },
