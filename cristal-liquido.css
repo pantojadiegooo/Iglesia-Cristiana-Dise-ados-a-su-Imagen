@@ -1,0 +1,128 @@
+/* =========================================================
+   Diseñados a su Imagen — Liquid Glass / Glassmorphism
+   Vidrio esmerilado translúcido con blur, brillo especular y
+   reflejo sutil, en tono dorado/champán (no el morado genérico
+   de plantillas SaaS) para mantener la identidad del sitio.
+   Cargar DESPUÉS de estilos.css.
+   ========================================================= */
+
+/* ====== 1. NAV — vidrio esmerilado en vez de negro sólido ====== */
+header {
+    background: linear-gradient(180deg, rgba(10, 9, 7, 0.78), rgba(10, 9, 7, 0.62));
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* ====== 2. BOTÓN DE VIDRIO — clase reutilizable ====== */
+.btn-cristal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02) 45%, rgba(212,175,55,0.16) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+        0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s, border-color 0.3s, background 0.4s;
+}
+.btn-cristal i { color: var(--gold); }
+
+/* barrido de brillo, igual que .btn-dorado, para que se sientan de la misma familia */
+.btn-cristal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -60%; width: 35%; height: 100%;
+    background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+    transform: skewX(-18deg);
+    transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-cristal:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        0 14px 32px rgba(212, 175, 55, 0.22);
+}
+.btn-cristal:hover::before { left: 130%; }
+
+/* ====== 3. Aplicado a los enlaces de las tarjetas "Conoce Más" ======
+   Antes eran texto plano; ahora son pequeños botones de vidrio real
+   (esto es justo lo que pediste: "botones transparentes" con liquid glass). */
+.enlace-tarjeta {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    min-height: 40px;
+    padding: 9px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02) 50%, rgba(212,175,55,0.14) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 4px 14px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.enlace-tarjeta i { color: var(--gold); transition: transform 0.3s; }
+.enlace-tarjeta:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 8px 20px rgba(212, 175, 55, 0.18);
+}
+.enlace-tarjeta:hover i { transform: translateX(3px); }
+
+/* ====== 4. Destello de prisma — acento decorativo del hero ======
+   Nod sutil al efecto "prisma" en tono dorado/champán (no arcoíris
+   completo, para que combine con la identidad elegante del sitio). */
+.destello-prisma {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    top: 8%;
+    right: 6%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background: conic-gradient(from 120deg,
+        rgba(212,175,55,0.35),
+        rgba(255,255,255,0.25),
+        rgba(245,222,179,0.3),
+        rgba(212,175,55,0.15),
+        transparent 70%);
+    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+    filter: blur(40px);
+    animation: girarPrisma 22s linear infinite;
+}
+@keyframes girarPrisma {
+    from { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.12); }
+    to { transform: rotate(360deg) scale(1); }
+}
+@media (max-width: 900px) {
+    .destello-prisma { display: none; } /* decorativo puro: se quita en móvil por rendimiento */
+}
+@media (prefers-reduced-motion: reduce) {
+    .destello-prisma { animation: none; }
+}
