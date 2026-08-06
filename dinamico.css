@@ -9,20 +9,34 @@ section[id] { scroll-margin-top: 90px; }
 
 /* ====== HERO: slider automático (Planear mi visita / Quiénes somos) ====== */
 .hero-slider {
-    display: grid;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 .hero-slide {
-    grid-row: 1;
-    grid-column: 1;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    transform: translateX(100%);
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    transition: transform .8s cubic-bezier(.16,1,.3,1), opacity .8s cubic-bezier(.16,1,.3,1);
     pointer-events: none;
 }
 .hero-slide.activo {
+    transform: translateX(0);
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
+}
+.hero-slide.saliente {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.hero-slide.sin-transicion {
+    transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide { transition: opacity .3s ease; transform: none !important; }
+    .hero-slide:not(.activo) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
     .hero-slide { transition: opacity .3s ease; transform: none; }
