@@ -93,7 +93,75 @@ header {
 }
 .enlace-tarjeta:hover i { transform: translateX(3px); }
 
-/* ====== 4. Destello de prisma — acento decorativo del hero ======
+/* ====== 4. AURORA GLOW — manchas de color con movimiento independiente ======
+   Técnica "mesh gradient" moderna: varias formas grandes, borrosas y
+   semitransparentes, cada una moviéndose y cambiando de tono a su propio
+   ritmo, mezcladas con mix-blend-mode para que se fundan como una aurora.
+   En tono champán/ámbar/dorado — el mismo lenguaje visual que el ejemplo
+   que viste, pero en tu paleta, no en morado neón genérico. */
+.aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, filter;
+}
+.aurora-blob--1 {
+    width: 45vw;
+    height: 45vw;
+    max-width: 560px;
+    max-height: 560px;
+    top: -10%;
+    left: 8%;
+    background: radial-gradient(circle, rgba(212,175,55,0.55) 0%, rgba(212,175,55,0) 70%);
+    opacity: 0.55;
+    animation: auroraFlota1 18s ease-in-out infinite alternate;
+}
+.aurora-blob--2 {
+    width: 38vw;
+    height: 38vw;
+    max-width: 480px;
+    max-height: 480px;
+    bottom: -12%;
+    right: 10%;
+    background: radial-gradient(circle, rgba(245,222,179,0.45) 0%, rgba(245,222,179,0) 70%);
+    opacity: 0.5;
+    animation: auroraFlota2 24s ease-in-out infinite alternate;
+}
+.aurora-blob--3 {
+    width: 28vw;
+    height: 28vw;
+    max-width: 360px;
+    max-height: 360px;
+    top: 30%;
+    right: 28%;
+    background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0.4;
+    animation: auroraFlota3 15s ease-in-out infinite alternate;
+}
+
+@keyframes auroraFlota1 {
+    0%   { transform: translate(0, 0) scale(1); filter: blur(70px) hue-rotate(0deg); }
+    100% { transform: translate(8%, 10%) scale(1.15); filter: blur(85px) hue-rotate(18deg); }
+}
+@keyframes auroraFlota2 {
+    0%   { transform: translate(0, 0) scale(1); filter: blur(70px) hue-rotate(0deg); }
+    100% { transform: translate(-10%, -6%) scale(1.1); filter: blur(90px) hue-rotate(-15deg); }
+}
+@keyframes auroraFlota3 {
+    0%   { transform: translate(0, 0) scale(0.9); }
+    100% { transform: translate(-14%, 12%) scale(1.2); }
+}
+
+@media (max-width: 900px) {
+    /* En móvil se quitan por rendimiento (igual que .destello-prisma) */
+    .aurora-blob { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .aurora-blob { animation: none !important; }
+}
    Nod sutil al efecto "prisma" en tono dorado/champán (no arcoíris
    completo, para que combine con la identidad elegante del sitio). */
 .destello-prisma {
