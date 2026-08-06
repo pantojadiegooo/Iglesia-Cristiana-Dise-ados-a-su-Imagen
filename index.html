@@ -188,9 +188,19 @@
             <p class="mensaje-comunidad">UNA COMUNIDAD CRISTIANA DE AMOR Y FE</p>
             <h1 class="versiculo-principal">"VÍSTANSE CON LA NUEVA NATURALEZA Y SE RENOVARÁN A MEDIDA QUE APRENDAN A CONOCER A SU CREADOR Y SE PAREZCAN MÁS A ÉL"</h1>
             <p class="salmo-referencia">Colosenses 3:10 (NTV)</p>
-            <p class="propuesta-identidad reveal">Una casa donde las familias de Iztapalapa se restauran, crecen y encuentran comunidad.</p>
-            <div class="hero-cta">
-               <a href="visita.html" class="btn-dorado btn-lg">Planear mi visita</a>
+            <div class="hero-slider" id="hero-slider">
+                <div class="hero-slide activo">
+                    <p class="propuesta-identidad">Una casa donde las familias de Iztapalapa se restauran, crecen y encuentran comunidad.</p>
+                    <div class="hero-cta">
+                        <a href="visita.html" class="btn-dorado btn-lg">Planear mi visita</a>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <p class="propuesta-identidad">Somos una comunidad de familias reales, unidas por la fe y el deseo de crecer juntas cada día.</p>
+                    <div class="hero-cta">
+                        <a href="#pastor" class="btn-dorado btn-lg">Quiénes somos</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -500,6 +510,19 @@
         </div>
     </section>
 
+    <section class="seccion" id="suscripcion">
+        <div class="contenedor panel-elegante texto-centrado">
+            <h2 class="titulo-seccion reveal">No Te Pierdas Nada</h2>
+            <p class="cta-horarios-texto reveal">Recibe avisos y novedades de la iglesia directo en tu correo.</p>
+            <form id="form-suscripcion" class="formulario-suscripcion reveal" novalidate>
+                <label for="correo-suscripcion" class="etiqueta-oculta">Correo electrónico</label>
+                <input type="email" id="correo-suscripcion" name="email" placeholder="tu@correo.com" required>
+                <button type="submit" class="btn-dorado">Suscribirse</button>
+            </form>
+            <p id="mensaje-suscripcion" class="mensaje-estado" role="status" aria-live="polite"></p>
+        </div>
+    </section>
+
     <section id="faq" class="seccion">
         <div class="contenedor panel-elegante">
             <div class="icono-faq-box reveal"><span>?</span></div>
@@ -583,6 +606,7 @@
     <script src="particulas.js" defer></script>
     <script src="main-scripts.js" defer></script>
     <script src="animaciones.js" defer></script>
+    <script src="hero-slider.js" defer></script>
     <script src="dinamico.js" defer></script>
 </body>
 </html>
