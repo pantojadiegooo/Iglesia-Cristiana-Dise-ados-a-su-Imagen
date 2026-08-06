@@ -163,9 +163,9 @@ header {
 }
 
 @keyframes meshDrift {
-    0%   { transform: translate(0%, 0%) scale(1); }
-    50%  { transform: translate(-2%, 1.5%) scale(1.06); }
-    100% { transform: translate(1.5%, -2%) scale(1.03); }
+    0%   { transform: translate(0%, 0%) scale(1); filter: hue-rotate(0deg); }
+    50%  { transform: translate(-2%, 1.5%) scale(1.06); filter: hue-rotate(10deg); }
+    100% { transform: translate(1.5%, -2%) scale(1.03); filter: hue-rotate(-8deg); }
 }
 
 .hero-vignette {
@@ -562,7 +562,8 @@ header {
 
 /* ====== RESPONSIVE ====== */
 @media (prefers-reduced-motion: reduce) {
-    .reveal, .hero-mesh, .btn-dorado::before, .red-cuadro img, .tarjeta img { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; }
+    .reveal, .hero-mesh, .btn-dorado::before, .red-cuadro img, .tarjeta img { animation: none !important; transition: none !important; transform: none !important; opacity: 1 !important; filter: none !important; }
+    .aurora-blob { animation: none !important; }
 }
 
 @media (max-width: 1024px) {
