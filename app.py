@@ -72,7 +72,7 @@ def cargar_usuario(user_id):
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 DOMINIO_SITIO = os.environ.get("DOMINIO_SITIO", "http://localhost:5500")
-DISCORD_WEBHOOK_URL = os.environ.get("https://discord.com/api/webhooks/1527480658757292135/U8q0y8LlfFwdRmIxFVexgauekGpAj5iL7mS-EOUfwR4jwGtB48QB6kfKZexOUq_HC_iN")
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "")
 MONTO_MINIMO_MXN = 10
 MONTO_MAXIMO_MXN = 50000
 
@@ -84,12 +84,15 @@ MONTO_MAXIMO_MXN = 50000
 @app.route("/api/crear-donacion", methods=["POST"])
 def crear_donacion():
     datos = request.get_json(silent=True) or {}
-    monto_mxn = datos.get("monto_mxn")
+    monto_mxn_crudo = datos.get("monto_mxn")
 
-    if not isinstance(monto_mxn, (int, float)) or not (MONTO_MINIMO_MXN <= int(monto_mxn) <= MONTO_MAXIMO_MXN):
+    try:
+        monto_mxn = int(float(monto_mxn_crudo))
+    except (TypeError, ValueError):
         return jsonify({"error": f"Monto inválido. Debe estar entre ${MONTO_MINIMO_MXN} y ${MONTO_MAXIMO_MXN} MXN."}), 400
 
-    monto_mxn = int(monto_mxn)
+    if not (MONTO_MINIMO_MXN <= monto_mxn <= MONTO_MAXIMO_MXN):
+        return jsonify({"error": f"Monto inválido. Debe estar entre ${MONTO_MINIMO_MXN} y ${MONTO_MAXIMO_MXN} MXN."}), 400
 
     try:
         sesion = stripe.checkout.Session.create(
