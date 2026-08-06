@@ -337,7 +337,7 @@ header {
 }
 .tarjeta {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 3.3;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--card-border);
