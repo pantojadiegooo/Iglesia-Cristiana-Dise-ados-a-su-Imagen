@@ -80,7 +80,7 @@
     <link rel="preload" as="style" data-defer href="dinamico.css">
     <link rel="preload" as="style" data-defer href="seguridad.css">
     <link rel="preload" as="style" data-defer href="cristal-liquido.css">
-    <script src="carga-css.js"></script>
+    <script src="carga-css.js" defer></script>
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@400;700&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -347,7 +347,9 @@
                 <a href="https://youtube.com/@i3diztapalapa?si=8xpWdP1BUuz9N-61" class="btn-dorado" target="_blank">Ver Canal de YouTube</a>
             </div>
             <div class="video-responsive reveal">
-                <iframe title="Transmisión en vivo de YouTube" src="https://www.youtube.com/embed/live_stream?channel=UC4EaGzTusYBZcrrIqvH14QA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                <button type="button" class="video-facade" id="youtube-facade" data-canal="UC4EaGzTusYBZcrrIqvH14QA" aria-label="Reproducir transmisión en vivo de YouTube">
+                    <span class="video-facade-play" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </section>
@@ -570,7 +572,7 @@
 
     <div id="cookie-banner" class="cookie-banner oculto-inicial">
         <div class="cookie-content">
-            <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico de nuestro sitio. Al hacer clic en "Aceptar todas", consientes su uso. Puedes rechazarlas seleccionando "Rechazar". <a href="privacidad.html" style="color: var(--gold); text-decoration: underline;">Ver Política de Privacidad</a></p>
+            <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico de nuestro sitio. Al hacer clic en "Aceptar todas", consientes su uso. Puedes rechazarlas seleccionando "Rechazar". <a href="privacidad.html" class="enlace-dorado">Ver Política de Privacidad</a></p>
             <div class="cookie-botones">
                 <button id="btn-aceptar-cookies" class="btn-dorado">Aceptar todas</button>
                 <button id="btn-rechazar-cookies" class="btn-secundario">Rechazar</button>

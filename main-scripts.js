@@ -101,3 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Fachada del video de YouTube: solo carga el iframe real (y sus
+// cookies de terceros) cuando el usuario hace clic o pulsa Enter/Espacio.
+document.addEventListener('DOMContentLoaded', () => {
+  const facade = document.getElementById('youtube-facade');
+  if (!facade) return;
+
+  facade.style.backgroundImage = "url('https://i.ytimg.com/vi_webp/live_stream/hqdefault.webp')";
+
+  function cargarVideo() {
+    const canal = facade.dataset.canal;
+    const iframe = document.createElement('iframe');
+    iframe.title = 'Transmisión en vivo de YouTube';
+    iframe.src = `https://www.youtube.com/embed/live_stream?channel=${canal}&autoplay=1`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    facade.replaceWith(iframe);
+  }
+
+  facade.addEventListener('click', cargarVideo);
+});

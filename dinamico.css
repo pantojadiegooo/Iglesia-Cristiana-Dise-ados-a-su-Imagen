@@ -17,7 +17,7 @@
     border-radius: 14px;
     padding: 24px;
 }
-.aviso-tarjeta h4 { color: var(--gold); font-family: 'Oswald', sans-serif; margin: 0 0 10px; font-size: 1.1rem; }
+.aviso-tarjeta h3 { color: var(--gold); font-family: 'Oswald', sans-serif; margin: 0 0 10px; font-size: 1.1rem; text-transform: uppercase; }
 .aviso-tarjeta p { color: var(--text-muted); font-size: .92rem; line-height: 1.6; margin: 0; }
 .aviso-fecha {
     display: inline-block; margin-top: 12px; font-size: .72rem;

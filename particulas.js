@@ -8,6 +8,11 @@
  *
  * Se desactiva en pantallas < 768px por rendimiento, y respeta
  * prefers-reduced-motion.
+ *
+ * Nota de rendimiento: el ancho/alto del canvas se cachea en
+ * anchoCanvas/altoCanvas y solo se vuelve a leer en resize, en vez de
+ * leer canvas.offsetWidth/offsetHeight en cada frame de la animación
+ * (eso forzaba un reflow de ~210ms por el layout thrashing).
  */
 (function () {
   const canvas = document.getElementById('hero-particulas');
@@ -16,9 +21,14 @@
   const ctx = canvas.getContext('2d');
   const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  let anchoCanvas = 0;
+  let altoCanvas = 0;
+
   function ajustarTamano() {
-    canvas.width = canvas.offsetWidth * devicePixelRatio;
-    canvas.height = canvas.offsetHeight * devicePixelRatio;
+    anchoCanvas = canvas.offsetWidth;
+    altoCanvas = canvas.offsetHeight;
+    canvas.width = anchoCanvas * devicePixelRatio;
+    canvas.height = altoCanvas * devicePixelRatio;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(devicePixelRatio, devicePixelRatio);
   }
@@ -52,8 +62,8 @@
     const paleta = elegirPaleta();
     const esNegra = paleta.color === '15, 13, 10';
     return {
-      x: Math.random() * canvas.offsetWidth,
-      y: canvas.offsetHeight + Math.random() * 100,
+      x: Math.random() * anchoCanvas,
+      y: altoCanvas + Math.random() * 100,
       radio: esNegra ? (Math.random() * 3 + 1.5) : (Math.random() * 1.8 + 0.6),
       velocidadY: Math.random() * 0.35 + 0.12,
       deriva: Math.random() * 0.4 - 0.2,
@@ -71,7 +81,7 @@
   function animar() {
     if (window.innerWidth < 768) return;
 
-    ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    ctx.clearRect(0, 0, anchoCanvas, altoCanvas);
     particulas.forEach(p => {
       p.y -= p.velocidadY;
       p.x += p.deriva;
@@ -79,7 +89,7 @@
       const opacidadFinal = p.opacidad * (0.6 + 0.4 * Math.sin(p.fase));
       if (p.y < -10) {
         Object.assign(p, crearParticula());
-        p.y = canvas.offsetHeight + 10;
+        p.y = altoCanvas + 10;
       }
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);

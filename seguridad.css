@@ -142,6 +142,11 @@ button:focus:not(:focus-visible) {
   .timeline-dot { left: -32px; }
 }
 
+/* ============ privacidad.html ============ */
+.seccion-padding-140 { padding-top: 140px; }
+.margen-auto { margin: 0 auto; }
+.fecha-actualizacion { color: var(--text-muted); margin-bottom: 2rem; }
+
 /* ============ pastor-manuel.html y pastor-guadalupe.html ============ */
 .texto-centrado-ancho { text-align: center; max-width: 800px; }
 .pastor-foto {

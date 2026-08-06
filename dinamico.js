@@ -80,7 +80,7 @@
     contenedor.innerHTML = "";
 
     if (!avisos.length) {
-      contenedor.innerHTML = '<p style="color:var(--text-muted);">No hay avisos por ahora.</p>';
+      contenedor.innerHTML = '<p class="avisos-vacio">No hay avisos por ahora.</p>';
       return;
     }
 
@@ -89,7 +89,7 @@
       tarjeta.className = "aviso-tarjeta reveal";
       tarjeta.dataset.revealDelay = Math.min(i, 5) * 70;
       tarjeta.innerHTML = `
-        <h4>${escaparHTML(aviso.titulo || "")}</h4>
+        <h3>${escaparHTML(aviso.titulo || "")}</h3>
         <p>${escaparHTML(aviso.texto || "")}</p>
         ${aviso.vigente_hasta ? `<span class="aviso-fecha">Vigente hasta ${escaparHTML(aviso.vigente_hasta)}</span>` : ""}
       `;
