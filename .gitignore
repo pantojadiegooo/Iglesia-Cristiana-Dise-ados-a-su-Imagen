@@ -1,0 +1,35 @@
+# Archivos y carpetas ignoradas
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+
+# Entorno y credenciales
+.env
+*.env
+*.sqlite
+*.db
+panel.db
+
+# Editor
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+
+# Dependencias
+node_modules/
+
+# Archivos generados
+*.log
+
+# Git LFS (si lo activas)
+# *.webp
+# *.avif

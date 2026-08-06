@@ -72,7 +72,9 @@ def cargar_usuario(user_id):
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY")
 DOMINIO_SITIO = os.environ.get("DOMINIO_SITIO", "http://localhost:5500")
-DISCORD_WEBHOOK_URL = os.environ.get("https://discord.com/api/webhooks/1527480658757292135/U8q0y8LlfFwdRmIxFVexgauekGpAj5iL7mS-EOUfwR4jwGtB48QB6kfKZexOUq_HC_iN")
+# Leer la URL del webhook desde una VARIABLE DE ENTORNO en vez de tenerla
+# embebida en el código. Si encontraste la URL en el repo, debes rotarla.
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 MONTO_MINIMO_MXN = 10
 MONTO_MAXIMO_MXN = 50000
 
@@ -86,10 +88,16 @@ def crear_donacion():
     datos = request.get_json(silent=True) or {}
     monto_mxn = datos.get("monto_mxn")
 
-    if not isinstance(monto_mxn, (int, float)) or not (MONTO_MINIMO_MXN <= int(monto_mxn) <= MONTO_MAXIMO_MXN):
+    # Intentar convertir el monto a entero de forma segura (acepta strings numéricos)
+    try:
+        if monto_mxn is None:
+            raise ValueError("monto ausente")
+        monto_mxn = int(float(monto_mxn))
+    except (TypeError, ValueError):
         return jsonify({"error": f"Monto inválido. Debe estar entre ${MONTO_MINIMO_MXN} y ${MONTO_MAXIMO_MXN} MXN."}), 400
 
-    monto_mxn = int(monto_mxn)
+    if not (MONTO_MINIMO_MXN <= monto_mxn <= MONTO_MAXIMO_MXN):
+        return jsonify({"error": f"Monto inválido. Debe estar entre ${MONTO_MINIMO_MXN} y ${MONTO_MAXIMO_MXN} MXN."}), 400
 
     try:
         sesion = stripe.checkout.Session.create(
@@ -118,13 +126,21 @@ def crear_donacion():
 
 @app.route("/api/webhook-stripe", methods=["POST"])
 def webhook_stripe():
-    payload = request.data
+    # Usar get_data(as_text=True) para conservar exactamente el payload que Stripe
+    # firmó (es lo que Stripe recomienda para la verificación de firma).
+    payload = request.get_data(as_text=True)
     sig_header = request.headers.get("Stripe-Signature")
     webhook_secret = os.environ.get("STRIPE_WEBHOOK_SECRET")
 
+    if not sig_header or not webhook_secret:
+        # Si no hay cabecera o secreto, no intentar validar la firma.
+        app.logger.warning("Falta Stripe-Signature o STRIPE_WEBHOOK_SECRET no configurado.")
+        return jsonify({"error": "Firma inválida o configuración de webhook incompleta."}), 400
+
     try:
         evento = stripe.Webhook.construct_event(payload, sig_header, webhook_secret)
-    except (ValueError, stripe.error.SignatureVerificationError):
+    except (ValueError, stripe.error.SignatureVerificationError) as e:
+        app.logger.error(f"Error validando webhook de Stripe: {e}")
         return jsonify({"error": "Firma inválida"}), 400
 
     if evento["type"] == "checkout.session.completed":
