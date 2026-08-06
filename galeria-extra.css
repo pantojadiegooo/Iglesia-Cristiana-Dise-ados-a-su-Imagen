@@ -123,10 +123,13 @@
 .galeria-cta p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; }
 .galeria-cta .cta-botones { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn-fantasma {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
     padding: 14px 32px;
-    border-radius: 6px;
-    border: 1px solid var(--card-border);
+    border-radius: 999px;
     color: var(--white);
     font-family: 'Oswald', sans-serif;
     font-size: 0.95rem;
@@ -134,9 +137,21 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     text-decoration: none;
-    transition: border-color 0.3s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.02) 45%, rgba(212,175,55,0.14) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
 }
-.btn-fantasma:hover { border-color: var(--gold); color: var(--gold); }
+.btn-fantasma:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 14px 28px rgba(212, 175, 55, 0.2);
+}
 
 @media (max-width: 480px) {
     .galeria-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
