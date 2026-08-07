@@ -41,11 +41,19 @@
 
     // Cuando termina de salir, la regresamos a su posición de espera
     // (a la derecha) SIN animación, lista para el siguiente ciclo.
+    // Antes: `void anterior.offsetWidth` forzaba un reflow síncrono cada
+    // 6s (Forced Reflow detectado por Lighthouse). Ahora se usa doble
+    // rAF: el navegador aplica 'sin-transicion' en su propio ciclo de
+    // estilos, sin que JS tenga que leer una propiedad de layout para
+    // forzar el recálculo.
     setTimeout(() => {
       anterior.classList.add('sin-transicion');
       anterior.classList.remove('saliente');
-      void anterior.offsetWidth; // fuerza reflow para aplicar el reseteo sin transición
-      anterior.classList.remove('sin-transicion');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          anterior.classList.remove('sin-transicion');
+        });
+      });
     }, DURACION_MS);
 
     indiceActual = (indiceActual + 1) % slides.length;
