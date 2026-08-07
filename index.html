@@ -39,6 +39,8 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://iglesia-cristiana-dise-ados-a-su-imagen.onrender.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 
     <!-- CSS crítico (above the fold): header + hero + estado inicial de .reveal -->
     <style>
@@ -156,7 +158,9 @@
       ]
     }
     </script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cloudflare Turnstile: se carga de forma diferida desde main-scripts.js
+         cuando el usuario se acerca a la sección #contacto, en vez de en
+         cada visita incondicionalmente (ver main-scripts.js) -->
 </head>
 <body>
     <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-NT774S3Z"
