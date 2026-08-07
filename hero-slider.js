@@ -16,13 +16,9 @@
 
   const DURACION_MS = 800; // debe coincidir con la transición en dinamico.css
 
-  function ajustarAltura() {
-    const alturas = slides.map((s) => s.scrollHeight);
-    slider.style.height = Math.max(...alturas) + 'px';
-  }
-
-  ajustarAltura();
-  window.addEventListener('resize', ajustarAltura);
+  // La altura del contenedor ya no se calcula por JS: dinamico.css apila
+  // todos los .hero-slide en la misma celda de un grid, así el contenedor
+  // toma la altura del más alto de forma automática y estable (CLS fix).
 
   const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefiereMovimientoReducido) return; // se queda en la primera vista, sin rotar
