@@ -12,10 +12,12 @@ section[id] { scroll-margin-top: 90px; }
     position: relative;
     overflow: hidden;
     width: 100%;
+    display: grid; /* todos los .hero-slide comparten la misma celda: la altura del contenedor
+                       queda fijada por el más alto de TODOS, no solo por el activo, así no
+                       cambia ni en la carga inicial ni en la rotación automática */
 }
 .hero-slide {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1 / 2 / 2; /* apila en la misma celda en vez de position:absolute */
     width: 100%;
     transform: translateX(100%);
     opacity: 0;
@@ -79,6 +81,8 @@ section[id] { scroll-margin-top: 90px; }
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     margin-top: 30px;
+    min-height: 160px; /* aproxima la altura de una fila de .aviso-tarjeta para reducir
+                           el salto entre "Cargando avisos..." y el contenido real */
 }
 .aviso-tarjeta {
     background: rgba(212, 175, 55, 0.05);
