@@ -40,6 +40,35 @@
     ajustarTamano();
   });
 
+  // ====== SPRITES PRE-RENDERIZADOS ======
+  // Antes: cada partícula dorada/blanca usaba ctx.shadowBlur + ctx.shadowColor
+  // en CADA frame, lo que fuerza al motor de Canvas2D a recalcular un blur
+  // por forma dibujada (operación muy costosa, era el principal Long Task
+  // detectado en desktop). Ahora ese halo se dibuja UNA sola vez sobre un
+  // canvas offscreen (sprite) y en cada frame solo se hace drawImage()
+  // escalado, que es una copia de píxeles barata. El resultado visual es
+  // el mismo halo difuminado, sin recalcularlo 90 veces por frame.
+  function crearSpriteGlow(colorRGB) {
+    const tam = 48;
+    const off = document.createElement('canvas');
+    off.width = tam;
+    off.height = tam;
+    const octx = off.getContext('2d');
+    const centro = tam / 2;
+    const grad = octx.createRadialGradient(centro, centro, 0, centro, centro, centro);
+    grad.addColorStop(0, `rgba(${colorRGB}, 1)`);
+    grad.addColorStop(0.35, `rgba(${colorRGB}, 0.85)`);
+    grad.addColorStop(1, `rgba(${colorRGB}, 0)`);
+    octx.fillStyle = grad;
+    octx.fillRect(0, 0, tam, tam);
+    return off;
+  }
+
+  const spritesGlow = {
+    '212, 175, 55': crearSpriteGlow('212, 175, 55'),
+    '255, 255, 255': crearSpriteGlow('255, 255, 255')
+  };
+
   const NUM_PARTICULAS = prefiereMovimientoReducido ? 0 : 90;
   const particulas = [];
   const PALETAS = [
@@ -91,12 +120,20 @@
         Object.assign(p, crearParticula());
         p.y = altoCanvas + 10;
       }
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
-      ctx.shadowBlur = p.paleta.color === '15, 13, 10' ? 0 : 4;
-      ctx.shadowColor = p.paleta.glow;
-      ctx.fill();
+      const sprite = spritesGlow[p.paleta.color];
+      if (sprite) {
+        // Partículas doradas/blancas: sprite con halo pre-renderizado (drawImage, sin blur en vivo)
+        const diametro = p.radio * 2 + 8; // núcleo + halo, equivalente visual al shadowBlur de 4px anterior
+        ctx.globalAlpha = opacidadFinal;
+        ctx.drawImage(sprite, p.x - diametro / 2, p.y - diametro / 2, diametro, diametro);
+        ctx.globalAlpha = 1;
+      } else {
+        // Partícula negra: nunca tuvo shadowBlur (ya era barata), se mantiene igual
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radio, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.paleta.color}, ${opacidadFinal})`;
+        ctx.fill();
+      }
     });
     if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
   }
