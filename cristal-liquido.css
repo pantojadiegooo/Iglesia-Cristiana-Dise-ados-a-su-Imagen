@@ -201,3 +201,25 @@ header {
 @media (prefers-reduced-motion: reduce) {
     .destello-prisma { animation: none; }
 }
+
+/* ====== 6. COOKIE BANNER — vidrio flotante sobre contenido en scroll ======
+   Es el candidato natural a blur real: está fijo sobre contenido que
+   se mueve detrás. Opacidad alta (no un vidrio "delgado") a propósito:
+   el fondo que puede quedar detrás no está controlado (fotos, tarjetas,
+   footer), así que se prioriza contraste AA garantizado sobre un efecto
+   de transparencia más marcado. Mismo lenguaje que el header: gradiente
+   oscuro + highlight especular en el borde, no el dorado de --panel-border. */
+.cookie-banner {
+    background: linear-gradient(180deg, rgba(10, 9, 7, 0.88), rgba(10, 9, 7, 0.95));
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 -10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Fallback sin backdrop-filter: superficie casi opaca, misma lógica que el header */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .cookie-banner { background: rgba(8, 7, 6, 0.97); }
+}
