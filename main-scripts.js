@@ -24,6 +24,41 @@ if (localStorage.getItem('consentimientoCookies') === 'aceptadas') {
   window.cargarGTM();
 }
 
+// Turnstile (verificación del formulario de contacto): antes se cargaba
+// incondicionalmente en el <head> en cada visita, aunque el usuario nunca
+// llegara al formulario. Se difiere hasta que la sección #contacto esté
+// cerca del viewport. rootMargin amplio (600px) para que el script ya
+// esté listo y el widget renderizado cuando el usuario realmente llegue
+// a la sección, sin introducir un hueco visible. Turnstile detecta y
+// renderiza automáticamente el <div class="cf-turnstile"> ya presente en
+// el HTML en cuanto su script carga, sin necesidad de llamarlo a mano.
+document.addEventListener('DOMContentLoaded', () => {
+  const seccionContacto = document.getElementById('contacto');
+  if (!seccionContacto) return;
+
+  let turnstileCargado = false;
+  function cargarTurnstile() {
+    if (turnstileCargado) return;
+    turnstileCargado = true;
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+
+  const observadorContacto = new IntersectionObserver((entradas, obs) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        cargarTurnstile();
+        obs.disconnect();
+      }
+    });
+  }, { rootMargin: '600px 0px 600px 0px' });
+
+  observadorContacto.observe(seccionContacto);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const btnIzq = document.querySelector('.slider-flecha-izq');
   const btnDer = document.querySelector('.slider-flecha-der');
@@ -108,7 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const facade = document.getElementById('youtube-facade');
   if (!facade) return;
 
-  facade.style.backgroundImage = "url('https://i.ytimg.com/vi_webp/live_stream/hqdefault.webp')";
+  // Antes: se intentaba cargar una miniatura con
+  // 'https://i.ytimg.com/vi_webp/live_stream/hqdefault.webp'. 'live_stream'
+  // no es un Video ID real (solo es válido como parámetro en la URL de
+  // embed, más abajo), así que esa miniatura siempre daba 404. Obtener el
+  // video en vivo real requeriría la YouTube Data API (backend, fuera de
+  // alcance). Se deja el fondo sólido de .video-facade (#111, ya definido
+  // en estilos.css) como respaldo intencional detrás del botón de play.
 
   function cargarVideo() {
     const canal = facade.dataset.canal;
