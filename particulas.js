@@ -33,8 +33,6 @@
     ctx.scale(devicePixelRatio, devicePixelRatio);
   }
 
-  if (window.innerWidth >= 768) ajustarTamano();
-
   window.addEventListener('resize', () => {
     if (window.innerWidth < 768) return;
     ajustarTamano();
@@ -103,10 +101,6 @@
     };
   }
 
-  if (window.innerWidth >= 768) {
-    for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
-  }
-
   function animar() {
     if (window.innerWidth < 768) return;
 
@@ -138,5 +132,10 @@
     if (!prefiereMovimientoReducido) requestAnimationFrame(animar);
   }
 
-  if (window.innerWidth >= 768) animar();
+  window.addEventListener('load', () => {
+    if (window.innerWidth < 768) return;
+    ajustarTamano();
+    for (let i = 0; i < NUM_PARTICULAS; i++) particulas.push(crearParticula());
+    animar();
+  });
 })();
