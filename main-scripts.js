@@ -163,3 +163,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
   facade.addEventListener('click', cargarVideo);
 });
+
+// ====== MENÚ MÓVIL: abrir/cerrar, teclado, foco ======
+// El HTML y el CSS ya traían todo listo (botón real con aria-expanded/
+// aria-controls, la clase .menu-abierto y body.menu-movil-bloqueo);
+// solo faltaba esta lógica para conectarlos — el botón no tenía ningún
+// listener asociado. Bloque aislado en su propio DOMContentLoaded: no
+// depende de ningún otro listener de este archivo ni los modifica.
+document.addEventListener('DOMContentLoaded', () => {
+  const btnMenu = document.getElementById('btn-menu-movil');
+  const menu = document.getElementById('menu-links-principal');
+  if (!btnMenu || !menu) return;
+
+  function abrirMenu() {
+    menu.classList.add('menu-abierto');
+    btnMenu.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-movil-bloqueo');
+  }
+
+  function cerrarMenu(devolverFoco) {
+    if (!menu.classList.contains('menu-abierto')) return;
+    menu.classList.remove('menu-abierto');
+    btnMenu.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-movil-bloqueo');
+    if (devolverFoco) btnMenu.focus();
+  }
+
+  btnMenu.addEventListener('click', () => {
+    if (menu.classList.contains('menu-abierto')) {
+      cerrarMenu(false);
+    } else {
+      abrirMenu();
+    }
+  });
+
+  // Escape cierra el menú y devuelve el foco al botón que lo abrió,
+  // sin importar qué elemento del menú tenga el foco en ese momento.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('menu-abierto')) {
+      cerrarMenu(true);
+    }
+  });
+
+  // Cerrar al elegir un enlace: comportamiento estándar de menú móvil,
+  // el usuario ya indicó a dónde quiere ir. No se hace preventDefault,
+  // así que la navegación y el scroll suave existentes no se alteran.
+  menu.querySelectorAll('a').forEach((enlace) => {
+    enlace.addEventListener('click', () => cerrarMenu(false));
+  });
+
+  // Si el viewport pasa a escritorio con el menú todavía abierto (por
+  // ejemplo al rotar un tablet o redimensionar), lo cerramos para no
+  // dejar body.menu-movil-bloqueo pegado con el bloqueo de scroll.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && menu.classList.contains('menu-abierto')) {
+      cerrarMenu(false);
+    }
+  });
+});
