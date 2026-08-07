@@ -111,7 +111,7 @@ header {
     mix-blend-mode: screen;
     pointer-events: none;
     z-index: 0;
-    will-change: transform, filter;
+    will-change: transform;
 }
 .aurora-blob--1 {
     width: 45vw;
@@ -148,12 +148,12 @@ header {
 }
 
 @keyframes auroraFlota1 {
-    0%   { transform: translate(0, 0) scale(1); filter: blur(70px) hue-rotate(0deg); }
-    100% { transform: translate(8%, 10%) scale(1.15); filter: blur(85px) hue-rotate(18deg); }
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(8%, 10%) scale(1.15); }
 }
 @keyframes auroraFlota2 {
-    0%   { transform: translate(0, 0) scale(1); filter: blur(70px) hue-rotate(0deg); }
-    100% { transform: translate(-10%, -6%) scale(1.1); filter: blur(90px) hue-rotate(-15deg); }
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-10%, -6%) scale(1.1); }
 }
 @keyframes auroraFlota3 {
     0%   { transform: translate(0, 0) scale(0.9); }
@@ -167,6 +167,8 @@ header {
 @media (prefers-reduced-motion: reduce) {
     .aurora-blob { animation: none !important; }
 }
+
+/* ====== 5. DESTELLO PRISMA — halo cónico decorativo del hero ======
    Nod sutil al efecto "prisma" en tono dorado/champán (no arcoíris
    completo, para que combine con la identidad elegante del sitio). */
 .destello-prisma {
