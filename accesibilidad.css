@@ -74,6 +74,24 @@
 #hero-particulas {
     pointer-events: none;
 }
+/* Botón de pausa del hero-slider (WCAG 2.2.2 Pausable) */
+.hero-slider-pausa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.hero-slider-pausa:hover {
+    background: rgba(212, 175, 55, 0.22);
+}
 /* Mejor comportamiento para usuarios con reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
     html {
