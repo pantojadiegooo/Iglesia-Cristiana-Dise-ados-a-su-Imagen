@@ -6,6 +6,15 @@
  *
  * El botón "Quiénes somos" usa un enlace #ancla normal: el scroll
  * suave ya lo maneja `html { scroll-behavior: smooth }` en estilos.css.
+ *
+ * Accesibilidad (WCAG 2.2.2 Pausable, nivel A):
+ * - Botón #hero-slider-pausa permite detener/reanudar la rotación
+ *   automática en cualquier momento.
+ * - Los .hero-slide sin la clase .activo quedan con aria-hidden="true"
+ *   y sus enlaces/botones internos con tabindex="-1", para que no sean
+ *   alcanzables por teclado ni anunciados por lectores de pantalla
+ *   mientras están fuera de vista (aunque visualmente translateX los
+ *   saque del viewport, seguían siendo focuseables antes de este cambio).
  */
 (function () {
   const slider = document.getElementById('hero-slider');
@@ -15,33 +24,46 @@
   if (slides.length < 2) return;
 
   const DURACION_MS = 800; // debe coincidir con la transición en dinamico.css
-
-  // La altura del contenedor ya no se calcula por JS: dinamico.css apila
-  // todos los .hero-slide en la misma celda de un grid, así el contenedor
-  // toma la altura del más alto de forma automática y estable (CLS fix).
-
-  const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefiereMovimientoReducido) return; // se queda en la primera vista, sin rotar
-
   const INTERVALO_MS = 6000;
+
+  const btnPausa = document.getElementById('hero-slider-pausa');
+  const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function actualizarAccesibilidadSlides() {
+    slides.forEach((slide) => {
+      const activo = slide.classList.contains('activo');
+      slide.setAttribute('aria-hidden', activo ? 'false' : 'true');
+      slide.querySelectorAll('a, button').forEach((el) => {
+        if (activo) {
+          el.removeAttribute('tabindex');
+        } else {
+          el.setAttribute('tabindex', '-1');
+        }
+      });
+    });
+  }
+
   let indiceActual = slides.findIndex((s) => s.classList.contains('activo'));
   if (indiceActual === -1) indiceActual = 0;
 
-  setInterval(() => {
+  actualizarAccesibilidadSlides();
+
+  let intervalo = null;
+  let pausado = prefiereMovimientoReducido; // respeta reduced-motion: arranca pausado
+
+  function avanzar() {
     const anterior = slides[indiceActual];
     const siguiente = slides[(indiceActual + 1) % slides.length];
 
     anterior.classList.remove('activo');
     anterior.classList.add('saliente');
     siguiente.classList.add('activo');
+    actualizarAccesibilidadSlides();
 
     // Cuando termina de salir, la regresamos a su posición de espera
     // (a la derecha) SIN animación, lista para el siguiente ciclo.
-    // Antes: `void anterior.offsetWidth` forzaba un reflow síncrono cada
-    // 6s (Forced Reflow detectado por Lighthouse). Ahora se usa doble
-    // rAF: el navegador aplica 'sin-transicion' en su propio ciclo de
-    // estilos, sin que JS tenga que leer una propiedad de layout para
-    // forzar el recálculo.
+    // Doble rAF: el navegador aplica 'sin-transicion' en su propio ciclo
+    // de estilos, sin que JS tenga que forzar un reflow síncrono.
     setTimeout(() => {
       anterior.classList.add('sin-transicion');
       anterior.classList.remove('saliente');
@@ -53,5 +75,42 @@
     }, DURACION_MS);
 
     indiceActual = (indiceActual + 1) % slides.length;
-  }, INTERVALO_MS);
+  }
+
+  function iniciar() {
+    if (intervalo) return;
+    intervalo = setInterval(avanzar, INTERVALO_MS);
+  }
+
+  function detener() {
+    clearInterval(intervalo);
+    intervalo = null;
+  }
+
+  function actualizarBotonPausa() {
+    if (!btnPausa) return;
+    btnPausa.setAttribute('aria-pressed', pausado ? 'true' : 'false');
+    btnPausa.setAttribute(
+      'aria-label',
+      pausado ? 'Reanudar carrusel automático' : 'Pausar carrusel automático'
+    );
+    const icono = btnPausa.querySelector('i');
+    if (icono) icono.className = pausado ? 'fas fa-play' : 'fas fa-pause';
+  }
+
+  if (btnPausa) {
+    btnPausa.addEventListener('click', () => {
+      pausado = !pausado;
+      if (pausado) {
+        detener();
+      } else {
+        iniciar();
+      }
+      actualizarBotonPausa();
+    });
+  }
+
+  actualizarBotonPausa();
+
+  if (!pausado) iniciar();
 })();
