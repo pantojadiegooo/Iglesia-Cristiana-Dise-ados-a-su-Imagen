@@ -26,10 +26,6 @@
         {
           "key": "Permissions-Policy",
           "value": "geolocation=(), microphone=(), camera=()"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://iglesia-cristiana-dise-ados-a-su-im.vercel.app"
         }
       ]
     },
